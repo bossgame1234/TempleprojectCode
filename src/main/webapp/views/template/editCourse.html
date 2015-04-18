@@ -1,0 +1,76 @@
+<div class="row-fluid">
+
+    <div class="row" ng-show="addPerson" align="center">
+        <h1 translate>listCourse.addNewCourse</h1>
+    </div>
+    <div class="row" ng-show="editPerson" align="center">
+        <h1 translate>listCourse.editCourse</h1>
+    </div>
+    <br>
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form name="editform" novalidate>
+            <div class="form-group" >
+                <!-- Sidebar content-->
+                <label for="courseid" translate>listCourse.id</label> :
+                <input ng-model="course.courseId" ng-minlength="6"  maxlength="6" class="form-control" id="courseid" name="courseid" placeholder="Course id" ng-pattern="/[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]/" required/>
+                <div class="alert alert-danger" role="alert" ng-show="editform.courseid.$error.minlength">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    Course id is require 6 digit!
+                </div>
+                <div class="alert alert-danger" role="alert" ng-show="editform.courseid.$error.required">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    Course id is Required!
+                </div>
+                <div class="alert alert-danger" role="alert" ng-show="editform.courseid.$error.pattern">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    Course id is require only number!
+                </div>
+            </div>
+            <div class="form-group">
+                <!-- Sidebar content-->
+                <label for="coursename" translate>listCourse.name</label> :
+                <input ng-model="course.name" class="form-control" id="coursename" name="coursename" placeholder="Course name" required/>
+
+                <div class="alert alert-danger" role="alert" ng-show="editform.coursename.$error.required">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    Course name is Required!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="coursecredit" translate>listCourse.credit</label> :
+                <input ng-model="course.credit" class="form-control" id="coursecredit"
+                       placeholder="Credit" type="number" name="coursecredit" required/>
+
+                <div class="alert alert-danger" role="alert" ng-show="editform.coursecredit.$error.required">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    Credit is Required!
+                </div>
+
+            </div>
+            <div class="form-group" >
+                <label for="coursesection" translate>listCourse.section</label> :
+                <input ng-model="course.section" name="coursesection" class="form-control" id="coursesection"
+                       ng-pattern="/^[0,7,8]+[0-9]+[0-9]/"  placeholder="Section" maxlength="3"  required/>
+
+                <div class="alert alert-danger" role="alert" ng-show="editform.coursesection.$error.required">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    Section is Required!
+                </div>
+                <div class="alert alert-danger" role="alert" ng-show="editform.coursesection.$error.pattern">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    Section is require only 0,7,8 in the first digit!
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="addCourse()" ng-show="addPerson"  ng-disabled="editform.$invalid"  translate>listCourse.addCourse</button>
+            <button type="submit" class="btn btn-default" ng-click="editCourse()" ng-show="editPerson" ng-disabled="editform.$invalid" translate>listCourse.edit</button>
+        </form>
+    </div>
+</div>
