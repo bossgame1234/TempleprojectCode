@@ -1,34 +1,101 @@
-<!--Carousel-->
-
-<div id="templeCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators " >
-        <li data-target="#templeCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#templeCarousel" data-slide-to="1"></li>
-        <li data-target="#templeCarousel" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-        <div class="item active" align="center">
-            <img src="picture/temple5.jpg" alt="temple" height="500" width="990">
-        </div>
-        <div class="item" align="center">
-            <img src="picture/temple2.jpg" alt="temple" height="500" width="990">
-        </div>
-        <div class="item" align="center">
-            <img src="picture/temple3.jpg" alt="temple" height="500" width="990">
-        </div>
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html><!--<![endif]-->
+<head>
+<title>home</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/foundation.min.css">
+<link rel="stylesheet" href="css/superfish.css">
+<link rel="stylesheet" href="css/stylesheet.css">
+<link rel="stylesheet" href="js/slider/flexslider.css">
+<link rel="stylesheet" href="js/slider/flexcar.css">
+<link href='http://fonts.googleapis.com/css?family=Quando' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,300' rel='stylesheet' type='text/css'>
+<script src="js/vendor/custom.modernizr.js"></script>
+<script>
+Modernizr.load({
+    // test if browser understands media queries
+    test: Modernizr.mq('only all'),
+    // if not load ie8-grid
+    nope: 'css/ie8-grid-foundation-4.css'
+});
+</script>
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="css/ie-fixes.css">
+<![endif]-->
+</head>
+<body>
+<div class="header">
+  <div class="row">
+    <div class="columns large-12">
+      <div class="columns large-4 small-12"><a href="home.html"><img src="images/logo.png" alt="" class="logo"></a> 
     </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="home/#templeCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="home/#templeCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
+         <div align="right"> <form id="contact-form" method="post" action="editHome.html">
+   <input type="submit" class="button" name="submit" value="แก้ไข">
+           </form></div>
+    </div>
+  </div>
+ 
+  <div class="slider">
+    <div class="row">
+      <div class="columns large-12">
+        <div class="row flexslider-row">
+          <div class="columns large-12">
+            <div class="flexslider">
+              <ul class="slides">
+                <li> <img src="picture/slideHome1.jpg" alt=""> </li>
+                <li> <img src="picture/slideHome2.jpg" alt=""> </li>
+                <li> <img src="picture/slideHome3.jpg" alt=""> </li>
+                <li> <img src="picture/slideHome4.jpg" alt=""> </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
+<footer class="footer">
+  <div class="row"></div>
+</footer>
+<div class="credit-row">
+  <div class="row">
+    <div class="columns large-11 credit"> &copy; College of Arts, Media and Technology<a href="#"> Chiang Mai University</a> Design by: <a href="http://topwebsitetemplates.org">PowerPuff Girls w/</a></div>
+  </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/hoverIntent.js"></script>
+<script src="js/superfish.js"></script>
+<script src="js/slider/jquery.flexslider.js"></script>
+<script>
+Modernizr.load({
+    test: Modernizr.placeholder,
+    nope: 'js/placeholder.min.js'
+});
+function goToNewPage() {
+    if (document.getElementById('target').value) {
+        window.location.href = document.getElementById('target').value;
+    }
+}
+</script>
+<script>
+$(document).ready(function () {
+    $('ul.sf-menu').superfish({
+        animation: {
+            height: 'show'
+        },
+        delay: 400
+    });
+    $("img.scrollToTop").click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, "slow");
+    });
+    $('.flexslider').flexslider();
+    $('.flexcar').flexslider();
+});
+</script>
+</body>
+</html>

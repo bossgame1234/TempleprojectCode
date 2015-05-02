@@ -5,7 +5,7 @@
 var historyMainController = angular.module('historyMainController', ['historyServices']);
 
 historyMainController.controller('addHistoryController', ['$scope', '$http', '$location', '$rootScope','historyService',
-    function ($scope, $http, $location, $rootScope,courseService) {
+    function ($scope, $http, $location, $rootScope,historyService) {
         $scope.history = {};
         $scope.addHistory = true;
         $scope.editHistory = false;

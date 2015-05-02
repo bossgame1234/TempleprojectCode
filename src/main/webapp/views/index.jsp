@@ -75,23 +75,23 @@
                         <a  href="#/Homepage">หน้าแรก</a>
                     </li>
                     <li ng-class="{true: 'active'}[menuActive('/News')]">
-                        <a  href="#/News">ข่าวสาร</a>
+                        <a  href="#/Newspage">ข่าวสาร</a>
                     </li>
                     <li ng-class="{true: 'active'}[menuActive('/News')]">
-                        <a href="#/History">ประวัติ</a>
+                        <a href="#/Historypage">ประวัติ</a>
                     </li>
-                <!--    <li ng-class="{true: 'active'}[menuActive('/QuestionAnswer)]">
-                        <a  href="#/QuestionAnswer">ถาม-ตอบธรรมะ</a>
+                    <li ng-class="{true: 'active'}[menuActive('/QuestionAnswer)]">
+                        <a  href="#/QuestionAnswerpage">ถาม-ตอบธรรมะ</a>
                     </li>
                     <li ng-class="{true: 'active'}[menuActive('/Gallery')]">
-                        <a  href="#/Gallery">แกลอรี่</a>
+                        <a  href="#/Gallerypage">แกลอรี่</a>
                     </li>
                     <li ng-class="{true: 'active'}[menuActive('/Map')]">
-                        <a  href="#/Map">แผนที่</a>
+                        <a  href="#/Mappage">แผนที่</a>
                     </li>
                     <li ng-class="{true: 'active'}[menuActive('/News')]">
-                        <a  href="#/Contact">ติดต่อวัด</a>
-                    </li>  -->
+                        <a  href="#/Contactpage">ติดต่อวัด</a>
+                    </li>
 
                 </ul>
         </div>
