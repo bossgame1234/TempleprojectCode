@@ -21,49 +21,43 @@ questionMainController.controller('addQuestionController', ['$scope', '$http', '
 
     }]);
 
-courseMainController.controller('listCourseController', ['$scope', '$http', '$rootScope','courseService', '$location',
-    function ($scope, $http, $rootScope,courseService, $location) {
-//$http.get("/Course/").success(function (data) {
-        var data = courseService.query( function(){
-            $scope.courses = data;
+questionMainController.controller('listQuestionController', ['$scope', '$http', '$rootScope','questionService', '$location',
+    function ($scope, $http, $rootScope,questionService, $location) {
+        var data = questionService.query( function(){
+            $scope.questions = data;
         });
-        $scope.getCourseFromID = function(){
-            $http.get("/course/search/"+$scope.CourseId+"&&"+$scope.CourseName).success(function(data) {
-                $scope.courses = data;
-            })
-        };
+
         $scope.$on('$locationChangeStart', function (event) {
             $rootScope.addSuccess = false;
             $rootScope.editSuccess = false;
             $rootScope.deleteSuccess = false;
         });
 
-        $scope.deleteCourse = function (id) {
-            var answer = confirm("Do you want to delete the Course?");
+        $scope.deleteQuestion = function (id) {
+            var answer = confirm("Do you want to delete the Question?");
             if (answer) {
-                courseService.delete({id:id},function(){
+                questionService.delete({id:id},function(){
                     $rootScope.deleteSuccess = true;
-                    $location.path("listCourse");
+                    $location.path("Questionpage");
                 });
             }
         }
 
     }]);
 
-courseMainController.controller('editCourseController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','courseService',
-    function ($scope, $http, $routeParams, $location, $rootScope,courseService) {
-        $scope.addPerson = false;
-        $scope.editPerson = true;
+questionMainController.controller('editQuestionController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','questionService',
+    function ($scope, $http, $routeParams, $location, $rootScope,questionService) {
+        $scope.addQuestion = false;
+        $scope.editQuestion = true;
         var id = $routeParams.id;
-        $http.get("/course/" + id).success(function (data) {
-            $scope.course = data;
+        $http.get("/question/" + id).success(function (data) {
+            $scope.question = data;
         });
 
-        $scope.editCourse = function () {
-//$http.put("/Course", $scope.Course).then(function () {
-            courseService.update({id:$scope.course.id},$scope.course,function(){
+        $scope.editQuestion = function () {
+            questionService.update({id:$scope.question.id},$scope.question,function(){
                 $rootScope.editSuccess = true;
-                $location.path("listCourse");
+                $location.path("Question");
             });
         }
     }]);
