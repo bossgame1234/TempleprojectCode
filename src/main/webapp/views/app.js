@@ -3,7 +3,6 @@
 // Declare app level module which depends on views, and components
 var templeApp = angular.module('templeApp', [
 'ngRoute',
-'InformationMainController',
 'flow',
 'angularFileUpload',
  'userMainController'

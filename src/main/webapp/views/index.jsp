@@ -25,8 +25,6 @@
     <script src="bower_components/angular-file-upload/angular-file-upload-shim.js"></script>
     <script src="bower_components/angular-file-upload/angular-file-upload.min.js"></script>
     <script src="app.js"></script   >
-    <script src="js/InformationController.js"></script>
-    <script src="js/InformationService.js"></script>
     <script src="js/userController.js"></script>
     <script src="js/userService.js"></script>
     <!-- add i18n script-->
