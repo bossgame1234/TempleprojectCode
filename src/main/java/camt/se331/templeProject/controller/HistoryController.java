@@ -28,10 +28,10 @@ public class HistoryController {
             return historyService.updateHistory(history);
         }
 
-    @RequestMapping(value = "History",method = RequestMethod.POST)
-    public @ResponseBody History add(@RequestBody History history, BindingResult bindingResult){
+        @RequestMapping(value = "History",method = RequestMethod.POST)
+        public @ResponseBody History add(@RequestBody History history, BindingResult bindingResult){
         return historyService.addHistory(history);
-    }
+        }
 
 
 

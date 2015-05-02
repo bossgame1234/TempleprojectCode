@@ -30,7 +30,11 @@ templateUrl: 'template/Home.html',
 controller: 'showHomepageInformationController'
 }).
 when('/News',{
-        templateUrl: 'template/admin/uploadActivity.html',
+        templateUrl: 'template/admin/News.html',
+        controller: 'uploadImageController'
+    }).
+    when('/History',{
+        templateUrl: 'template/admin/History.html',
         controller: 'uploadImageController'
     }).
 otherwise({redirectTo: '/Homepage'});

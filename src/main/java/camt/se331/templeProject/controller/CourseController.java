@@ -32,6 +32,7 @@ public class CourseController {
     public  Course getCourse(@PathVariable("id") Long id){
         return courseService.getCourse(id);
     }
+
     @RequestMapping(value = "course/search/{courseId}&&{name}",method = RequestMethod.GET)
     public  List<Course> getCourse(@PathVariable("courseId") String courseId,@PathVariable("name") String name){
         return courseService.getCourses(courseId,name);

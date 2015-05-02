@@ -78,7 +78,7 @@
                         <a  href="#/News">ข่าวสาร</a>
                     </li>
                     <li ng-class="{true: 'active'}[menuActive('/News')]">
-                        <a href="#/News">ประวัติ</a>
+                        <a href="#/History">ประวัติ</a>
                     </li>
                 <!--    <li ng-class="{true: 'active'}[menuActive('/QuestionAnswer)]">
                         <a  href="#/QuestionAnswer">ถาม-ตอบธรรมะ</a>
