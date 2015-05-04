@@ -3,6 +3,7 @@ package camt.se331.templeProject.service;
 import camt.se331.templeProject.dao.HistoryDao;
 import camt.se331.templeProject.entity.History;
 import camt.se331.templeProject.entity.Picture;
+import camt.se331.templeProject.repository.PictureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +35,12 @@ public class HistoryServiceImpl implements HistoryService {
 
     @Override
     public History addPicture(History history, Picture picture) {
-        history.getHistoryPictureLocation().add(picture);
+        if(picture==null){
+            history.setHistoryPictureLocation(historyDao.getHistory().getHistoryPictureLocation());
+        }else {
+            history.getHistoryPictureLocation().clear();
+            history.getHistoryPictureLocation().add(picture);
+        }
         return historyDao.updateHistory(history);
     }
 }

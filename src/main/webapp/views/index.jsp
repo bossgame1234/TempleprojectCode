@@ -33,7 +33,7 @@
 
 
 </head>
-<body flow-prevent-drop flow-drag-enter="dropClass='drag-over'" flow-drag-leave="dropClass=''" >
+<body>
 <div class="page-header"  >
     <div class="row">
     <div class="col-md-1"></div>
