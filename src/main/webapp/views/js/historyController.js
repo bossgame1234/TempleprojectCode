@@ -4,28 +4,6 @@
 'use strict';
 var historyMainController = angular.module('historyMainController', ['historyServices']);
 
-historyMainController.controller('addHistoryController', ['$scope', '$http', '$location', '$rootScope','historyService',
-    function ($scope, $http, $location, $rootScope,historyService) {
-        $scope.history = {};
-        $scope.addHistory = true;
-        $scope.editHistory = false;
-        $scope.addHistory = function (flowFiles){
-        $scope.history.historyPictureLocation = null;
-            historyService.save($scope.history,function(data){
-                // after adding the object, add a new picture
-                // get the product id which the image will be added
-                var historyid = data.id;
-                // set location
-                flowFiles.opts.target = '/picture/addHistoryPicture';
-                flowFiles.opts.testChunks = false;
-                flowFiles.opts.query ={historyid:historyid};
-                flowFiles.upload();
-                $rootScope.addSuccess = true;
-                $location.path("Historypage");
-                $scope.$apply();
-            });
-        };
-    }]);
 
 historyMainController.controller('editHistoryController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','historyService',
     function ($scope, $http, $routeParams, $location, $rootScope,historyService) {
@@ -36,12 +14,13 @@ historyMainController.controller('editHistoryController', ['$scope', '$http', '$
         });
 
         $scope.editHistory = function () {
-            console.log("enter");
-          historyService.save($scope.history,function(){
+
+            $scope.history.historyPictureLocation = null;
+            historyService.save($scope.history,function(data){
                 $rootScope.editSuccess = true;
                 $location.path("Historypage");
             });
-        }
+        };
     }]);
 
 historyMainController.controller('listHistoryController', ['$scope', '$http', '$rootScope','historyService', '$location',
