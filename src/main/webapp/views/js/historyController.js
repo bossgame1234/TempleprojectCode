@@ -36,7 +36,7 @@ historyMainController.controller('editHistoryController', ['$scope', '$http', '$
 
         $scope.editHistory = function () {
             console.log("enter");
-          historyService.update($scope.history,function(){
+          historyService.save($scope.history,function(){
                 $rootScope.editSuccess = true;
                 $location.path("Historypage");
             });
