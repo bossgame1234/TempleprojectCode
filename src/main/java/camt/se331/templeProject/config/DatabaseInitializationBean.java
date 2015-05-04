@@ -3,6 +3,7 @@ import camt.se331.templeProject.entity.Course;
 import camt.se331.templeProject.entity.History;
 import camt.se331.templeProject.repository.CourseRepository;
 import camt.se331.templeProject.repository.HistoryRepository;
+import camt.se331.templeProject.service.PictureUtil;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -28,7 +29,10 @@ public class DatabaseInitializationBean implements InitializingBean {
 
         History initHistory =  new History();
         initHistory.setHistoryID(1L);
-        initHistory.setHistoryDes("วัด");
+        initHistory.setHistoryDes("วัดของเรา");
+        initHistory.getHistoryPictureLocation().add(PictureUtil.getPicture("picture/slideHome1.jpg"));
+
+
 
         historyRepository.save(initHistory);
 

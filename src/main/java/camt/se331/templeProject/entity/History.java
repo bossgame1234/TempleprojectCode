@@ -1,8 +1,11 @@
 package camt.se331.templeProject.entity;
 
+import org.hibernate.annotations.*;
+
+import javax.persistence.*;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Dell on 2/4/2558.
@@ -13,14 +16,26 @@ public class History {
     long historyID;
     String historyDes;
 
-    String historyPictureLocation;
+    @OneToMany(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    Set<Picture> historyPictureLocation = new HashSet<>();
+
+
 
     public History(){
     }
 
-    public History(String historyDes ){ //,String historyPictureLocation) {
+    public History(String historyDes, Picture picture) {
         this.historyDes = historyDes;
-        this.historyPictureLocation =historyPictureLocation;
+        this.historyPictureLocation.add(picture);
+    }
+
+    public void setHistoryPictureLocation(Set<Picture> historyPictureLocation) {
+        this.historyPictureLocation = historyPictureLocation;
+    }
+
+    public Set<Picture> getHistoryPictureLocation() {
+        return historyPictureLocation;
     }
 
     public long getHistoryID() {
@@ -39,11 +54,5 @@ public class History {
         this.historyDes = historyDes;
     }
 
-    public String getHistoryPictureLocation() {
-        return historyPictureLocation;
-    }
 
-    public void setHistoryPictureLocation(String historyPictureLocation) {
-        this.historyPictureLocation = historyPictureLocation;
-    }
 }

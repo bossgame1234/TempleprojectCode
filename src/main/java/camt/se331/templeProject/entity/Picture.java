@@ -5,6 +5,7 @@ package camt.se331.templeProject.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 /**
  * Created by Dell on 14/4/2558.
@@ -15,7 +16,14 @@ public class Picture {
         @GeneratedValue
     long pictureId;
     String pictureName;
-    String pictureLocation;
+    String pictureType;
+
+    @Lob
+    byte[] pictureLocation;
+
+    public Picture(){
+
+    }
 
     public long getPictureId() {
         return pictureId;
@@ -33,11 +41,19 @@ public class Picture {
         this.pictureName = pictureName;
     }
 
-    public String getPictureLocation() {
+    public byte[] getPictureLocation() {
         return pictureLocation;
     }
 
-    public void setPictureLocation(String pictureLocation) {
+    public void setPictureLocation(byte[] pictureLocation) {
         this.pictureLocation = pictureLocation;
+    }
+
+    public String getPictureType() {
+        return pictureType;
+    }
+
+    public void setPictureType(String pictureType) {
+        this.pictureType = pictureType;
     }
 }

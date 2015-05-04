@@ -18,10 +18,6 @@
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/flow/flow.js"></script>
-    <script src="bower_components/flow/ng-flow.js"></script>
-    <script src="bower_components/flow/fusty-flow-factory.js"></script>
-    <script src="bower_components/flow/fusty-flow.js"></script>
     <script src="bower_components/angular-file-upload/angular-file-upload-shim.js"></script>
     <script src="bower_components/angular-file-upload/angular-file-upload.min.js"></script>
     <script src="app.js"></script   >
@@ -29,10 +25,12 @@
     <script src="js/userService.js"></script>
     <script src="js/historyController.js"></script>
     <script src="js/historyService.js"></script>
+    <script src="bower_components/ng-flow/dist/ng-flow-standalone.js"></script>
     <!-- add i18n script-->
 
     <script src ="bower_components/angular-translate/angular-translate.js"></script>
     <script src ="bower_components/angular-translate-loader-url/angular-translate-loader-url.js"></script>
+
 
 </head>
 <body flow-prevent-drop flow-drag-enter="dropClass='drag-over'" flow-drag-leave="dropClass=''" >

@@ -9,18 +9,19 @@ historyMainController.controller('addHistoryController', ['$scope', '$http', '$l
         $scope.history = {};
         $scope.addHistory = true;
         $scope.editHistory = false;
-        $scope.addHistory = function (flowFiles) {
+        $scope.addHistory = function (flowFiles){
+        $scope.history.historyPictureLocation = null;
             historyService.save($scope.history,function(data){
                 // after adding the object, add a new picture
                 // get the product id which the image will be added
                 var historyid = data.id;
                 // set location
-                flowFiles.opts.target = '/historyImage/add';
+                flowFiles.opts.target = '/picture/addHistoryPicture';
                 flowFiles.opts.testChunks = false;
                 flowFiles.opts.query ={historyid:historyid};
                 flowFiles.upload();
                 $rootScope.addSuccess = true;
-                $location.path("listHistory");
+                $location.path("Historypage");
                 $scope.$apply();
             });
         };

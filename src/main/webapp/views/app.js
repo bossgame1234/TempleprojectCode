@@ -3,25 +3,12 @@
 // Declare app level module which depends on views, and components
 var templeApp = angular.module('templeApp', [
 'ngRoute',
-'flow',
 'angularFileUpload',
- 'userMainController',
-'historyMainController'
+'userMainController',
+'historyMainController',
+'flow'
 ]);
-templeApp.config(['flowFactoryProvider', function (flowFactoryProvider) {
-    flowFactoryProvider.defaults = {
-        target: 'upload',
-        permanentErrors: [500, 501],
-        maxChunkRetries: 1,
-        chunkRetryInterval: 5000,
-        simultaneousUploads: 1
-    };
-    flowFactoryProvider.on('catchAll', function (event) {
-        console.log('catchAll', arguments);
-    });
-    // Can be used with different implementations of Flow.js
-    flowFactoryProvider.factory = fustyFlowFactory;
-}]);
+
 templeApp.config(['$routeProvider',
 function($routeProvider) {
 $routeProvider.
@@ -94,4 +81,20 @@ when('/editHistory',{
         controller: ''
     }).
 otherwise({redirectTo: '/Homepage'});
+}]);
+
+templeApp.config(['flowFactoryProvider', function (flowFactoryProvider) {
+    flowFactoryProvider.defaults = {
+        target: '',
+        permanentErrors: [ 500, 501],
+        maxChunkRetries: 1,
+        chunkRetryInterval: 5000,
+        simultaneousUploads: 4,
+        singleFile: false
+    };
+    flowFactoryProvider.on('catchAll', function (event) {
+        console.log('catchAll', arguments);
+    });
+    // Can be used with different implementations of Flow.js
+    // flowFactoryProvider.factory = fustyFlowFactory;
 }]);
