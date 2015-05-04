@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html><!--<![endif]-->
+<head>
+<title>home</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/foundation.min.css">
+<link rel="stylesheet" href="css/superfish.css">
+<link rel="stylesheet" href="css/stylesheet.css">
+<link rel="stylesheet" href="js/slider/flexslider.css">
+<link rel="stylesheet" href="js/slider/flexcar.css">
+<link href="http://fonts.googleapis.com/css?family=Quando" rel="stylesheet" type="text/css"><link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,300" rel="stylesheet" type="text/css">
+<script src="js/vendor/custom.modernizr.js"></script>
+<script>
+Modernizr.load({
+    // test if browser understands media queries
+    test: Modernizr.mq('only all'),
+    // if not load ie8-grid
+    nope: 'css/ie8-grid-foundation-4.css'
+});
+</script>
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="css/ie-fixes.css">
+<![endif]-->
+    <div class="columns large-12">
+
+        <div class="columns large-4 small-12"><a href="#/Homepage"><img src="picture/logo.png" alt="" class="logo"></a>
+    </div>
+
+<div align="right" method="post">
+   <a href="#/editHistory"><input type="submit" class="button" name="submit" value="แก้ไข"></a>
+          </div>
+           </div>
+</head>
+
+<body>
+<div class="header">
+  <div class="row">
+    <div class="columns large-12">
+    
+    </div>
+  </div>
+</div>
+<div class="row content-wrapper">
+  <div class="columns large-12">
+    <div class="row wrapper">
+      <div class="columns large-4 content sidebar">
+        <h1 class="page-title services">วัดเจดีย์หลวง</h1>
+          <div ng-repeat="picture in history.historyPictureLocation" class="text-center">
+          <img ng-src="data: {{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail">
+          </div>
+                     <!-- <p> <img src="picture/history.jpg" alt=""> </p> -->
+
+      </div>
+      <div class="columns large-8">
+    
+        <div class="row">
+        
+           <font color="#000000">
+               {{history.historyDes}}
+           </font>
+     
+     </div></div></div></div></div></body>
+<footer class="footer">
+  <div class="row"></div>
+</footer>
+<div class="credit-row">
+  <div class="row">
+    <div class="columns large-11 credit"> &copy; College of Arts, Media and Technology<a href="#"> Chiang Mai University</a> Design by: <a href="http://topwebsitetemplates.org">PowerPuff Girls w/</a></div>
+  </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/hoverIntent.js"></script>
+<script src="js/superfish.js"></script>
+<script src="js/slider/jquery.flexslider.js"></script>
+<script>
+Modernizr.load({
+    test: Modernizr.placeholder,
+    nope: 'js/placeholder.min.js'
+});
+function goToNewPage() {
+    if (document.getElementById('target').value) {
+        window.location.href = document.getElementById('target').value;
+    }
+}
+</script>
+<script>
+$(document).ready(function () {
+    $('ul.sf-menu').superfish({
+        animation: {
+            height: 'show'
+        },
+        delay: 400
+    });
+    $("img.scrollToTop").click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, "slow");
+    });
+    $('.flexslider').flexslider();
+    $('.flexcar').flexslider();
+});
+</script>
+</body>
+</html>
