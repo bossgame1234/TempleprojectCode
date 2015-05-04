@@ -10,15 +10,15 @@ import javax.persistence.Id;
 @Entity
 public class History {
     @Id
-    @GeneratedValue
     long historyID;
     String historyDes;
 
-
-
     String historyPictureLocation;
 
-    public History(String historyDes,String historyPictureLocation) {
+    public History(){
+    }
+
+    public History(String historyDes ){ //,String historyPictureLocation) {
         this.historyDes = historyDes;
         this.historyPictureLocation =historyPictureLocation;
     }

@@ -27,6 +27,8 @@
     <script src="app.js"></script   >
     <script src="js/userController.js"></script>
     <script src="js/userService.js"></script>
+    <script src="js/historyController.js"></script>
+    <script src="js/historyService.js"></script>
     <!-- add i18n script-->
 
     <script src ="bower_components/angular-translate/angular-translate.js"></script>
@@ -40,9 +42,8 @@
     <div class="col-md-3">
        <h1>วัดเจดีย์หลวง</h1>
     </div>
-        <div class="col-md-3">
-        </div><!-- ng-app="userMainController" -->
-        <div class="col-md-3" ng-controller="loginController" >
+        <!-- ng-app="userMainController" -->
+        <!--<div class="col-md-3" ng-controller="loginController" >
             <form name="loginForm" method="post" ng-submit="login()" >
                 <div class="form-group" >
                     <label for="username" >ชื่อผู้ใช้งาน</label> :
@@ -59,7 +60,7 @@
                     <a translate href="#/Register">ลงทะเบียนผู้ใช้งาน</a>
                 </div>
             </form>
-        </div>
+        </div> -->
     <div class="col-md-12"></div>
     <div class="col-md-12"></div>
     <div class="col-md-1"></div>

@@ -5,7 +5,8 @@ var templeApp = angular.module('templeApp', [
 'ngRoute',
 'flow',
 'angularFileUpload',
- 'userMainController'
+ 'userMainController',
+'historyMainController'
 ]);
 templeApp.config(['flowFactoryProvider', function (flowFactoryProvider) {
     flowFactoryProvider.defaults = {
@@ -42,10 +43,10 @@ when('/editNews',{
     }).
     when('/Historypage',{
         templateUrl: 'template/History.html',
-        controller: 'editHistoryController'
+        controller: 'listHistoryController'
     }).
 when('/editHistory',{
-        templateUrl: 'template/admin/editHistory.html',
+        templateUrl: 'template/editHistory.html',
         controller: 'editHistoryController'
     }).
     when('/QuestionAnswerpage',{

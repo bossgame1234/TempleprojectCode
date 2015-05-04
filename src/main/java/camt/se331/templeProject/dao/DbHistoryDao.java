@@ -18,8 +18,8 @@ public class DbHistoryDao implements HistoryDao{
     @Autowired
     HistoryRepository historyRepository;
     @Override
-    public List<History> getHistory(){
-            return  historyRepository.findAll();
+    public History getHistory(){
+            return  historyRepository.findOne(1L);
         }
     @Override
     public History updateHistory(History history){

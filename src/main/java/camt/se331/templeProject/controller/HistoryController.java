@@ -19,7 +19,7 @@ public class HistoryController {
         HistoryService historyService;
 
         @RequestMapping(value = "History",method = RequestMethod.GET)
-        public List<History> getHistory(){
+        public History getHistory(){
             return historyService.getHistory();
         }
 

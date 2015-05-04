@@ -30,24 +30,23 @@ historyMainController.controller('editHistoryController', ['$scope', '$http', '$
     function ($scope, $http, $routeParams, $location, $rootScope,historyService) {
         $scope.addHistory = false;
         $scope.editHistory = true;
-        var id = $routeParams.id;
-        $http.get("/history/" + id).success(function (data) {
+        $http.get("/History").success(function (data) {
             $scope.history = data;
         });
 
         $scope.editHistory = function () {
-            historyService.update({id:$scope.history.id},$scope.history,function(){
+            console.log("enter");
+          historyService.update($scope.history,function(){
                 $rootScope.editSuccess = true;
-                $location.path("listHistory");
+                $location.path("Historypage");
             });
         }
     }]);
 
 historyMainController.controller('listHistoryController', ['$scope', '$http', '$rootScope','historyService', '$location',
     function ($scope, $http, $rootScope,historyService, $location) {
-        var data = historyService.query( function(){
-            $scope.histories = data;
-            $location.path("listHistory");
-        });
-
+         $http.get("/History").success(function(data){
+             $scope.history = data;
+             $location.path("Historypage");
+         });
     }]);

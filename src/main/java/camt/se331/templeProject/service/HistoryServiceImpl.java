@@ -15,7 +15,7 @@ public class HistoryServiceImpl implements HistoryService {
     @Autowired
     HistoryDao historyDao;
     @Override
-    public List<History> getHistory() {
+    public History getHistory() {
         return historyDao.getHistory();
     }
 
