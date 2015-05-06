@@ -5,7 +5,7 @@
 var historyService = angular.module('historyServices',['ngResource']);
 
 historyService.factory('historyService',function($resource){
-    return $resource('/History', {
+    return $resource('/History',{}, {
         update: {
             method: 'PUT' // this method issues a PUT request
         }});
