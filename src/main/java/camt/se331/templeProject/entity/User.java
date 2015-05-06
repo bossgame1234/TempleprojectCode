@@ -1,8 +1,12 @@
 package camt.se331.templeProject.entity;
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
+
+import javax.persistence.*;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Dell on 14/4/2558.
@@ -16,7 +20,11 @@ public class User {
     String l_name;
     String username;
     String password;
-    String typeUser;
+    public User(){}
+    @ManyToMany(fetch= FetchType.EAGER)
+    // Cascade and CascadeType must be the org.hibernate.annotation
+    @Cascade(CascadeType.ALL)
+    private Set<Role> roles = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -58,11 +66,11 @@ public class User {
         this.password = password;
     }
 
-    public String getTypeUser() {
-        return typeUser;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setTypeUser(String typeUser) {
-        this.typeUser = typeUser;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }

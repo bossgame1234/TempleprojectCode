@@ -17,14 +17,9 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "user",method = RequestMethod.GET)
-    public List<User> getUser(){
-        return userService.getUser();
-    }
-
-    @RequestMapping(value = "user/{id}",method = RequestMethod.GET)
-    public User getUser(@PathVariable("id") Long id){
-        return userService.getUserById(id);
+    @RequestMapping(value = "user/{username}",method = RequestMethod.GET)
+    public User getUser(@PathVariable("username") String username){
+        return userService.findByUserName(username);
     }
 
     @RequestMapping(value = "user",method = RequestMethod.POST)
@@ -32,12 +27,8 @@ public class UserController {
     User addUser(@RequestBody User User, BindingResult bindingResult){
         return userService.addUser(User);
     }
-    @RequestMapping(value = "login",method = RequestMethod.POST)
-    public Boolean verifyUsernamePassword(@PathVariable("username") String username,@PathVariable("password") String password){
-        return userService.verifyUsernamePassword(username,password);
-    }
     @RequestMapping(value = "user/{id}",method = RequestMethod.PUT)
-    public  User editNews(@RequestBody User user, BindingResult bindingResult){
+    public  User editUser(@RequestBody User user, BindingResult bindingResult){
         return   userService.editUser(user);
     }
 }

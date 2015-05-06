@@ -22,10 +22,12 @@
     <script src="bower_components/angular-file-upload/angular-file-upload.min.js"></script>
     <script src="app.js"></script   >
     <script src="js/userController.js"></script>
+    <script src="js/securityController.js"></script>
     <script src="js/userService.js"></script>
     <script src="js/historyController.js"></script>
     <script src="js/historyService.js"></script>
     <script src="bower_components/ng-flow/dist/ng-flow-standalone.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <!-- add i18n script-->
 
     <script src ="bower_components/angular-translate/angular-translate.js"></script>

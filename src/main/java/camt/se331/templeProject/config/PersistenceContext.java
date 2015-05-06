@@ -2,9 +2,13 @@ package camt.se331.templeProject.config;
 
 import com.jolbox.bonecp.BoneCPDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.hibernate4.HibernateExceptionTranslator;
 import org.springframework.orm.jpa.JpaDialect;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -33,11 +37,25 @@ import java.util.Properties;
 @EnableJpaRepositories("camt.se331.templeProject.repository")
 @PropertySources(value={@PropertySource("classpath:/hibernate.properties")})
 class PersistenceContext {
+    private static final String[] ENTITY_PACKAGES = {
+            "camt.se331.templeProject.entity"
+    };
+
+    private static final String PROPERTY_NAME_HIBERNATE_DIALECT = "hibernate.dialect";
+    private static final String PROPERTY_NAME_HIBERNATE_FORMAT_SQL = "hibernate.format_sql";
+    private static final String PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO = "hibernate.hbm2ddl.auto";
+    private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "hibernate.show_sql";
+
+    private static final String PROPERTY_NAME_DB_DRIVER_CLASS = "db.driver";
+    private static final String PROPERTY_NAME_DB_PASSWORD = "db.password";
+    private static final String PROPERTY_NAME_DB_URL = "db.url";
+    private static final String PROPERTY_NAME_DB_USER = "db.username";
 
     @Bean
-    public HibernateExceptionTranslator hibernateExceptionTranslator(){
+    public HibernateExceptionTranslator hibernateExceptionTranslator() {
         return new HibernateExceptionTranslator();
     }
+
 
     @Autowired
     private Environment env;
@@ -47,9 +65,8 @@ class PersistenceContext {
         BoneCPDataSource boneCPDataSource = new BoneCPDataSource();
         boneCPDataSource.setDriverClass(env.getRequiredProperty(PROPERTY_NAME_DB_DRIVER_CLASS));
         boneCPDataSource.setJdbcUrl(env.getRequiredProperty(PROPERTY_NAME_DB_URL));
-        boneCPDataSource.setUsername(env.getProperty(PROPERTY_NAME_DB_USER));
-        boneCPDataSource.setPassword(env.getProperty(PROPERTY_NAME_DB_PASSWORD));
-
+        boneCPDataSource.setUsername(env.getRequiredProperty(PROPERTY_NAME_DB_USER));
+        boneCPDataSource.setPassword(env.getRequiredProperty(PROPERTY_NAME_DB_PASSWORD));
         boneCPDataSource.setIdleConnectionTestPeriodInMinutes(60);
         boneCPDataSource.setIdleMaxAgeInMinutes(420);
         boneCPDataSource.setMaxConnectionsPerPartition(30);
@@ -57,52 +74,49 @@ class PersistenceContext {
         boneCPDataSource.setPartitionCount(3);
         boneCPDataSource.setAcquireIncrement(5);
         boneCPDataSource.setStatementsCacheSize(100);
-        return boneCPDataSource;
-    }
 
+
+        return boneCPDataSource;
+
+    }
     @Bean
     @Autowired
-    public EntityManagerFactory entityManagerFactory(DataSource dataSource){
-        HibernateJpaVendorAdapter vendorAdapter =new HibernateJpaVendorAdapter();
+    public EntityManagerFactory entityManagerFactory(DataSource dataSource) {
+        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setGenerateDdl(true);
         vendorAdapter.setShowSql(false);
+
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
         factory.setPackagesToScan(ENTITY_PACKAGES);
         factory.setDataSource(dataSource);
         Properties jpaProperties = new Properties();
-        jpaProperties.put(PROPERTY_NAME_HIBERNATE_DIALECT,env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DIALECT));
-        jpaProperties.put(PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO,env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO));
-        jpaProperties.put(PROPERTY_NAME_HIBERNATE_SHOW_SQL,env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_SHOW_SQL));
-        jpaProperties.put(PROPERTY_NAME_HIBERNATE_FORMAT_SQL,env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_FORMAT_SQL));
+        jpaProperties.put(PROPERTY_NAME_HIBERNATE_DIALECT, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DIALECT));
+
+        jpaProperties.put(PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO));
+
+        //If the value of this property is true, Hibernate writes all SQL
+        //statements to the console.
+        jpaProperties.put(PROPERTY_NAME_HIBERNATE_SHOW_SQL, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_SHOW_SQL));
+
+        //If the value of this property is true, Hibernate will use prettyprint
+        //when it writes SQL to the console.
+        jpaProperties.put(PROPERTY_NAME_HIBERNATE_FORMAT_SQL, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_FORMAT_SQL));
+        factory.setJpaProperties(jpaProperties);
 
         factory.afterPropertiesSet();
         return factory.getObject();
     }
 
+
     @Bean
     @Autowired
-    public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory){
+    public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
         JpaTransactionManager txManager = new JpaTransactionManager();
         JpaDialect jpaDialect = new HibernateJpaDialect();
         txManager.setEntityManagerFactory(entityManagerFactory);
         txManager.setJpaDialect(jpaDialect);
         return txManager;
     }
-
-    private static final String[] ENTITY_PACKAGES = {
-            "camt.se331.templeProject.entity"
-    };
-
-    private static final String PROPERTY_NAME_HIBERNATE_DIALECT = "hibernate.dialect";
-    private static final String PROPERTY_NAME_HIBERNATE_FORMAT_SQL = "hibernate.format_sql";
-    private static final String PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO = "hibernate.hbm2ddl.auto";
-    private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "hibernate.show_sql";
-    private static final String PROPERTY_NAME_DB_DRIVER_CLASS = "db.driver";
-    private static final String PROPERTY_NAME_DB_PASSWORD = "db.password";
-    private static final String PROPERTY_NAME_DB_URL = "db.url";
-    private static final String PROPERTY_NAME_DB_USER = "db.username";
-
-
 
 }

@@ -8,9 +8,8 @@ import java.util.List;
  * Created by Dell on 14/4/2558.
  */
 public interface UserService {
-    public List<User> getUser();
-    public User getUserById(Long id);
+    public List<User> findAll();
+    public User findByUserName(String username);
     public User addUser(User user);
     public User editUser(User user);
-    public Boolean verifyUsernamePassword(String username,String password);
 }
