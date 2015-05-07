@@ -23,33 +23,16 @@ contactMainController.controller('addContactController', ['$scope', '$http', '$l
 
 contactMainController.controller('listContactController', ['$scope', '$http', '$rootScope','contactService', '$location',
     function ($scope, $http, $rootScope,contactService,$location) {
-        var data = contactService.query( function(){
-            $scope.contacts = data;
+        $http.get("/Contact").success(function(data){
+            $scope.contact = data;
+            $location.path("Contactpage");
         });
-
-        $scope.$on('$locationChangeStart', function (event) {
-            $rootScope.addSuccess = false;
-            $rootScope.editSuccess = false;
-            $rootScope.deleteSuccess = false;
-        });
-
-        $scope.deleteContact = function (id) {
-            var contact = confirm("Do you want to delete the Contact?");
-            if (contact) {
-                contactService.delete({id:id},function(){
-                    $rootScope.deleteSuccess = true;
-                    $location.path("Contactpage");
-                });
-            }
-        }
     }]);
 
 contactMainController.controller('editContactController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','contactService',
     function ($scope, $http, $routeParams, $location, $rootScope,contactService) {
-        $scope.addContact = false;
         $scope.editContact = true;
-        var id = $routeParams.id;
-        $http.get("/contact/" + id).success(function (data) {
+        $http.get("/Contact").success(function (data) {
             $scope.contact = data;
         });
 

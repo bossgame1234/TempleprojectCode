@@ -18,7 +18,7 @@ public class ContactController {
     ContactService contactService;
 
     @RequestMapping(value = "Contact",method = RequestMethod.GET)
-    public List<Contact> getContact(){
+    public Contact getContact(){
         return contactService.getContact();
     }
 

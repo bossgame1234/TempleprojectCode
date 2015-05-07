@@ -1,8 +1,6 @@
 package camt.se331.templeProject.config;
-import camt.se331.templeProject.entity.Course;
-import camt.se331.templeProject.entity.History;
-import camt.se331.templeProject.entity.Role;
-import camt.se331.templeProject.entity.User;
+import camt.se331.templeProject.entity.*;
+import camt.se331.templeProject.repository.ContactRepository;
 import camt.se331.templeProject.repository.CourseRepository;
 import camt.se331.templeProject.repository.HistoryRepository;
 import camt.se331.templeProject.repository.UserRepository;
@@ -25,6 +23,8 @@ public class DatabaseInitializationBean implements InitializingBean {
     HistoryRepository historyRepository;
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    ContactRepository contactRepository;
     @Override
     public void afterPropertiesSet() throws Exception {
         //id สำหรับ admin
@@ -42,13 +42,20 @@ public class DatabaseInitializationBean implements InitializingBean {
 
         userRepository.save(admin);
 
-
+        //History
         History initHistory =  new History();
         initHistory.setHistoryID(1L);
         initHistory.setHistoryDes("วัดของเรา");
         initHistory.getHistoryPictureLocation().add(PictureUtil.getPicture("picture/slideHome1.jpg"));
         historyRepository.save(initHistory);
 
+        //Contact
+        Contact initContact = new Contact();
+        initContact.setContactId(1L);
+        initContact.setContactPlace("ที่อยู่ ถนนพระปกเกล้า ตำบลพระสิงห์ อำเภอเมือง จังหวัดเชียงใหม่ 50200");
+        initContact.setContactFacebook("https://www.facebook.com/jdl.chiangmai?fref=ts");
+        initContact.setContactTel("โทรศัพท์ 053-276-140");
+        contactRepository.save(initContact);
 
     }
 

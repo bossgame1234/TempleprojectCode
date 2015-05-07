@@ -5,7 +5,7 @@
 var contactService = angular.module('contactServices',['ngResource']);
 
 contactService.factory('contactService',function($resource){
-    return $resource('/contact/:id', { id: '@_id' }, {
+    return $resource('/Contact', {}, {
         update: {
             method: 'PUT' // this method issues a PUT request
         }});

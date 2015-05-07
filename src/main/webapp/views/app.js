@@ -7,7 +7,8 @@ var templeApp = angular.module('templeApp', [
 'userMainController',
 'historyMainController',
 'flow',
-    'securityControllers'
+    'securityControllers',
+    'contactMainController'
 ]);
 
 templeApp.config(['$routeProvider',
@@ -63,11 +64,11 @@ when('/editHistory',{
     }).
     when('/Contactpage',{
         templateUrl: 'template/Contact.html',
-        controller: ''
+        controller: 'listContactController'
     }).
-    when('/editContactpage',{
-        templateUrl: 'template/admin/editContact.html',
-        controller: ''
+    when('/editContact',{
+        templateUrl: 'template/editContact.html',
+        controller: 'editContactController'
     }).
     when('/Gallerypage',{
         templateUrl: 'template/Gallery.html',
@@ -174,7 +175,7 @@ templeApp.config(['$locationProvider', '$httpProvider', function($locationProvid
 
     /* Try getting valid user from cookie or go to login page */
     var originalPath = $location.path();
-    $location.path("Loginpage");
+    //$location.path("Loginpage");
     var authToken = $cookieStore.get('authToken');
     if (authToken != undefined){
         $rootScope.authToken = authToken;
