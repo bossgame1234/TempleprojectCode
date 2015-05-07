@@ -19,7 +19,8 @@ securityController.controller('loginController',['$scope','$rootScope','$locatio
             }, // unsuccess connection
                 function(error){
                     if (error.status == "401"){
-                        $rootScope.error =" user name or passoword is not correct";
+                        $rootScope.error =" user name or password is not correct";
+                        alert("user name or password is not correct");
                     }
                 })
         }

@@ -12,6 +12,16 @@
     <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
     <link rel="stylesheet" href="app.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/ie8-grid-foundation-4.css">
+    <link rel="stylesheet" href="css/ie-fixes.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="css/superfish.css">
+    <link rel="stylesheet" href="css/colorbox.css">
+    <link rel="stylesheet" href="css/flexcar.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+
     <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
@@ -20,7 +30,12 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-file-upload/angular-file-upload-shim.js"></script>
     <script src="bower_components/angular-file-upload/angular-file-upload.min.js"></script>
-    <script src="app.js"></script   >
+
+    <script src="app.js"></script>
+    <script src="js/colorbox/jquery.colorbox-min.js"></script>
+    <script src="js/slider/jquery.flexslider.js"></script>
+    <script src="js/vendor/custom.modernizr.js"></script>
+
     <script src="js/userController.js"></script>
     <script src="js/securityController.js"></script>
     <script src="js/userService.js"></script>
@@ -40,7 +55,7 @@
     <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-3">
-       <h1>วัดเจดีย์หลวง</h1>
+       <h1><img src="picture/logo.png" alt="" class="logo"></h1>
     </div>
         <!-- ng-app="userMainController" -->
         <!--<div class="col-md-3" ng-controller="loginController" >

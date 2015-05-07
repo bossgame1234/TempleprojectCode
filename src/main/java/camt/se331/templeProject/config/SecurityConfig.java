@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             //        .antMatchers(HttpMethod.POST, "/product/**").access("hasRole('admin')")
             //        .antMatchers(HttpMethod.PUT, "/product/**").access("hasRole('admin')")
             //        .antMatchers(HttpMethod.DELETE, "/product/**").access("hasRole('admin')")
-                      .antMatchers("/history/**").access("hasRole('admin')")
+                      .antMatchers("/History/**").access("hasRole('admin')")
                 .and()
                 .addFilterBefore(authenticationTokenProcessingFilter, UsernamePasswordAuthenticationFilter.class)
 

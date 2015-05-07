@@ -17,6 +17,10 @@ when('/Homepage',{
 templateUrl: 'template/Home.html',
 controller: ''
 }).
+    when('/Loginpage',{
+        templateUrl: 'template/Login.html',
+        controller: 'loginController'
+    }).
     when('/editHome',{
         templateUrl: 'template/admin/editHome.html',
         controller: ''
@@ -110,7 +114,7 @@ templeApp.config(['$locationProvider', '$httpProvider', function($locationProvid
                 var url = config.url;
 
                 if (status == 401){
-                    $location.path("/listProduct");
+                    $location.path("Loginpage");
                 }else{
                     $rootScope.error = method + " on " + url + " failed with status " + status;
                 }
@@ -163,19 +167,14 @@ templeApp.config(['$locationProvider', '$httpProvider', function($locationProvid
     }
 
     $rootScope.logout = function(){
-        if($rootScope.hasRole('user')) {
-            cartManagement.emptyCart(function () {
-                console.log("log out success");
-            });
-        }
         delete $rootScope.user;
         $cookieStore.remove('authToken');
-        $location.path("/listProduct");
+        $location.path("Loginpage");
     }
 
     /* Try getting valid user from cookie or go to login page */
     var originalPath = $location.path();
-    $location.path("/listProduct");
+    $location.path("Loginpage");
     var authToken = $cookieStore.get('authToken');
     if (authToken != undefined){
         $rootScope.authToken = authToken;
