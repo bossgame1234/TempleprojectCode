@@ -6812,3 +6812,5 @@ target/templeProject-1.0-SNAPSHOT/views/template/editHistory.html
 target/templeProject-1.0-SNAPSHOT/views/template/editHome.html
 target/templeProject-1.0-SNAPSHOT/views/template/editProduct.html
 target/templeProject-1.0-SNAPSHOT/views/template/leftnavCourse.html
+target/
+node_modules/
