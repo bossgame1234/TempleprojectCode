@@ -8,6 +8,6 @@ import java.util.List;
  * Created by Dell on 2/4/2558.
  */
 public interface ContactService {
-    public List<Contact> getContact ();
+    public Contact getContact ();
     public void editContact(Contact contact);
 }

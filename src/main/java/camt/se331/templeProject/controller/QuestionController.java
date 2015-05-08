@@ -17,33 +17,33 @@ public class QuestionController {
     @Autowired
     QuestionService questionService;
 
-    @RequestMapping(value = "question",method = RequestMethod.GET)
+    @RequestMapping(value = "Question",method = RequestMethod.GET)
     public List<Question> getQuestion(){
         return questionService.getQuestion();
     }
 
-    @RequestMapping(value = "question/{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "Question/{id}",method = RequestMethod.GET)
     public Question getQuestion(@PathVariable("id") Long id){
         return questionService.getQuestionById(id);
     }
 
-    @RequestMapping(value = "question",method = RequestMethod.POST)
+    @RequestMapping(value = "Question",method = RequestMethod.POST)
     public @ResponseBody
     Question addQuestion(@RequestBody Question question, BindingResult bindingResult){
         return questionService.addQuestion(question);
     }
 
-    @RequestMapping(value = "question/{id}",method = RequestMethod.PUT)
+    @RequestMapping(value = "Question/{id}",method = RequestMethod.PUT)
     public  Question addAnswer(@RequestBody Question question, BindingResult bindingResult){
         return   questionService.addAnswer(question);
     }
 
-    @RequestMapping(value = "question/{id}",method = RequestMethod.DELETE)
+    @RequestMapping(value = "Question/{id}",method = RequestMethod.DELETE)
     public Question deleteQuestion(@PathVariable("id") Long id){
         return questionService.deleteQuestion(id);
     }
 
-    @RequestMapping(value = "question/username/{username}",method = RequestMethod.GET)
+    @RequestMapping(value = "Question/username/{username}",method = RequestMethod.GET)
     public List<Question> getQuestion(@PathVariable("username") String username){
         return questionService.getUserQuestion(username);
     }

@@ -16,6 +16,8 @@ public class Contact {
     String contactPlace;
     String contactTel;
     String contactFacebook;
+    public Contact(){
+    }
     public Contact(String contactPlace, String contactTel, String contactFacebook) {
         this.contactPlace = contactPlace;
         this.contactTel = contactTel;
@@ -25,7 +27,7 @@ public class Contact {
         return contactId;
     }
 
-    public void setContactIdd(long id) {
+    public void setContactId(long id) {
         this.contactId = id;
     }
 

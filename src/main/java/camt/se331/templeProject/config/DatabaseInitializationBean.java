@@ -1,9 +1,6 @@
 package camt.se331.templeProject.config;
 import camt.se331.templeProject.entity.*;
-import camt.se331.templeProject.repository.CourseRepository;
-import camt.se331.templeProject.repository.GalleryRepository;
-import camt.se331.templeProject.repository.HistoryRepository;
-import camt.se331.templeProject.repository.UserRepository;
+import camt.se331.templeProject.repository.*;
 import camt.se331.templeProject.service.PictureUtil;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +18,10 @@ public class DatabaseInitializationBean implements InitializingBean {
     HistoryRepository historyRepository;
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    ContactRepository contactRepository;
+    @Autowired
+    QuestionRepository questionRepository;
     @Override
     public void afterPropertiesSet() throws Exception {
         //id สำหรับ admin
@@ -38,7 +39,7 @@ public class DatabaseInitializationBean implements InitializingBean {
 
         userRepository.save(admin);
 
-
+        //History
         History initHistory =  new History();
         initHistory.setHistoryID(1L);
         initHistory.setHistoryDes("วัดของเรา");
@@ -52,6 +53,22 @@ public class DatabaseInitializationBean implements InitializingBean {
         gallery.setGalleryDate(calendar.getTime());
         gallery.setGalleryName("งานประเพณี ใส่ขันดอก อินทขีล");
         galleryRepository.save(gallery);
+        //Contact
+        Contact initContact = new Contact();
+        initContact.setContactId(1L);
+        initContact.setContactPlace("ที่อยู่ ถนนพระปกเกล้า ตำบลพระสิงห์ อำเภอเมือง จังหวัดเชียงใหม่ 50200");
+        initContact.setContactFacebook("https://www.facebook.com/jdl.chiangmai?fref=ts");
+        initContact.setContactTel("โทรศัพท์ 053-276-140");
+        contactRepository.save(initContact);
+
+        //Question
+        Question[] initQuestion =  {
+                new Question(1L,"What is this temple name?","Cartoon"),
+                new Question(2L,"This is a question","Boss"),
+                new Question(3L,"How many dogs in the temple?","Nook"),
+                new Question(4L,"Can I take a photo","Pare")
+        };
+        questionRepository.save(Arrays.asList(initQuestion));
     }
 
 

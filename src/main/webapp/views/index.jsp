@@ -50,6 +50,11 @@
     <script src="js/historyService.js"></script>
     <script src="js/galleryController.js"></script>
     <script src="js/galleryService.js"></script>
+    <script src="js/contactController.js"></script>
+    <script src="js/contactService.js"></script>
+    <script src="js/questionController.js"></script>
+    <script src="js/questionService.js"></script>
+
     <script src="bower_components/ng-flow/dist/ng-flow-standalone.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <!-- add i18n script-->
@@ -66,25 +71,6 @@
     <div class="col-md-3">
        <h1><img src="picture/logo.png" alt="" class="logo"></h1>
     </div>
-        <!-- ng-app="userMainController" -->
-        <!--<div class="col-md-3" ng-controller="loginController" >
-            <form name="loginForm" method="post" ng-submit="login()" >
-                <div class="form-group" >
-                    <label for="username" >ชื่อผู้ใช้งาน</label> :
-                    <input ng-model="user.username" class="form-control" id="username" name="username" placeholder="id" required/>
-                    <label for="password" >รหัสผ่าน</label> :
-                    <input ng-model="user.password" class="form-control" id="password" name="password" placeholder="password" required/>
-                    <br>
-                    <div class="col-md-6"></div>
-                    <button type="submit" class="btn btn-default" >เข้าสู่ระบบ</button>
-                    <label>  </label>
-                    <br>
-                    <br>
-                    <div class="col-md-7"></div>
-                    <a translate href="#/Register">ลงทะเบียนผู้ใช้งาน</a>
-                </div>
-            </form>
-        </div> -->
     <div class="col-md-12"></div>
     <div class="col-md-12"></div>
     <div class="col-md-1"></div>
@@ -104,7 +90,7 @@
                         <a href="#/Historypage">ประวัติ</a>
                     </li>
                     <li ng-class="{true: 'active'}[menuActive('/QuestionAnswer)]">
-                        <a  href="#/QuestionAnswerpage">ถาม-ตอบธรรมะ</a>
+                        <a  href="#/Questionpage">ถาม-ตอบธรรมะ</a>
                     </li>
                     <li ng-class="{true: 'active'}[menuActive('/Gallery')]">
                         <a  href="#/Gallerypage">แกลอรี่</a>

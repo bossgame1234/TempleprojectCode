@@ -8,7 +8,9 @@ var templeApp = angular.module('templeApp', [
 'historyMainController',
 'flow',
     'securityControllers',
-   'galleryMainController'
+   'galleryMainController',
+'contactMainController',
+'questionMainController'
 ]);
 
 templeApp.config(['$routeProvider',
@@ -42,13 +44,13 @@ when('/editHistory',{
         templateUrl: 'template/editHistory.html',
         controller: 'editHistoryController'
     }).
-    when('/QuestionAnswerpage',{
-        templateUrl: 'template/Question-Answer.html',
-        controller: ''
+    when('/addQuestion',{
+        templateUrl: 'template/Question.html',
+        controller: 'addQuestionController'
     }).
     when('/Questionpage',{
-        templateUrl: 'template/admin/Question.html',
-        controller: ''
+        templateUrl: 'template/Question.html',
+        controller: 'addQuestionController'
     }).
     when('/Answerpage',{
         templateUrl: 'template/admin/Answer.html',
@@ -64,11 +66,11 @@ when('/editHistory',{
     }).
     when('/Contactpage',{
         templateUrl: 'template/Contact.html',
-        controller: ''
+        controller: 'listContactController'
     }).
-    when('/editContactpage',{
-        templateUrl: 'template/admin/editContact.html',
-        controller: ''
+    when('/editContact',{
+        templateUrl: 'template/editContact.html',
+        controller: 'editContactController'
     }).
     when('/Gallerypage',{
         templateUrl: 'template/Gallery.html',
@@ -175,7 +177,7 @@ templeApp.config(['$locationProvider', '$httpProvider', function($locationProvid
 
     /* Try getting valid user from cookie or go to login page */
     var originalPath = $location.path();
-    $location.path("Loginpage");
+    //$location.path("Loginpage");
     var authToken = $cookieStore.get('authToken');
     if (authToken != undefined){
         $rootScope.authToken = authToken;

@@ -15,7 +15,7 @@ public class ContactServiceImpl implements ContactService{
 @Autowired
     ContactDao contactDao;
     @Override
-    public List<Contact> getContact() {
+    public Contact getContact() {
         return contactDao.getContact();
     }
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact</title>
+<meta charset="utf-8">
+</head>
+<body>
+<div class="row content-wrapper">
+    <div align="right" method="post">
+        <a href="#/editContact"><input type="submit" class="button" name="submit" value="แก้ไข"></a>
+    </div>
+</div>
+
+<div class="row">
+
+    <font color="#000000">
+        {{contact.contactPlace}}<br/>
+        {{contact.contactTel}}<br/>
+        <a href="https://www.facebook.com/jdl.chiangmai?fref=ts">{{contact.contactFacebook}}</a><br/>
+    </font>
+    <div class="columns large-4"></div>
+</div>
+  <div class="columns large-12">
+      <div class="columns large-4"></div>
+        <div class="columns large-8">
+            <form>
+              ชื่อผู้ติดต่อ   <input type="text" name="name" placeholder="ชื่อผู้ติดต่อ"><br/>
+              Email      <input type="text" name="email" placeholder="Email"><br/>
+              หัวข้อ       <input type="text" name="subject" placeholder="หัวข้อ"><br/>
+              ข้อความ     <textarea rows="60" cols="70" class="contacttext"  name="message" placeholder="ข้อความ"></textarea><br/>
+              <input ng-click="addContact()" align="left" type="submit" name="button" value="ส่ง"><br/>
+              <input align="left" type="submit" name="button" value="ยกเลิก">
+            </form>
+        </div>
+        <div class="columns large-4"></div>
+        <div class="row collapse">
+        <div class="columns large-12"> </div>
+      </div>
+      </div>
+
+<footer>
+<div class="credit-row">
+  <div class="row">
+    <div class="columns large-11 credit"> &copy; College of Arts, Media and Technology<a href="#"> Chiang Mai University</a>
+    </div>
+  </div>
+</div>
+
+<script>
+Modernizr.load({
+    test: Modernizr.placeholder,
+    nope: 'js/placeholder.min.js'
+});
+function goToNewPage() {
+    if (document.getElementById('target').value) {
+        window.location.href = document.getElementById('target').value;
+    }
+}
+</script>
+<script>
+$(document).ready(function () {
+    $('ul.sf-menu').superfish({
+        animation: {
+            height: 'show'
+        },
+        delay: 400
+    });
+    $("img.scrollToTop").click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, "slow");
+    });
+    $('.flexslider').flexslider();
+    $('.flexcar').flexslider();
+});
+</script>
+</footer>
+</body>
+</html>

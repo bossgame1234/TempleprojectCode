@@ -17,8 +17,8 @@ public class DbContactDao implements ContactDao{
     @Autowired
     ContactRepository contactRepository;
     @Override
-    public List<Contact> getContact() {
-        return contactRepository.findAll();
+    public Contact getContact() {
+        return contactRepository.findOne(1L);
     }
 
     @Override

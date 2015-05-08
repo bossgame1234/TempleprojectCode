@@ -18,6 +18,17 @@ public class Question {
     String answerDes;
     String username;
 
+    public Question(){
+
+    }
+
+    public Question(Long questionId, String questionDes, String username){
+        this.questionId = questionId;
+        this.questionDes = questionDes;
+        this.username = username;
+
+    }
+
     public Long getQuestionId() {
         return questionId;
     }
