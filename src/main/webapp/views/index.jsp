@@ -54,6 +54,8 @@
     <script src="js/contactService.js"></script>
     <script src="js/questionController.js"></script>
     <script src="js/questionService.js"></script>
+    <script src="js/answerController.js"></script>
+    <script src="js/answerService.js"></script>
 
     <script src="bower_components/ng-flow/dist/ng-flow-standalone.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -83,22 +85,25 @@
                     <li ng-class="{true: 'active'}[menuActive('/Homepage')]">
                         <a  href="#/Homepage">หน้าแรก</a>
                     </li>
-                    <li ng-class="{true: 'active'}[menuActive('/News')]">
+                    <li ng-class="{true: 'active'}[menuActive('/Newspage')]">
                         <a  href="#/Newspage">ข่าวสาร</a>
                     </li>
-                    <li ng-class="{true: 'active'}[menuActive('/News')]">
+                    <li ng-class="{true: 'active'}[menuActive('/Historypage')]">
                         <a href="#/Historypage">ประวัติ</a>
                     </li>
-                    <li ng-class="{true: 'active'}[menuActive('/QuestionAnswer)]">
+                    <li ng-class="{true: 'active'}[menuActive('/Questionpage')]">
                         <a  href="#/Questionpage">ถาม-ตอบธรรมะ</a>
                     </li>
-                    <li ng-class="{true: 'active'}[menuActive('/Gallery')]">
+                        <li ng-class="{true: 'active'}[menuActive('/Questionpage')]">
+                            <a  href="#/Answerpage">ตอบธรรมะ</a>
+                        </li>
+                    <li ng-class="{true: 'active'}[menuActive('/Gallerypage')]">
                         <a  href="#/Gallerypage">แกลอรี่</a>
                     </li>
-                    <li ng-class="{true: 'active'}[menuActive('/Map')]">
+                    <li ng-class="{true: 'active'}[menuActive('/Mappage')]">
                         <a  href="#/Mappage">แผนที่</a>
                     </li>
-                    <li ng-class="{true: 'active'}[menuActive('/News')]">
+                    <li ng-class="{true: 'active'}[menuActive('/Contactpage')]">
                         <a  href="#/Contactpage">ติดต่อวัด</a>
                     </li>
 

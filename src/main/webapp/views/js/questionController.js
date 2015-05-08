@@ -13,12 +13,14 @@ questionMainController.controller('addQuestionController', ['$scope', '$http', '
         $scope.addQuestion = function () {
             questionService.save($scope.question,function(){
                 $rootScope.addSuccess = true;
-
-
+                $location.path("Questionpage");
             });
         };
-        $location.path("Questionpage");
 
+    }]);
+
+questionMainController.controller('listQuestionController', ['$scope', '$http', '$rootScope','questionService', '$location','$route',
+    function ($scope, $http, $rootScope,questionService, $location ,$route) {
         var data = questionService.query( function(){
             $scope.questions = data;
         });
@@ -39,12 +41,22 @@ questionMainController.controller('addQuestionController', ['$scope', '$http', '
             }
         }
 
+        $scope.question = {};
+        $scope.addQuestion = true;
+        $scope.editQuestion = false;
+        $scope.addQuestion = function () {
+            questionService.save($scope.question,function(){
+                $rootScope.addSuccess = true;
+                $route.reload();
+            });
+        };
+
+
 
     }]);
-
-questionMainController.controller('listQuestionController', ['$scope', '$http', '$rootScope','questionService', '$location',
-    function ($scope, $http, $rootScope,questionService, $location) {
-        var data = questionService.query( function(){
+questionMainController.controller('listQuestionControllerAdmin', ['$scope', '$http', '$rootScope','questionService', '$location','$route',
+    function ($scope, $http, $rootScope,questionService, $location ,$route) {
+        var data = questionService.getQuestion( function(){
             $scope.questions = data;
         });
 
@@ -53,6 +65,12 @@ questionMainController.controller('listQuestionController', ['$scope', '$http', 
             $rootScope.editSuccess = false;
             $rootScope.deleteSuccess = false;
         });
+        $scope.addAnswer= function(question){
+            questionService.save(question,function(){
+                $rootScope.addSuccess = true;
+                $route.reload();
+            });
+        };
 
         $scope.deleteQuestion = function (id) {
             var answer = confirm("Do you want to delete the Question?");
@@ -67,7 +85,6 @@ questionMainController.controller('listQuestionController', ['$scope', '$http', 
 
 
     }]);
-
 questionMainController.controller('editQuestionController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','questionService',
     function ($scope, $http, $routeParams, $location, $rootScope,questionService) {
         $scope.addQuestion = false;

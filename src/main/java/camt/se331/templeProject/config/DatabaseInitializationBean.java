@@ -22,6 +22,7 @@ public class DatabaseInitializationBean implements InitializingBean {
     ContactRepository contactRepository;
     @Autowired
     QuestionRepository questionRepository;
+
     @Override
     public void afterPropertiesSet() throws Exception {
         //id สำหรับ admin
@@ -68,6 +69,9 @@ public class DatabaseInitializationBean implements InitializingBean {
                 new Question(3L,"How many dogs in the temple?","Nook"),
                 new Question(4L,"Can I take a photo","Pare")
         };
+
+        initQuestion[0].setAnswerDes("JD");
+        initQuestion[1].setAnswerDes("Really?????");
         questionRepository.save(Arrays.asList(initQuestion));
     }
 

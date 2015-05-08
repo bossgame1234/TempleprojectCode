@@ -22,6 +22,12 @@ public class QuestionController {
         return questionService.getQuestion();
     }
 
+    @RequestMapping(value = "Question/admin",method = RequestMethod.GET)
+    public List<Question> getQuestionToAdmin(){
+        return questionService.getQuestionToAdmin();
+    }
+
+
     @RequestMapping(value = "Question/{id}",method = RequestMethod.GET)
     public Question getQuestion(@PathVariable("id") Long id){
         return questionService.getQuestionById(id);
@@ -47,4 +53,5 @@ public class QuestionController {
     public List<Question> getQuestion(@PathVariable("username") String username){
         return questionService.getUserQuestion(username);
     }
+
 }

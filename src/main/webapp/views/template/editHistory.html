@@ -5,15 +5,7 @@
 <!--[if gt IE 8]><!--><html><!--<![endif]-->
 <head>
 <title>home</title>
-<meta charset="utf-8">
-<link rel="stylesheet" href="css/foundation.min.css">
-<link rel="stylesheet" href="css/superfish.css">
-<link rel="stylesheet" href="css/stylesheet.css">
-<link rel="stylesheet" href="js/slider/flexslider.css">
-<link rel="stylesheet" href="js/slider/flexcar.css">
-    <link href="http://fonts.googleapis.com/css?family=Quando" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,300" rel="stylesheet" type="text/css">
-<script src="js/vendor/custom.modernizr.js"></script>
+<
 <script>
 Modernizr.load({
     // test if browser understands media queries
@@ -22,6 +14,7 @@ Modernizr.load({
     nope: 'css/ie8-grid-foundation-4.css'
 });
 </script>
+
 <!--[if lt IE 9]>
 <link rel="stylesheet" href="css/ie-fixes.css">
 <![endif]-->
@@ -45,6 +38,7 @@ Modernizr.load({
     <div class="row wrapper">
       <div class="columns large-4 content sidebar">
         <ul class="row">
+            <form  novalidate flow-init>
         <div>
 <table width="1000">
 <tr>
@@ -62,7 +56,7 @@ Modernizr.load({
 </tr>
 
 </table>
- <form  novalidate flow-init>
+
               <div>
               <table>
                   <tr ng-repeat="file in $flow.files">
@@ -74,8 +68,9 @@ Modernizr.load({
                   </tr>
               </table>
           </div>
+     <input type="submit" ng-click="editHistory($flow)" value="แก้ไข"/>
      <input name="btnSubmit" type="submit" value="ยกเลิก" />
-              <input type="submit" ng-click="editHistory($flow)" value="แก้ไข"/>
+
           </form>
 </div>
         </ul>
