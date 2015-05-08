@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<meta charset="utf-8">
+
+<script>
+Modernizr.load({
+    // test if browser understands media queries
+    test: Modernizr.mq('only all'),
+    // if not load ie8-grid
+    nope: 'css/ie8-grid-foundation-4.css'
+});
+</script>
+</head>
+
+<body>
+<div class="row content-wrapper">
+  <div class="columns large-12">
+    <div class="row wrapper">
+      <div class="columns large-12 content ">
+        <h1 class="page-title">คำถาม</h1>
+
+        <div class="row contact-form">
+          <div class="columns large-8">
+            
+            <table align="center" width="1100px" >
+            <tr>
+            <th width="500" align="center">ถาม</th>
+            <th width="300" align="center">ตอบ</th>
+            </tr>
+            <tr ng-repeat="question in questions">
+            <td>
+                {{question.questionDes}}
+            </td>
+
+                <td>
+                    คำตอบบบบบบบบบบบบบบบบบบบบบบบ
+                </td>
+            </tr>
+
+                <!-- <td align="center">
+                    <form id="contact-form" method="post" action="Answer.html"><input align="left" type="submit" name="answer" value="ตอบ"></form>
+                </td>
+                <td align="center">
+                    <form id="contact-form" method="post" action="Question.html">  <input align="left" type="submit" name="delete" value="ลบ"></form>
+                </td> -->
+
+            </table>
+
+              <form>
+                  สอบถาม <br/>
+                  ชื่อ    <input ng-model="question.username" type="text" id="name" placeholder="ชื่อผู้ถาม">
+                  Email <input type="text" id="email" placeholder="email@xxxxx.com">
+                  ข้อความ <textarea ng-model="question.questionDes" rows="60" cols="70" placeholder="คำถาม" ></textarea>
+                  <input ng-click="addQuestion()" align="left" type="submit" name="button" value="ส่ง">
+                  <input align="left" type="submit" name="button" value="ยกเลิก">
+              </form>
+
+          </div>
+          <div class="columns large-4">
+          </div>
+        </div>
+      </div>
+      <div class="row collapse">
+        <div class="columns large-12"> </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+<div class="credit-row">
+  <div class="row">
+    <div class="columns large-11 credit"> &copy; College of Arts, Media and Technology<a href="#"> Chiang Mai University</a>
+    </div>
+  </div>
+</div>
+<script>
+Modernizr.load({
+    test: Modernizr.placeholder,
+    nope: 'js/placeholder.min.js'
+});
+function goToNewPage() {
+    if (document.getElementById('target').value) {
+        window.location.href = document.getElementById('target').value;
+    }
+}
+</script>
+<script>
+$(document).ready(function () {
+    $('ul.sf-menu').superfish({
+        animation: {
+            height: 'show'
+        },
+        delay: 400
+    });
+    $("img.scrollToTop").click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, "slow");
+    });
+    $('.flexslider').flexslider();
+    $('.flexcar').flexslider();
+});
+</script>
+</footer>
+</body>
+</html>

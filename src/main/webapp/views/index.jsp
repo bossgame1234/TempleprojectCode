@@ -43,6 +43,8 @@
     <script src="js/historyService.js"></script>
     <script src="js/contactController.js"></script>
     <script src="js/contactService.js"></script>
+    <script src="js/questionController.js"></script>
+    <script src="js/questionService.js"></script>
 
     <script src="bower_components/ng-flow/dist/ng-flow-standalone.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -79,7 +81,7 @@
                         <a href="#/Historypage">ประวัติ</a>
                     </li>
                     <li ng-class="{true: 'active'}[menuActive('/QuestionAnswer)]">
-                        <a  href="#/QuestionAnswerpage">ถาม-ตอบธรรมะ</a>
+                        <a  href="#/Questionpage">ถาม-ตอบธรรมะ</a>
                     </li>
                     <li ng-class="{true: 'active'}[menuActive('/Gallery')]">
                         <a  href="#/Gallerypage">แกลอรี่</a>

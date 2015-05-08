@@ -7,8 +7,9 @@ var templeApp = angular.module('templeApp', [
 'userMainController',
 'historyMainController',
 'flow',
-    'securityControllers',
-    'contactMainController'
+'securityControllers',
+'contactMainController',
+'questionMainController'
 ]);
 
 templeApp.config(['$routeProvider',
@@ -42,13 +43,13 @@ when('/editHistory',{
         templateUrl: 'template/editHistory.html',
         controller: 'editHistoryController'
     }).
-    when('/QuestionAnswerpage',{
-        templateUrl: 'template/Question-Answer.html',
-        controller: ''
+    when('/addQuestion',{
+        templateUrl: 'template/Question.html',
+        controller: 'addQuestionController'
     }).
     when('/Questionpage',{
-        templateUrl: 'template/admin/Question.html',
-        controller: ''
+        templateUrl: 'template/Question.html',
+        controller: 'addQuestionController'
     }).
     when('/Answerpage',{
         templateUrl: 'template/admin/Answer.html',

@@ -13,10 +13,31 @@ questionMainController.controller('addQuestionController', ['$scope', '$http', '
         $scope.addQuestion = function () {
             questionService.save($scope.question,function(){
                 $rootScope.addSuccess = true;
-                $location.path("Questionpage");
+
 
             });
         };
+        $location.path("Questionpage");
+
+        var data = questionService.query( function(){
+            $scope.questions = data;
+        });
+
+        $scope.$on('$locationChangeStart', function (event) {
+            $rootScope.addSuccess = false;
+            $rootScope.editSuccess = false;
+            $rootScope.deleteSuccess = false;
+        });
+
+        $scope.deleteQuestion = function (id) {
+            var answer = confirm("Do you want to delete the Question?");
+            if (answer) {
+                questionService.delete({id:id},function(){
+                    $rootScope.deleteSuccess = true;
+                    $location.path("Questionpage");
+                });
+            }
+        }
 
 
     }]);
@@ -43,6 +64,8 @@ questionMainController.controller('listQuestionController', ['$scope', '$http', 
             }
         }
 
+
+
     }]);
 
 questionMainController.controller('editQuestionController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','questionService',
@@ -50,14 +73,14 @@ questionMainController.controller('editQuestionController', ['$scope', '$http', 
         $scope.addQuestion = false;
         $scope.editQuestion = true;
         var id = $routeParams.id;
-        $http.get("/question/" + id).success(function (data) {
+        $http.get("/Question/" + id).success(function (data) {
             $scope.question = data;
         });
 
         $scope.editQuestion = function () {
             questionService.update({id:$scope.question.id},$scope.question,function(){
                 $rootScope.editSuccess = true;
-                $location.path("Question");
+                $location.path("Questionpage");
             });
         }
     }]);
