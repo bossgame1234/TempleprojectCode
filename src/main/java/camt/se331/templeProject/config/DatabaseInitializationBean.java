@@ -1,9 +1,7 @@
 package camt.se331.templeProject.config;
-import camt.se331.templeProject.entity.Course;
-import camt.se331.templeProject.entity.History;
-import camt.se331.templeProject.entity.Role;
-import camt.se331.templeProject.entity.User;
+import camt.se331.templeProject.entity.*;
 import camt.se331.templeProject.repository.CourseRepository;
+import camt.se331.templeProject.repository.GalleryRepository;
 import camt.se331.templeProject.repository.HistoryRepository;
 import camt.se331.templeProject.repository.UserRepository;
 import camt.se331.templeProject.service.PictureUtil;
@@ -12,15 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Profile("db.init")
 @Component
 public class DatabaseInitializationBean implements InitializingBean {
     @Autowired
-    CourseRepository courseRepository;
+    GalleryRepository galleryRepository;
     @Autowired
     HistoryRepository historyRepository;
     @Autowired
@@ -49,7 +45,13 @@ public class DatabaseInitializationBean implements InitializingBean {
         initHistory.getHistoryPictureLocation().add(PictureUtil.getPicture("picture/slideHome1.jpg"));
         historyRepository.save(initHistory);
 
-
+        Gallery gallery = new Gallery();
+        gallery.getPictureList().add(PictureUtil.getPicture("picture/slideNew1.jpg"));
+        gallery.getPictureList().add(PictureUtil.getPicture("picture/slideNew2.jpg"));
+        Calendar calendar = new GregorianCalendar(2015,5,10);
+        gallery.setGalleryDate(calendar.getTime());
+        gallery.setGalleryName("งานประเพณี ใส่ขันดอก อินทขีล");
+        galleryRepository.save(gallery);
     }
 
 

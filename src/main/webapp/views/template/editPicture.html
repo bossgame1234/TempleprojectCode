@@ -1,0 +1,40 @@
+<div class="row content-wrapper" align="left">
+  <h1 class="page-title services">อัพโหลด รูปภาพ</h1> 
+</div>
+<div class="row content-wrapper">
+  <div class="columns large-12">
+    <div class="row wrapper">
+        <ul class="row">
+            <form  novalidate flow-init>
+                <div>
+                    <input align="middle" type="file"  flow-btn />
+                    <table>
+                        <tr ng-repeat="file in $flow.files">
+                            <td>{{$index+1}}</td>
+                            <td>{{file.name}}</td>
+                            <!--to see the preview image file-->
+                            <td><img flow-img="$flow.files[{{$index}}]" /></td>
+                            <!--ng-click="addHistory($flow)" -->
+                        </tr>
+                    </table>
+                </div>
+                <input type="submit" ng-click="editPicture($flow)" value="บันทึก"/>
+                <input name="btnSubmit" type="submit" value="ยกเลิก" />
+
+            </form>
+        </ul>
+    </div>
+      <div class="columns sidebar large-4 large-offset-1">
+      
+     
+      </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="row"></div>
+</footer>
+<div class="credit-row">
+  <div class="row">
+    <div class="columns large-11 credit"> &copy; College of Arts, Media and Technology<a href="#"> Chiang Mai University</a> Design by: <a href="http://topwebsitetemplates.org">PowerPuff Girls w/</a></div>
+  </div>
+</div>

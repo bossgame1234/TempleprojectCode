@@ -14,7 +14,6 @@ historyMainController.controller('editHistoryController', ['$scope', '$http', '$
         });
 
         $scope.editHistory = function (flowFiles) {
-            console.log(flowFiles);
             historyService.update($scope.history,function(data){
             $scope.history.historyPictureLocation = null;
             var historyid = data.historyID;

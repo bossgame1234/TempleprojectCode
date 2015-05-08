@@ -14,8 +14,4 @@ public Gallery getGallery(Long id);
 public Gallery addGallery(Gallery gallery);
 public Gallery updateGallery(Gallery gallery);
 public Gallery deleteGallery(Gallery gallery);
-public Gallery addPicture(Long galleryId,Picture picture);
-public Gallery deletePicture(Long galleryId,Long pictureId);
-public Gallery editPicture(Long galleryId,Picture picture);
-
 }

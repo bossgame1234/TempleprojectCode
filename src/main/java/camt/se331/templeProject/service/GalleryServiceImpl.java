@@ -3,9 +3,11 @@ package camt.se331.templeProject.service;
 import camt.se331.templeProject.dao.GalleryDao;
 import camt.se331.templeProject.entity.Gallery;
 import camt.se331.templeProject.entity.Picture;
+import camt.se331.templeProject.repository.PictureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -15,6 +17,8 @@ import java.util.List;
 public class GalleryServiceImpl implements GalleryService {
     @Autowired
     GalleryDao galleryDao;
+    @Autowired
+    PictureRepository pictureRepository;
     @Override
     public List<Gallery> getGallery() {
         return galleryDao.getGallery();
@@ -27,6 +31,7 @@ public class GalleryServiceImpl implements GalleryService {
 
     @Override
     public Gallery addGallery(Gallery gallery) {
+        gallery.setGalleryDate(Calendar.getInstance().getTime());
         return galleryDao.addGallery(gallery);
     }
 
@@ -42,17 +47,18 @@ public class GalleryServiceImpl implements GalleryService {
     }
 
     @Override
-    public Gallery addPicture(Long galleryId, Picture picture) {
-        return galleryDao.addPicture(galleryId,picture);
+    public Gallery addPicture(Gallery gallery, Picture picture) {
+        gallery.getPictureList().add(picture);
+        return galleryDao.updateGallery(gallery);
     }
 
     @Override
-    public Gallery deletePicture(Long galleryId, Long pictureId) {
-        return galleryDao.deletePicture(galleryId,pictureId);
+    public Gallery deletePicture(Gallery gallery, Long pictureId) {
+        gallery.setPictureList(galleryDao.getGallery(gallery.getGalleryId()).getPictureList());
+        Picture picture = pictureRepository.findOne(pictureId);
+        gallery.getPictureList().remove(picture);
+        return galleryDao.updateGallery(gallery);
     }
 
-    @Override
-    public Gallery editPicture(Long galleryId, Picture picture) {
-        return galleryDao.editPicture(galleryId,picture);
-    }
+
 }

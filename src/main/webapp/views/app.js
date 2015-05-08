@@ -7,7 +7,8 @@ var templeApp = angular.module('templeApp', [
 'userMainController',
 'historyMainController',
 'flow',
-    'securityControllers'
+    'securityControllers',
+   'galleryMainController'
 ]);
 
 templeApp.config(['$routeProvider',
@@ -71,19 +72,19 @@ when('/editHistory',{
     }).
     when('/Gallerypage',{
         templateUrl: 'template/Gallery.html',
-        controller: ''
+        controller: 'listGalleryController'
     }).
-    when('/Picturepage',{
+    when('/Picturepage/:id',{
         templateUrl: 'template/Picture.html',
-        controller: ''
+        controller: 'editGalleryController'
     }).
-    when('/uploadGallerypage',{
-        templateUrl: 'template/uploadGallery.html',
-        controller: ''
+    when('/editGallery',{
+        templateUrl: 'template/editGallery.html',
+        controller: 'addGalleryController'
     }).
-    when('/uploadPicturepage',{
-        templateUrl: 'template/uploadPicture.html',
-        controller: ''
+    when('/addPicture/:id',{
+        templateUrl: 'template/editPicture.html',
+        controller: 'addPictureController'
     }).
 otherwise({redirectTo: '/Homepage'});
 }]);
@@ -185,3 +186,6 @@ templeApp.config(['$locationProvider', '$httpProvider', function($locationProvid
     }
     $rootScope.initialized = true;
 });
+templeApp.config(['$compileProvider', function($compileProvider) {
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|file|data):/);
+}]);

@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="css/colorbox.css">
     <link rel="stylesheet" href="css/flexcar.css">
     <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/lightbox.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Quando' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,300' rel='stylesheet' type='text/css'>
 
     <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -35,12 +39,17 @@
     <script src="js/colorbox/jquery.colorbox-min.js"></script>
     <script src="js/slider/jquery.flexslider.js"></script>
     <script src="js/vendor/custom.modernizr.js"></script>
+    <script src="js/lightbox/prototype.js" ></script>
+    <script src="js/lightbox/scriptaculous.js?load=effects" ></script>
+    <script src="js/lightbox/lightbox.js" ></script>
 
     <script src="js/userController.js"></script>
     <script src="js/securityController.js"></script>
     <script src="js/userService.js"></script>
     <script src="js/historyController.js"></script>
     <script src="js/historyService.js"></script>
+    <script src="js/galleryController.js"></script>
+    <script src="js/galleryService.js"></script>
     <script src="bower_components/ng-flow/dist/ng-flow-standalone.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <!-- add i18n script-->
@@ -124,8 +133,6 @@
         <div class="col-md-10">
             <!-- Breadcrumbs
            ================================================== -->
-
-
             <ng-view>Loading...</ng-view>
 
         </div>

@@ -44,34 +44,4 @@ public class DbGalleryDao implements GalleryDao{
         return gallery;
     }
 
-    @Override
-    public Gallery addPicture(Long galleryId, Picture picture) {
-        Gallery gallery = galleryRepository.findOne(galleryId);
-        galleryRepository.delete(galleryId);
-        List<Picture> pictureList = gallery.getPictureList();
-        pictureList.add(picture);
-        gallery.setPictureList(pictureList);
-        return galleryRepository.save(gallery);
-    }
-
-    @Override
-    public Gallery deletePicture(Long galleryId, Long pictureId) {
-        Gallery gallery = galleryRepository.findOne(galleryId);
-        galleryRepository.delete(galleryId);
-        List<Picture> pictureList = gallery.getPictureList();
-        pictureList.remove(pictureId);
-        gallery.setPictureList(pictureList);
-        return galleryRepository.save(gallery);
-    }
-
-    @Override
-    public Gallery editPicture(Long galleryId, Picture picture) {
-        Gallery gallery = galleryRepository.findOne(galleryId);
-        galleryRepository.delete(galleryId);
-        List<Picture> pictureList = gallery.getPictureList();
-        pictureList.remove((int)picture.getPictureId());
-        pictureList.add((int)picture.getPictureId(),picture);
-        gallery.setPictureList(pictureList);
-        return galleryRepository.save(gallery);
-    }
 }

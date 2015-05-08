@@ -3,23 +3,28 @@
  */
 'use strict';
 
-var galleryMainController = angular.module('courseMainController', ['courseServices']);
+var galleryMainController = angular.module('galleryMainController', ['galleryServices']);
 
 galleryMainController.controller('addGalleryController', ['$scope', '$http', '$location', '$rootScope','galleryService',
     function ($scope, $http, $location, $rootScope,galleryService) {
         $scope.gallery = {};
         $scope.addGallery = true;
         $scope.editGallery = false;
-        $scope.addGallery = function () {
+        $scope.addGallery = function (flowFiles) {
+            galleryService.save($scope.gallery,function(data){
+                var galleryid = data.galleryId;
+                console.log(galleryid);
+                // set location
+                flowFiles.opts.target = '/picture/addGalleryPicture';
+                flowFiles.opts.testChunks = false;
+                flowFiles.opts.query ={galleryid:galleryid};
+                flowFiles.upload();
 
-            galleryService.save($scope.gallery,function(){
                 $rootScope.addSuccess = true;
                 $location.path("Gallerypage");
-
+                $scope.$apply();
             });
         };
-
-
     }]);
 
 galleryMainController.controller('listGalleryController', ['$scope', '$http', '$rootScope','galleryService', '$location',
@@ -44,9 +49,23 @@ galleryMainController.controller('editGalleryController', ['$scope', '$http', '$
         });
 
         $scope.editGallery = function () {
-            galleryService.update({id:$scope.gallery.id},$scope.gallery,function(){
+            galleryService.update({id:$scope.gallery.galleryId},$scope.gallery,function(){
                 $rootScope.editSuccess = true;
                 $location.path("Gallerypage");
             });
         }
     }]);
+galleryMainController.controller('addPictureController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','galleryService',
+    function ($scope, $http, $routeParams, $location, $rootScope,galleryService) {
+        var id = $routeParams.id;
+        $scope.editPicture = function (flowFiles) {
+                flowFiles.opts.target = '/picture/addGalleryPicture';
+                flowFiles.opts.testChunks = false;
+                flowFiles.opts.query ={galleryid:id};
+                flowFiles.upload();
+                $scope.$apply();
+                $rootScope.editSuccess = true;
+                $location.path("Picturepage/"+id);
+            };
+        }
+    ]);

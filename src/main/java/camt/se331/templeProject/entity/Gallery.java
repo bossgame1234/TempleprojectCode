@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,9 +20,9 @@ public class Gallery {
     Date galleryDate;
     @OneToMany(fetch = FetchType.EAGER)
     @Cascade(CascadeType.ALL)
-    List<Picture> pictureList;
+    List<Picture> pictureList = new ArrayList<>();
 
-
+    public Gallery(){}
     public Long getGalleryId() {
         return galleryId;
     }

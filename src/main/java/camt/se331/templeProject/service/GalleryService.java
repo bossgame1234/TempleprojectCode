@@ -14,7 +14,6 @@ public interface GalleryService {
     public Gallery addGallery(Gallery gallery);
     public Gallery updateGallery(Gallery gallery);
     public Gallery deleteGallery(Long gallery);
-    public Gallery addPicture(Long galleryId,Picture picture);
-    public Gallery deletePicture(Long galleryId,Long pictureId);
-    public Gallery editPicture(Long galleryId,Picture picture);
+    public Gallery addPicture(Gallery gallery,Picture picture);
+    public Gallery deletePicture(Gallery gallery,Long pictureId);
 }

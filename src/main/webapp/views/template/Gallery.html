@@ -1,123 +1,32 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
-<!--[if IE 8]><html class="lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--><html><!--<![endif]-->
-<head>
-<title>home</title>
-<meta charset="utf-8">
-<link rel="stylesheet" href="css/foundation.min.css">
-<link rel="stylesheet" href="css/superfish.css">
-<link rel="stylesheet" href="css/stylesheet.css">
-<link rel="stylesheet" href="js/slider/flexslider.css">
-<link rel="stylesheet" href="js/slider/flexcar.css">
-<link href='http://fonts.googleapis.com/css?family=Quando' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,300' rel='stylesheet' type='text/css'>
-<script src="js/vendor/custom.modernizr.js"></script>
-<script>
-Modernizr.load({
-    // test if browser understands media queries
-    test: Modernizr.mq('only all'),
-    // if not load ie8-grid
-    nope: 'css/ie8-grid-foundation-4.css'
-});
-</script>
-<!--[if lt IE 9]>
-<link rel="stylesheet" href="css/ie-fixes.css">
-<![endif]-->
-</head>
-<body>
-<div class="header">
-  <div class="row">
-    <div class="columns large-12">
-      <div class="columns large-4 small-12"><a href="home.html"><img src="images/logo.png" alt="" class="logo"></a> </div> 
-      <div>
-      
-      <nav>
-            <section>
-              <ul class="sf-menu large-12">
-                <li class="active"><a href="home.html">หน้าแรก</a></li>
-                <li><a href="news.html">ข่าวสาร</a></li>
-                <li><a href="history.html">ประวัติ</a></li>
-                <li><a href="Question-Answer.html">ถาม-ตอบ</a></li>
-                <li><a href="gallery.html">แกลเลอรี่</a></li>
-                <li><a href="map.html">แผนที่</a></li>
-                <li><a href="contact.html">ติดต่อวัด</a></li>
-              </ul>
-            </section>
-          </nav></div>
-      </div>
- 	</div>
-  </div>
- </div>
 <div class="row content-wrapper">
-  <div class="columns large-12">
-    <div class="row wrapper">
-      <div class="columns large-12 content">
-        <h1 class="page-title">Gallery</h1>
-        
-        <div class="thumbnail-block">
-          <ul class="large-block-grid-4">
-            <li><a class="thumbnail" href="images/baby-lamb.jpg"><img src="images/baby-lamb.jpg" alt=""></a></li>
-            <li><a class="thumbnail" href="images/golden-wheat-field.jpg"><img src="images/golden-wheat-field.jpg" alt=""></a></li>
-            <li><a class="thumbnail" href="images/cracked-earth-texture.jpg"><img src="images/cracked-earth-texture.jpg" alt=""></a></li>
-            <li><a class="thumbnail" href="images/beautiful-young-girl.jpg"><img src="images/beautiful-young-girl.jpg" alt=""></a></li>
-          </ul>
+    <div class="columns large-12">
+        <div class="row wrapper">
+            <div class="columns large-12 content">
+                <h1 class="page-title">อัลบั้มรูปภาพ</h1>
+
+                <div class="thumbnail-block">
+                    <ul class="large-block-grid-4">
+                   <div class="col-md-3" width="300" height="200" ng-repeat="gallery in galleries">
+                                    <figure ><a class="thumbnail" href="#/Picturepage/{{gallery.galleryId}}"><img ng-src="data:{{gallery.pictureList[0].pictureType}};base64,{{gallery.pictureList[0].pictureLocation}}" class="thumbnail" />
+                                        <figcaption>{{gallery.galleryName}}</figcaption>
+                                    </a></figure>
+                  </div>
+                    <div  class="col-md-3" width="300" height="200">
+                                    <figure><a class="thumbnail" href="#/editGallery"><img ng-src="picture/add.jpg" class="thumbnail" />
+                                        <figcaption>เพิ่มรูปภาพ</figcaption>
+                                    </a></figure>
+                   </div>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="thumbnail-block">
-          <ul class="large-block-grid-4">
-            <li><a class="thumbnail" href="images/tree-and-storm-2.jpg"><img src="images/tree-and-storm-2.jpg" alt=""></a></li>
-            <li><a class="thumbnail" href="images/trees.jpg"><img src="images/trees.jpg" alt=""></a></li>
-            <li><a class="thumbnail" href="images/coffee.jpg"><img src="images/coffee.jpg" alt=""></a></li>
-            <li><a class="thumbnail" href="images/house.jpg"><img src="images/house.jpg" alt=""></a></li>
-          </ul>
-        </div>
-        <div>
-        
-        </div>
-      </div>
     </div>
-  </div>
 </div>
-<footer class="footer">
-  <div class="row"></div>
+<footer>
+    <div class="credit-row">
+        <div class="row">
+            <div class="columns large-11 credit"> &copy; College of Arts, Media and Technology<a href="#"> Chiang Mai University</a>
+            </div>
+        </div>
+    </div>
 </footer>
-<div class="credit-row">
-  <div class="row">
-    <div class="columns large-11 credit"> &copy; College of Arts, Media and Technology<a href="#"> Chiang Mai University</a> Design by: <a href="http://topwebsitetemplates.org">PowerPuff Girls w/</a></div>
-  </div>
-</div>
-<script src="js/jquery.min.js"></script>
-<script src="js/hoverIntent.js"></script>
-<script src="js/superfish.js"></script>
-<script src="js/slider/jquery.flexslider.js"></script>
-<script>
-Modernizr.load({
-    test: Modernizr.placeholder,
-    nope: 'js/placeholder.min.js'
-});
-function goToNewPage() {
-    if (document.getElementById('target').value) {
-        window.location.href = document.getElementById('target').value;
-    }
-}
-</script>
-<script>
-$(document).ready(function () {
-    $('ul.sf-menu').superfish({
-        animation: {
-            height: 'show'
-        },
-        delay: 400
-    });
-    $("img.scrollToTop").click(function () {
-        $("html, body").animate({
-            scrollTop: 0
-        }, "slow");
-    });
-    $('.flexslider').flexslider();
-    $('.flexcar').flexslider();
-});
-</script>
-</body>
-</html>

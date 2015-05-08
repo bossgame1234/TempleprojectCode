@@ -1,0 +1,49 @@
+
+<div class="row content-wrapper" align="left">
+  <h1 class="page-title services">อัพโหลด แกลเลอรี่</h1> 
+</div>
+<div class="row content-wrapper">
+  <div class="columns large-12">
+    <div class="row wrapper">
+        <ul class="row">
+            <form  novalidate flow-init>
+                <table>
+<tr>
+	<td> ชื่อ แกลเลอรี่</td>
+	<td>    <textarea class="galleryname" ng-model="gallery.galleryName"> </textarea> </td>
+ </tr>
+                    <tr>
+                    <input align="middle" type="file"  flow-btn />
+                </tr>
+
+                <tr>    <td colspan="2"><input align="middle" type="file"  flow-btn /></td></tr>
+                     <tr ng-repeat="file in $flow.files">
+                         <td>{{file.name}}</td>
+                         <!--to see the preview image file-->
+                         <td><img flow-img="$flow.files[{{$index}}]" /></td>
+                         <!--ng-click="addHistory($flow)" -->
+                     </tr>
+<tr>
+	<td><input name="btnSubmit" type="submit" ng-click="addGallery($flow)" value="บันทึก"/></td>
+    <td><input name="btnSubmit" type="submit" value="ยกเลิก">
+</td>
+</tr>
+</table></form>
+        </ul>
+      </div>
+      <div class="columns sidebar large-4 large-offset-1">
+      
+     
+      </div>
+    </div>
+  </div>
+</div>
+        
+<footer class="footer">
+  <div class="row"></div>
+</footer>
+<div class="credit-row">
+  <div class="row">
+    <div class="columns large-11 credit"> &copy; College of Arts, Media and Technology<a href="#"> Chiang Mai University</a> Design by: <a href="http://topwebsitetemplates.org">PowerPuff Girls w/</a></div>
+  </div>
+</div>
