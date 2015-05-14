@@ -11,7 +11,8 @@ var templeApp = angular.module('templeApp', [
    'galleryMainController',
 'contactMainController',
 'questionMainController',
-    'answerMainController'
+    'answerMainController',
+    'newsMainController'
 ]);
 
 templeApp.config(['$routeProvider',

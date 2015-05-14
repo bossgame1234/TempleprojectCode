@@ -56,6 +56,8 @@
     <script src="js/questionService.js"></script>
     <script src="js/answerController.js"></script>
     <script src="js/answerService.js"></script>
+    <script src="js/newsController.js"></script>
+    <script src="js/newsService.js"></script>
 
     <script src="bower_components/ng-flow/dist/ng-flow-standalone.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>

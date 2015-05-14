@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.sql.Time;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Sornkom on 1/4/2558.
@@ -18,26 +20,16 @@ public class News {
 private String newsName;
 private Date newsDate;
 
-    public Time getNewsTime() {
-        return newsTime;
-    }
-
-    public void setNewsTime(Time newsTime) {
-        this.newsTime = newsTime;
-    }
-
     private Time newsTime;
-private String newsPlace;
+    private String newsPlace;
+    Set<Picture> newsPictureLocation = new HashSet<>();
 
-    public String getNewsPictureLocation() {
-        return newsPictureLocation;
+    public News(){
     }
 
-    public void setNewsPictureLocation(String newsPictureLocation) {
-        this.newsPictureLocation = newsPictureLocation;
+    public News(Picture picture){
+        this.newsPictureLocation.add(picture);
     }
-
-    private String newsPictureLocation;
 
 public News(String name, Date newsDate, Time newsTime, String newsPlace){
     this.newsName = name;
@@ -45,6 +37,14 @@ public News(String name, Date newsDate, Time newsTime, String newsPlace){
     this.newsTime = newsTime;
     this.newsPlace = newsPlace;
 
+    }
+
+    public Time getNewsTime() {
+        return newsTime;
+    }
+
+    public void setNewsTime(Time newsTime) {
+        this.newsTime = newsTime;
     }
     public long getNewsId() {
         return newsId;
@@ -75,5 +75,13 @@ public News(String name, Date newsDate, Time newsTime, String newsPlace){
     }
     public void setNewsPlace(String newsPlace) {
         this.newsPlace = newsPlace;
+    }
+
+    public Set<Picture> getNewsPictureLocation() {
+        return newsPictureLocation;
+    }
+
+    public void setNewsPictureLocation(Set<Picture> newsPictureLocation) {
+        this.newsPictureLocation = newsPictureLocation;
     }
 }

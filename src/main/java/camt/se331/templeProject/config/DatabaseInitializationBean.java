@@ -22,6 +22,8 @@ public class DatabaseInitializationBean implements InitializingBean {
     ContactRepository contactRepository;
     @Autowired
     QuestionRepository questionRepository;
+    @Autowired
+    NewsRepository newsRepository;
 
     @Override
     public void afterPropertiesSet() throws Exception {
@@ -41,7 +43,7 @@ public class DatabaseInitializationBean implements InitializingBean {
         userRepository.save(admin);
 
         //History
-        History initHistory =  new History();
+        History initHistory = new History();
         initHistory.setHistoryID(1L);
         initHistory.setHistoryDes("วัดของเรา");
         initHistory.getHistoryPictureLocation().add(PictureUtil.getPicture("picture/slideHome1.jpg"));
@@ -50,7 +52,7 @@ public class DatabaseInitializationBean implements InitializingBean {
         Gallery gallery = new Gallery();
         gallery.getPictureList().add(PictureUtil.getPicture("picture/slideNew1.jpg"));
         gallery.getPictureList().add(PictureUtil.getPicture("picture/slideNew2.jpg"));
-        Calendar calendar = new GregorianCalendar(2015,5,10);
+        Calendar calendar = new GregorianCalendar(2015, 5, 10);
         gallery.setGalleryDate(calendar.getTime());
         gallery.setGalleryName("งานประเพณี ใส่ขันดอก อินทขีล");
         galleryRepository.save(gallery);
@@ -63,17 +65,22 @@ public class DatabaseInitializationBean implements InitializingBean {
         contactRepository.save(initContact);
 
         //Question
-        Question[] initQuestion =  {
-                new Question(1L,"What is this temple name?","Cartoon"),
-                new Question(2L,"This is a question","Boss"),
-                new Question(3L,"How many dogs in the temple?","Nook"),
-                new Question(4L,"Can I take a photo","Pare")
+        Question[] initQuestion = {
+                new Question(1L, "What is this temple name?", "Cartoon"),
+                new Question(2L, "This is a question", "Boss"),
+                new Question(3L, "How many dogs in the temple?", "Nook"),
+                new Question(4L, "Can I take a photo", "Pare")
         };
 
         initQuestion[0].setAnswerDes("JD");
         initQuestion[1].setAnswerDes("Really?????");
         questionRepository.save(Arrays.asList(initQuestion));
+
+        //News
+        News initNews = new News();
+        initNews.getNewsPictureLocation().add(PictureUtil.getPicture("picture/slideHome1.jpg"));
+        newsRepository.save(initNews);
+
+        }
     }
 
-
-}
