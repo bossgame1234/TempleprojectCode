@@ -32,11 +32,12 @@ public class News {
         this.newsPictureLocation.add(picture);
     }
 
-public News(String name, Date newsDate, Time newsTime, String newsPlace){
+public News(String name, Date newsDate, Time newsTime, String newsPlace, Picture picture){
     this.newsName = name;
     this.newsDate = newsDate;
     this.newsTime = newsTime;
     this.newsPlace = newsPlace;
+    this.newsPictureLocation.add(picture);
     }
 
     public Time getNewsTime() {
