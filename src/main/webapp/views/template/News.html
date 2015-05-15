@@ -31,21 +31,16 @@ Modernizr.load({
             <table width="1000" align="center">
 
             <tr ng-repeat="news in allNews">
-            <td>
-                <div ng-repeat="picture in news.newsPictureLocation" class="text-center">
+            <td width="400">
+                    <div ng-repeat="picture in news.newsPictureLocation" class="text-center">
                     <a href="#"><img ng-src="data: {{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail"></a>
                 </div>
             </td>
-            <td>
-               <a href="#"> {{news.newsName}}</a>
+            <td width="600" align="left">
+               <a href="#">กิจกรรม {{news.newsName}}</a>
         	</td>
-            <tr>
-            <td> วันที่กิจกรรม </td>
-            </tr>
-            <tr>
-            <td></td>
-            <td> รายละเอียดกิจกรรม </td>
-            </tr>
+           </tr>
+
             </table>
    
 </div>
