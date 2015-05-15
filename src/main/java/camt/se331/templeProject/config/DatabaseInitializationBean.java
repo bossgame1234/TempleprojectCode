@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
+import java.sql.Time;
 import java.util.*;
 
 @Profile("db.init")
@@ -77,9 +78,12 @@ public class DatabaseInitializationBean implements InitializingBean {
         questionRepository.save(Arrays.asList(initQuestion));
 
         //News
-        News initNews = new News();
-        initNews.getNewsPictureLocation().add(PictureUtil.getPicture("picture/slideHome1.jpg"));
-        newsRepository.save(initNews);
+        Calendar calendar1 = new GregorianCalendar(2015, 7,11);
+        News[] initNews = {
+                new News("Activity1",calendar1.getTime(),Time.valueOf("10:30:00"),"จัดที่วัด",PictureUtil.getPicture("picture/slideNew1.jpg")),
+                new News("Activity2",calendar1.getTime(),Time.valueOf("18:00:00"),"จัดที่บ้านนนนนนนน",PictureUtil.getPicture("picture/slideNew2.jpg"))
+        };
+        newsRepository.save(Arrays.asList(initNews));
 
         }
     }

@@ -3,14 +3,6 @@
 <head>
 <title>News</title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../../../../../../../Users/PimpapornChaichompoo/Downloads/templateSWCon/InterfaceSwCon/css/foundation.min.css">
-<link rel="stylesheet" href="../../../../../../../Users/PimpapornChaichompoo/Downloads/templateSWCon/InterfaceSwCon/css/superfish.css">
-<link rel="stylesheet" href="../../../../../../../Users/PimpapornChaichompoo/Downloads/templateSWCon/InterfaceSwCon/css/stylesheet.css">
-<link rel="stylesheet" href="../../../../../../../Users/PimpapornChaichompoo/Downloads/templateSWCon/InterfaceSwCon/js/slider/flexslider.css">
-<link rel="stylesheet" href="../../../../../../../Users/PimpapornChaichompoo/Downloads/templateSWCon/InterfaceSwCon/js/slider/flexcar.css">
-<link href='http://fonts.googleapis.com/css?family=Quando' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,300' rel='stylesheet' type='text/css'>
-<script src="../../../../../../../Users/PimpapornChaichompoo/Downloads/templateSWCon/InterfaceSwCon/js/vendor/custom.modernizr.js"></script>
 <script>
 Modernizr.load({
     // test if browser understands media queries
@@ -29,21 +21,20 @@ Modernizr.load({
      <h1 class="page-title services" align="center">กิจกรรมวัดเจดีย์หลวง</h1>
             
             <table width="1000" align="center">
-            <tr>
-              <td rowspan="2"> <div class="columns large-4 content sidebar">
-              <p align="center"> <img src="../../../../../../../Users/PimpapornChaichompoo/Downloads/templateSWCon/InterfaceSwCon/picture/history.jpg" alt=""> </p>
-              </td>
-              <td>
-        <h1 class="page-title services" align="center">กิจกรรมที่1</h1>
+            <tr ng-repeat="news in allNews">
+            <td>
+                <div ng-repeat="picture in news.newsPictureLocation" class="text-center">
+                    <a href="#"><img ng-src="data: {{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail"></a>
+                </div>
+            </td>
+            <td>
+               <a href="#"> {{news.newsName}}</a>
         	</td>
             <tr>
             <td> </td>
             <td> รายละเอียดกิจกรรม </td>
             </tr>
-       
-			
-                
-              </td>  </table>
+            </table>
    
 </div>
 </body>
@@ -55,10 +46,6 @@ Modernizr.load({
   </div>
 </div>
 
-<script src="../../../../../../../Users/PimpapornChaichompoo/Downloads/templateSWCon/InterfaceSwCon/js/jquery.min.js"></script>
-<script src="../../../../../../../Users/PimpapornChaichompoo/Downloads/templateSWCon/InterfaceSwCon/js/hoverIntent.js"></script>
-<script src="../../../../../../../Users/PimpapornChaichompoo/Downloads/templateSWCon/InterfaceSwCon/js/superfish.js"></script>
-<script src="../../../../../../../Users/PimpapornChaichompoo/Downloads/templateSWCon/InterfaceSwCon/js/slider/jquery.flexslider.js"></script>
 <script>
 Modernizr.load({
     test: Modernizr.placeholder,
