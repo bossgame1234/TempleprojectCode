@@ -7,7 +7,7 @@
         <ul class="row">
             <form  novalidate flow-init>
                 <div>
-                    <input align="middle" type="file"  flow-btn />
+                    <input align="middle" type="file" flow-file-added="!!{jpg:1}[$file.getExtension()]"  flow-btn />
                     <table>
                         <tr ng-repeat="file in $flow.files">
                             <td>{{$index+1}}</td>
