@@ -5,9 +5,8 @@
     </form>
 </div>
 <div class="header">
-  <div class="slider" ng-repeat="">
-      <div ng-repeat="picture in HomeGallery" class="text-center">
-         <a href="#" >img ng-src="data:{{picture.pictureList[0].pictureType}};base64,{{picture.pictureList[0].pictureLocation}}" class="thumbnail" /></a>
-      </div>
+  <div class="slider" >
+      <a href="#"><img ng-src="data:{{HomeGallery.pictureList[0].pictureType}};base64,{{HomeGallery.pictureList[0].pictureLocation}}" class="thumbnail" /></a>
+
   </div>
 </div>
