@@ -7,8 +7,8 @@ var templeApp = angular.module('templeApp', [
 'userMainController',
 'historyMainController',
 'flow',
-    'securityControllers',
-   'galleryMainController',
+'securityControllers',
+    'galleryMainController',
 'contactMainController',
 'questionMainController'
 ]);
@@ -16,10 +16,10 @@ var templeApp = angular.module('templeApp', [
 templeApp.config(['$routeProvider',
 function($routeProvider) {
 $routeProvider.
-when('/Homepage',{
-templateUrl: 'template/Home.html',
-controller: ''
-}).
+    when('/Homepage',{
+        templateUrl: 'template/Home.html',
+        controller: ''
+    }).
     when('/Loginpage',{
         templateUrl: 'template/Login.html',
         controller: 'loginController'
@@ -28,11 +28,11 @@ controller: ''
         templateUrl: 'template/admin/editHome.html',
         controller: ''
     }).
-when('/Newspage',{
+    when('/Newspage',{
         templateUrl: 'template/News.html',
         controller: 'listNewsController'
     }).
-when('/editNews',{
+    when('/editNews',{
         templateUrl: 'template/admin/editNews.html',
         controller: 'editNewsController'
     }).
@@ -40,7 +40,7 @@ when('/editNews',{
         templateUrl: 'template/History.html',
         controller: 'listHistoryController'
     }).
-when('/editHistory',{
+    when('/editHistory',{
         templateUrl: 'template/editHistory.html',
         controller: 'editHistoryController'
     }).
@@ -188,6 +188,7 @@ templeApp.config(['$locationProvider', '$httpProvider', function($locationProvid
     }
     $rootScope.initialized = true;
 });
+
 templeApp.config(['$compileProvider', function($compileProvider) {
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|file|data):/);
 }]);

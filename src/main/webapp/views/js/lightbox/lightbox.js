@@ -183,7 +183,7 @@ Lightbox.prototype = {
 	//
 	initialize: function() {	
 		if (!document.getElementsByTagName){ return; }
-		var anchors = document.getElementsByTagName('a.ng-scope');
+		var anchors = document.getElementsByTagName('a')
 		var areas = document.getElementsByTagName('area');
 
 		// loop through all anchor tags

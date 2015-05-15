@@ -25,6 +25,7 @@
 
     <link href='http://fonts.googleapis.com/css?family=Quando' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 
     <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -34,7 +35,6 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-file-upload/angular-file-upload-shim.js"></script>
     <script src="bower_components/angular-file-upload/angular-file-upload.min.js"></script>
-
     <script src="app.js"></script>
     <script src="js/colorbox/jquery.colorbox-min.js"></script>
     <script src="js/slider/jquery.flexslider.js"></script>
@@ -54,15 +54,10 @@
     <script src="js/contactService.js"></script>
     <script src="js/questionController.js"></script>
     <script src="js/questionService.js"></script>
-
     <script src="bower_components/ng-flow/dist/ng-flow-standalone.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <!-- add i18n script-->
-
     <script src ="bower_components/angular-translate/angular-translate.js"></script>
     <script src ="bower_components/angular-translate-loader-url/angular-translate-loader-url.js"></script>
-
-
 </head>
 <body>
 <div class="page-header"  >
@@ -89,7 +84,7 @@
                     <li ng-class="{true: 'active'}[menuActive('/News')]">
                         <a href="#/Historypage">ประวัติ</a>
                     </li>
-                    <li ng-class="{true: 'active'}[menuActive('/QuestionAnswer)]">
+                    <li ng-class="{true: 'active'}[menuActive('/QuestionAnswer')]">
                         <a  href="#/Questionpage">ถาม-ตอบธรรมะ</a>
                     </li>
                     <li ng-class="{true: 'active'}[menuActive('/Gallery')]">
