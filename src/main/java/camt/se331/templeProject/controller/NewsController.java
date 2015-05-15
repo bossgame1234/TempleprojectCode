@@ -1,6 +1,5 @@
 package camt.se331.templeProject.controller;
 
-import camt.se331.templeProject.entity.Course;
 import camt.se331.templeProject.entity.News;
 import camt.se331.templeProject.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
