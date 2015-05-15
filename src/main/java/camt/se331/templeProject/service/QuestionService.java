@@ -14,4 +14,5 @@ public interface QuestionService {
     public  Question deleteQuestion(Long id);
     public  Question addAnswer(Question questionWithAnswer);
     public  List<Question> getUserQuestion(String username);
+    public List<Question> getQuestionToAdmin();
 }

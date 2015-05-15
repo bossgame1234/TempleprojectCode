@@ -20,7 +20,7 @@ newsMainController.controller('addNewsController', ['$scope', '$http', '$locatio
                 flowFiles.opts.query ={newsid:newsid};
                 flowFiles.upload();
                 $rootScope.addSuccess = true;
-                $location.path("listNews");
+                $location.path("Newspage");
                 $scope.$apply();
             });
         };
@@ -46,8 +46,10 @@ newsMainController.controller('editNewsController', ['$scope', '$http', '$routeP
 newsMainController.controller('listNewsController', ['$scope', '$http', '$rootScope','newsService', '$location',
     function ($scope, $http, $rootScope,newsService, $location) {
         var data = newsService.query( function(){
-            $scope.newss = data;
-            $location.path("listHistory");
+            $scope.news = data;
+            $location.path("Newspage");
         });
+
+
 
     }]);

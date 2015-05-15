@@ -10,7 +10,9 @@ var templeApp = angular.module('templeApp', [
 'securityControllers',
     'galleryMainController',
 'contactMainController',
-'questionMainController'
+'questionMainController',
+    'answerMainController',
+    'newsMainController'
 ]);
 
 templeApp.config(['$routeProvider',
@@ -50,11 +52,12 @@ $routeProvider.
     }).
     when('/Questionpage',{
         templateUrl: 'template/Question.html',
-        controller: 'addQuestionController'
+        controller: 'listQuestionController'
     }).
     when('/Answerpage',{
-        templateUrl: 'template/admin/Answer.html',
-        controller: ''
+        templateUrl: 'template/Answer.html',
+        controller: 'listQuestionControllerAdmin'
+
     }).
     when('/OwnQuestionpage',{
         templateUrl: 'template/Answer.html',

@@ -44,4 +44,5 @@ public class DbQuestionDao implements QuestionDao{
     public List<Question> getUserQuestion(String username) {
         return questionRepository.findQuestionByUsernameLike(username);
     }
+
 }

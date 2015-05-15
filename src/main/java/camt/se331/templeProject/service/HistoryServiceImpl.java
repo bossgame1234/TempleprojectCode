@@ -17,6 +17,9 @@ import java.util.List;
 public class HistoryServiceImpl implements HistoryService {
     @Autowired
     HistoryDao historyDao;
+    public HistoryServiceImpl(HistoryDao historyDao){
+        this.historyDao = historyDao;
+    }
     @Override
     public History getHistory() {
         return historyDao.getHistory();
