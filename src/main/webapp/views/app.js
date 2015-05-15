@@ -20,15 +20,15 @@ function($routeProvider) {
 $routeProvider.
     when('/Homepage',{
         templateUrl: 'template/Home.html',
-        controller: ''
+        controller:'HomePictureController'
+    }).
+    when('/editHome',{
+        templateUrl: 'template/editHome.html',
+        controller: 'editGalleryController'
     }).
     when('/Loginpage',{
         templateUrl: 'template/Login.html',
         controller: 'loginController'
-    }).
-    when('/editHome',{
-        templateUrl: 'template/admin/editHome.html',
-        controller: ''
     }).
     when('/editNews',{
         templateUrl: 'template/admin/editNews.html',

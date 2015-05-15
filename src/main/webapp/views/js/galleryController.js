@@ -69,3 +69,10 @@ galleryMainController.controller('addPictureController', ['$scope', '$http', '$r
             };
         }
     ]);
+galleryMainController.controller('HomePictureController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','galleryService',
+    function ($scope, $http, $routeParams, $location, $rootScope,galleryService) {
+        var id = 1;
+        $http.get("/gallery/" + id).success(function (data) {
+            $scope.HomeGallery = data;
+        });
+    }]);

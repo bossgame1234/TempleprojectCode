@@ -50,6 +50,13 @@ public class DatabaseInitializationBean implements InitializingBean {
         initHistory.getHistoryPictureLocation().add(PictureUtil.getPicture("picture/slideHome1.jpg"));
         historyRepository.save(initHistory);
 
+        Gallery HomeGallery = new Gallery();
+        HomeGallery.getPictureList().add(PictureUtil.getPicture("picture/temple2.jpg"));
+        HomeGallery.getPictureList().add(PictureUtil.getPicture("picture/temple3.jpg"));
+        HomeGallery.setGalleryName("รูปวัด Homepage");
+        galleryRepository.save(HomeGallery);
+
+
         Gallery gallery = new Gallery();
         gallery.getPictureList().add(PictureUtil.getPicture("picture/slideNew1.jpg"));
         gallery.getPictureList().add(PictureUtil.getPicture("picture/slideNew2.jpg"));
@@ -57,6 +64,10 @@ public class DatabaseInitializationBean implements InitializingBean {
         gallery.setGalleryDate(calendar.getTime());
         gallery.setGalleryName("งานประเพณี ใส่ขันดอก อินทขีล");
         galleryRepository.save(gallery);
+
+
+
+
         //Contact
         Contact initContact = new Contact();
         initContact.setContactId(1L);

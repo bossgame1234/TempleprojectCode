@@ -1,24 +1,13 @@
-<div class="columns large-12">
 
-        <div class="columns large-4 small-12"><a href="#/Homepage"><img src="../picture/logo.png" alt="" class="logo"></a>
-    </div>
-<div align="right"> <form id="contact-form" method="post">
+<div align="right">
+    <form id="contact-form" method="post">
    <a href="#/editHome"> <input type="submit" class="button" name="submit" value="แก้ไข"></a>
-           </form></div>
-           </div>
-<div class="header">
-  <div class="row">
-  <div class="slider">
-
-            <div class="flexslider">
-              <ul class="slides">
-                <li> <img src="../picture/slideNew3.jpg" alt=""> </li>
-                <li> <img src="../picture/slideHome2.jpg" alt=""> </li>
-                <li> <img src="../picture/slideHome3.jpg" alt=""> </li>
-                <li> <img src="../picture/slideHome4.jpg" alt=""> </li>
-              </ul>
-            </div>
-          </div>
-
+    </form>
 </div>
-    </div>
+<div class="header">
+  <div class="slider" ng-repeat="">
+      <div ng-repeat="picture in HomeGallery" class="text-center">
+         <a href="#" >img ng-src="data:{{picture.pictureList[0].pictureType}};base64,{{picture.pictureList[0].pictureLocation}}" class="thumbnail" /></a>
+      </div>
+  </div>
+</div>
