@@ -15,11 +15,34 @@ Modernizr.load({
         .button{
             color: #505050;
             height: 50px;
+            top: 5px;
         }
         .textbut{
             color: #ffffff;
-            font-size: 15px;
+            font-size:15px;
         }
+
+        .myButton {
+            background-color:#5c5c5c;
+            -moz-border-radius:11px;
+            -webkit-border-radius:11px;
+            border-radius:11px;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Verdana;
+            font-size:14px;
+            padding:8px 20px;
+            text-decoration:none;
+        }
+        .myButton:hover {
+            background-color:#ffd500;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
+
     </style>
 </head>
 <body>
@@ -44,12 +67,11 @@ Modernizr.load({
                       <input type="text" ng-model="question.answerDes"></td>
                   </td>
                   <td  bgcolor="white" class="text-center">
-                      <a ng-href="#/Answerpage"><button class="button" ng-click="addAnswer(question)"><p class="textbut">ตอบ</p></button></a></td>
+                      <a ng-href="#/Answerpage"><a href="#" class="myButton" ng-click="addAnswer(question)">ตอบ</a>
                       <!--<span class="glyphicon glyphicon-edit" aria-hidden="true" ng-click="addAnswer(question)"></span></a></td>-->
                   <td bgcolor="white" class="text-center">
                       <a ng-href="#/Answerpage">
-                      <a ng-href="#/Answerpage"><button class="button" ng-click="deleteQuestion(question.questionId)"><p class="textbut">ลบ</p></button></a></a> </td>
-
+                      <a ng-href="#/Answerpage"> <a href="#" class="myButton" ng-click="deleteQuestion(question.questionId)">ลบ</a>
                           <!--<span class="glyphicon glyphicon-remove-circle" aria-hidden="true" ng-click="deleteQuestion(question.questionId)"></span></a></td>-->
                 </tr>
 

@@ -14,6 +14,31 @@ Modernizr.load({
 </script>
 
     <style>
+    .textt{
+        color: #111111;
+        font-size:12px;
+    }
+    .myButton {
+        background-color:#5c5c5c;
+        -moz-border-radius:11px;
+        -webkit-border-radius:11px;
+        border-radius:11px;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Verdana;
+        font-size:14px;
+        padding:8px 20px;
+        text-decoration:none;
+    }
+    .myButton:hover {
+        background-color:#ffd500;
+    }
+    .myButton:active {
+        position:relative;
+        top:1px;
+    }
+
 
     </style>
 
@@ -21,41 +46,42 @@ Modernizr.load({
 
 <body>
 <div class="row content-wrapper">
-  <div class="columns large-12">
+    <h1 class="page-title">คำถาม</h1>
+
+    <table align="center" width="1000" style="border: 0px">
+        <tr bgcolor="#e6e6fa">
+            <td width="500" align="left">คำถาม</th>
+            <td width="500" align="left">คำตอบ</th>
+
+        </tr>
+        <tr ng-repeat="question in questions">
+            <td bgcolor="white">
+                {{question.questionDes}}
+            </td>
+            <td bgcolor="white">
+                {{question.answerDes}}
+
+            </td>
+
+        </tr>
+
+    </table>
+    <table align="center" width="1000" style="border: 0px">
+        <form>
+            <tr bgcolor="#e6e6fa"><td colspan="2">   สอบถาม </td><td></td></tr>
+            <tr><td width="300" bgcolor="white">ชื่อ</td>  <td bgcolor="white">  <input ng-model="question.username" type="text" id="name" placeholder="ชื่อผู้ถาม" size="20"></td></tr>
+            <tr><td width="300" bgcolor="white">Email</td> <td bgcolor="white"><input type="email" id="email" placeholder="email@xxxxx.com" size="35"></td></tr>
+            <tr><td width="300" bgcolor="white">ข้อความ</td><td bgcolor="white"><textarea ng-model="question.questionDes" placeholder="คำถาม" style="width: 900px" ></textarea></td></tr>
+            <tr><td width="300" bgcolor="white"></td><td align="left" bgcolor="white"> <a href="#" class="myButton" ng-click="addQuestion()">ส่ง</a>
+                <a href="#" class="myButton">ยกเลิก</a></td></tr>
+        </form>
+    </table>
+    <div class="columns large-12">
     <div class="row wrapper">
       <div class="columns large-12 content ">
-        <h1 class="page-title">คำถาม</h1>
 
         <div class="row contact-form">
           <div class="columns large-8">
-            
-            <table align="center" width="1000" >
-            <tr>
-            <th width="600" align="center">คำถาม</th>
-            <th width="400" align="center">คำตอบ</th>
-
-            </tr>
-            <tr ng-repeat="question in questions">
-            <td>
-                {{question.questionDes}}
-            </td>
-                <td>
-                    {{question.answerDes}}
-
-                </td>
-
-            </tr>
-
-            </table>
-
-              <form>
-                  สอบถาม <br/>
-                  ชื่อ    <input ng-model="question.username" type="text" id="name" placeholder="ชื่อผู้ถาม" size="20">
-                  Email <input type="email" id="email" placeholder="email@xxxxx.com" size="35">
-                  ข้อความ <textarea class="questiontextarea" ng-model="question.questionDes" placeholder="คำถาม" ></textarea>
-                  <input ng-click="addQuestion()" align="left" type="submit" name="button" value="ส่ง">
-                  <input align="left" type="submit" name="button" value="ยกเลิก">
-              </form>
 
           </div>
           <div class="columns large-4">

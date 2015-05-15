@@ -3875,9 +3875,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-left: -1px;
 }
 .nav {
-    padding: 0 30px 0 30px;
+    padding: 0 10px 0 10px;
   margin-bottom: 0px;
   list-style: none;
+    height:30px;
 
 }
 .nav > li {
@@ -3888,6 +3889,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   position: relative;
   display: block;
   padding: 10px 15px;
+    height:30px;
+
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -4069,13 +4072,15 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
-  min-height: 50px;
+  min-height: 20px;
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
 @media (min-width: 768px) {
   .navbar {
     border-radius: 4px;
+      height:30px;
+
   }
 }
 @media (min-width: 768px) {
@@ -4095,9 +4100,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-collapse.in {
   overflow-y: auto;
 }
+
+/*line*/
+
 @media (min-width: 768px) {
   .navbar-collapse {
     width: auto;
+      height:25px;
     border-top: 0;
     -webkit-box-shadow: none;
             box-shadow: none;
@@ -4226,11 +4235,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-nav {
   margin: 7.5px -15px;
+    height: 30px;
 }
 .navbar-nav > li > a {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  line-height: 20px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  line-height: 7px;
+    height: 30px;
 }
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
@@ -4259,13 +4270,17 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-nav {
     float: left;
     margin: 0;
+      height:30px;
+
   }
   .navbar-nav > li {
     float: left;
+      height:30px;
   }
   .navbar-nav > li > a {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 3px;
+    padding-bottom: 2px;
+      height:30px;
   }
 }
 .navbar-form {

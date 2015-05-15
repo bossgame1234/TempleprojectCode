@@ -23,21 +23,27 @@
       <div class="columns large-4 content sidebar">
         <h1 class="page-title services">วัดเจดีย์หลวง</h1>
           <div ng-repeat="picture in history.historyPictureLocation" class="text-center">
-          <img ng-src="data: {{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail">
-          </div>
-                     <!-- <p> <img src="picture/history.jpg" alt=""> </p> -->
+              <table width="1000" border="0">
+         <tr>
+             <td width="300" ><img ng-src="data: {{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail"></td>
+          <td width="700" align="left"> <font color="#000000"> {{history.historyDes}} </font></td>
 
-      </div>
+                     <!-- <p> <img src="picture/history.jpg" alt=""> </p> -->
+       </tr>
+        </table>
+              </div>
+          </div>
         </div>
+      </div>
+    </div>
+      </div>
+
       <div class="columns large-8">
     
-        <div class="row">
-        
-           <font color="#000000">
-               {{history.historyDes}}
-           </font>
-     
-     </div></div></div></div></div></body>
+        <!--<div class="row"> <font color="#000000"> {{history.historyDes}} </font> </div>-->
+      </div>
+
+
 
 
 
