@@ -25,26 +25,24 @@ Modernizr.load({
 <!--[if lt IE 9]>
 <link rel="stylesheet" href="css/ie-fixes.css">
 <![endif]-->
-    <div class="columns large-12">
+<style>
+    .editHome{
+        position: fixed;
+        top: 30px;
+        right: 30px;
+    }
+</style>
 
-        <div class="columns large-4 small-12"><a href="#/Homepage"><img src="picture/logo.png" alt="" class="logo"></a>
-    </div>
-<div align="right"> <form id="contact-form" method="post">
-   <a href="#/editHome"> <input type="submit" class="button" name="submit" value="แก้ไข"></a>
-           </form></div>
-           </div>
+    <form class="editHome" method="post">
+        <a href="#/editHome"> <input type="submit" class="button" name="submit" value="แก้ไข"></a>
+    </form>
+
+
 </head>
 <body>
-<div class="header">
-  <div class="row">
 
-  </div>
- 
   <div class="slider">
-    <div class="row">
-      <div class="columns large-12">
-        <div class="row flexslider-row">
-          <div class="columns large-12">
+
             <div class="flexslider">
               <ul class="slides">
                 <li> <img src="picture/slideHome1.jpg" alt=""> </li>
@@ -54,11 +52,8 @@ Modernizr.load({
               </ul>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+
 <footer class="footer">
   <div class="row"></div>
 </footer>

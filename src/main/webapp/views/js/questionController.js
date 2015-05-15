@@ -32,7 +32,7 @@ questionMainController.controller('listQuestionController', ['$scope', '$http', 
         });
 
         $scope.deleteQuestion = function (id) {
-            var answer = confirm("Do you want to delete the Question?");
+            var answer = confirm("คุณต้องการที่จะลบคำถามนี้?");
             if (answer) {
                 questionService.delete({id:id},function(){
                     $rootScope.deleteSuccess = true;
