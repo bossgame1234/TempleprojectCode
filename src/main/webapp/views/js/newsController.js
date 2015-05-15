@@ -35,10 +35,18 @@ newsMainController.controller('editNewsController', ['$scope', '$http', '$routeP
             $scope.news = data;
         });
 
-        $scope.editNews = function () {
-            newsService.update({id:$scope.news.id},$scope.news,function(){
+        $scope.editNews = function (flowFiles) {
+            newsService.update($scope.news,function(data){
+                $scope.news.newsPictureLocation = null;
+                var newsid = data.newsID;
+
+                flowFiles.opts.target = '/picture/addNewsPicture';
+                flowFiles.opts.testChunks = false;
+                flowFiles.opts.query ={newsid:newsid};
+                flowFiles.upload();
                 $rootScope.editSuccess = true;
-                $location.path("listNews");
+                $location.path("Newspage");
+                $scope.$apply();
             });
         }
     }]);

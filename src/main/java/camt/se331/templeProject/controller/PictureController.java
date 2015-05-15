@@ -2,9 +2,11 @@ package camt.se331.templeProject.controller;
 
 import camt.se331.templeProject.entity.Gallery;
 import camt.se331.templeProject.entity.History;
+import camt.se331.templeProject.entity.News;
 import camt.se331.templeProject.entity.Picture;
 import camt.se331.templeProject.service.GalleryService;
 import camt.se331.templeProject.service.HistoryService;
+import camt.se331.templeProject.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Calendar;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by SONY on 4/5/2558.
@@ -27,6 +30,8 @@ public class PictureController {
     HistoryService historyService;
     @Autowired
     GalleryService galleryService;
+    @Autowired
+    NewsService newsService;
 
     @RequestMapping(value = "/addHistoryPicture",method = RequestMethod.POST)
     @ResponseBody
@@ -77,5 +82,7 @@ public class PictureController {
 
         return gallery;
     }
+
+
 
 }

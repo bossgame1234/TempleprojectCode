@@ -35,7 +35,7 @@ $routeProvider.
         controller: 'listNewsController'
     }).
     when('/editNews',{
-        templateUrl: 'template/admin/editNews.html',
+        templateUrl: 'template/editNews.html',
         controller: 'editNewsController'
     }).
     when('/Historypage',{
