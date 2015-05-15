@@ -30,24 +30,24 @@
         }
     </style>
 
-    <form class="editNews" method="post">
-        <a href="#/editNews"> <input type="submit" class="button" name="submit" value="แก้ไข"></a>
+    <form class="editContact" method="post">
+        <a href="#/editContact"> <input type="submit" class="button" name="submit" value="แก้ไข"></a>
     </form>
 </head>
 <body>
 <div class="row">
 
 
-
     <table class="tablee" width="1000" > <form>
+
         <tr>
-            <td colspan="3">
-                <font color="#000000">
-                    {{contact.contactPlace}}<br/>
-                    {{contact.contactTel}}<br/>
-                    <a href="https://www.facebook.com/jdl.chiangmai?fref=ts">{{contact.contactFacebook}}</a><br/>
-                </font>
-            </td>
+            <td colspan="3"  bgcolor="white" width="10">  {{contact.contactPlace}}</td>
+            </tr>
+        <tr>
+            <td colspan="3" bgcolor="white" width="90" align="left"> {{contact.contactTel}} </td>
+            </tr>
+        <tr>
+            <td colspan="3" bgcolor="white" width="900"> <a href="https://www.facebook.com/jdl.chiangmai?fref=ts" style="color: #000066">{{contact.contactFacebook}}</a></td>
         </tr>
             <tr>
                 <td  bgcolor="white" width="10"></td>
@@ -77,6 +77,7 @@
             </form>
     </table>
 </div>
+
 </body>
 
 </html>
