@@ -45,8 +45,8 @@ newsMainController.controller('editNewsController', ['$scope', '$http', '$routeP
 
 newsMainController.controller('listNewsController', ['$scope', '$http', '$rootScope','newsService', '$location',
     function ($scope, $http, $rootScope,newsService, $location) {
-        var data = newsService.query( function(){
-            $scope.news = data;
+        var data = newsService.query(function(){
+            $scope.allNews = data;
             $location.path("Newspage");
         });
 

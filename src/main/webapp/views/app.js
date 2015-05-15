@@ -30,6 +30,10 @@ $routeProvider.
         templateUrl: 'template/admin/editHome.html',
         controller: ''
     }).
+    when('/editNews',{
+        templateUrl: 'template/admin/editNews.html',
+        controller: ''
+    }).
     when('/Newspage',{
         templateUrl: 'template/News.html',
         controller: 'listNewsController'
