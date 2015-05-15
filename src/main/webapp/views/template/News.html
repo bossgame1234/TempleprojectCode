@@ -11,12 +11,17 @@ Modernizr.load({
     nope: 'css/ie8-grid-foundation-4.css'
 });
 </script>
-    <div align="center">
+        <style>
+        .editNews{
+            position: fixed;
+            top: 30px;
+            right: 30px;
+        }
+    </style>
 
-    <div align="right" method="post">
-        <a href="#/editNews"><input type="submit" class="button" name="submit" value="แก้ไข"></a>
-    </div>
-    </div>
+    <form class="editNews" method="post">
+        <a href="#/editNews"> <input type="submit" class="button" name="submit" value="แก้ไข"></a>
+    </form>
 </head>
 <body>
     <div class="row">
@@ -34,7 +39,10 @@ Modernizr.load({
                <a href="#"> {{news.newsName}}</a>
         	</td>
             <tr>
-            <td> </td>
+            <td> วันที่กิจกรรม </td>
+            </tr>
+            <tr>
+            <td></td>
             <td> รายละเอียดกิจกรรม </td>
             </tr>
             </table>

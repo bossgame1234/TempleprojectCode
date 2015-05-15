@@ -12,6 +12,11 @@ Modernizr.load({
     nope: 'css/ie8-grid-foundation-4.css'
 });
 </script>
+
+    <style>
+
+    </style>
+
 </head>
 
 <body>
@@ -24,35 +29,30 @@ Modernizr.load({
         <div class="row contact-form">
           <div class="columns large-8">
             
-            <table align="center" width="1100px" >
+            <table align="center" width="1000" >
             <tr>
-            <th width="500" align="center">ถาม</th>
-            <th width="300" align="center">ตอบ</th>
+            <th width="600" align="center">คำถาม</th>
+            <th width="400" align="center">คำตอบ</th>
+
             </tr>
             <tr ng-repeat="question in questions">
             <td>
                 {{question.questionDes}}
             </td>
-
                 <td>
                     {{question.answerDes}}
-                </td>
-            </tr>
 
-                <!-- <td align="center">
-                    <form id="contact-form" method="post" action="Answer.html"><input align="left" type="submit" name="answer" value="ตอบ"></form>
                 </td>
-                <td align="center">
-                    <form id="contact-form" method="post" action="Question.html">  <input align="left" type="submit" name="delete" value="ลบ"></form>
-                </td> -->
+
+            </tr>
 
             </table>
 
               <form>
                   สอบถาม <br/>
-                  ชื่อ    <input ng-model="question.username" type="text" id="name" placeholder="ชื่อผู้ถาม">
-                  Email <input type="email" id="email" placeholder="email@xxxxx.com">
-                  ข้อความ <textarea ng-model="question.questionDes" rows="60" cols="70" placeholder="คำถาม" ></textarea>
+                  ชื่อ    <input ng-model="question.username" type="text" id="name" placeholder="ชื่อผู้ถาม" size="20">
+                  Email <input type="email" id="email" placeholder="email@xxxxx.com" size="35">
+                  ข้อความ <textarea class="questiontextarea" ng-model="question.questionDes" placeholder="คำถาม" ></textarea>
                   <input ng-click="addQuestion()" align="left" type="submit" name="button" value="ส่ง">
                   <input align="left" type="submit" name="button" value="ยกเลิก">
               </form>
