@@ -29,6 +29,7 @@ Modernizr.load({
      <h1 class="page-title services" align="center">กิจกรรมวัดเจดีย์หลวง</h1>
             
             <table width="1000" align="center">
+
             <tr ng-repeat="news in allNews">
             <td>
                 <div ng-repeat="picture in news.newsPictureLocation" class="text-center">
@@ -49,41 +50,5 @@ Modernizr.load({
    
 </div>
 </body>
-<footer>
-<div class="credit-row">
-  <div class="row">
-    <div class="columns large-11 credit"> &copy; College of Arts, Media and Technology<a href="#"> Chiang Mai University</a>
-    </div>
-  </div>
-</div>
 
-<script>
-Modernizr.load({
-    test: Modernizr.placeholder,
-    nope: 'js/placeholder.min.js'
-});
-function goToNewPage() {
-    if (document.getElementById('target').value) {
-        window.location.href = document.getElementById('target').value;
-    }
-}
-</script>
-<script>
-$(document).ready(function () {
-    $('ul.sf-menu').superfish({
-        animation: {
-            height: 'show'
-        },
-        delay: 400
-    });
-    $("img.scrollToTop").click(function () {
-        $("html, body").animate({
-            scrollTop: 0
-        }, "slow");
-    });
-    $('.flexslider').flexslider();
-    $('.flexcar').flexslider();
-});
-</script>
-</footer>
 </html>
