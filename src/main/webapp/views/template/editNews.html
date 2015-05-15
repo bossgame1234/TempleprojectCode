@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html><!--<![endif]-->
+<head>
+<title>edithistory</title>
+<
+<script>
+Modernizr.load({
+    // test if browser understands media queries
+    test: Modernizr.mq('only all'),
+    // if not load ie8-grid
+    nope: 'css/ie8-grid-foundation-4.css'
+});
+</script>
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="css/ie-fixes.css">
+<![endif]-->
+    <div class="columns large-12">
+
+        <div class="columns large-4 small-12"><a href="#/Homepage"><img src="picture/logo.png" alt="" class="logo"></a>
+    </div></div>
+</head>
+
+<body>
+<div class="header">
+  <div class="row">
+    <div class="columns large-12">
+  </div>
+  </div>
+</div>
+<div class="row content-wrapper">
+
+<h1 class="page-title services">แก้ไขหน้าประวัติ</h1>  
+  <div class="columns large-12">
+    <div class="row wrapper">
+      <div class="columns large-4 content sidebar">
+        <ul class="row">
+            <form  novalidate flow-init>
+        <div>
+<table width="1000">
+<tr>
+<td width="150" bgcolor="">รูปภาพกิจกรรม : </td>
+<td><input align="middle" type="file"  flow-btn /></td></tr>
+   <!-- preview-->
+<tr>
+<td>วันที่กิจกกรม</td>
+<td>
+
+
+  <input type="datetime-local" name="bdaytime">
+
+ </td>
+</tr>
+<tr>
+<td height="10">รายละเอียดกิจกรรม </td>
+<td height="10"><textarea rows="10" cols="40" ng-model="history.historyDes"> </textarea></td>
+<tr> <td width="150" bgcolor="#FFFFFF"></td>
+<td bgcolor="#FFFFFF">
+ </td>
+</tr>
+</tr>
+
+</table>
+
+              <div>
+              <table>
+                  <tr ng-repeat="file in $flow.files">
+                      <td>{{$index+1}}</td>
+                      <td>{{file.name}}</td>
+                      <!--to see the preview image file-->
+                      <td><img flow-img="$flow.files[{{$index}}]" /></td>
+                      <!--ng-click="addHistory($flow)" -->
+                  </tr>
+              </table>
+          </div>
+     <input type="submit" ng-click="editHistory($flow)" value="แก้ไข"/>
+     <input name="btnSubmit" type="submit" value="ยกเลิก" />
+
+          </form>
+</div>
+        </ul>
+
+      </div>
+      <div class="columns large-8">
+    
+        <div class="row">
+        
+     
+     </div></div></div></div></div></body>
+<footer class="footer">
+  <div class="row"></div>
+</footer>
+<div class="credit-row">
+  <div class="row">
+    <div class="columns large-11 credit"> &copy; College of Arts, Media and Technology<a href="#"> Chiang Mai University</a> Design by: <a href="http://topwebsitetemplates.org">PowerPuff Girls w/</a></div>
+  </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/hoverIntent.js"></script>
+<script src="js/superfish.js"></script>
+<script src="js/slider/jquery.flexslider.js"></script>
+<script>
+Modernizr.load({
+    test: Modernizr.placeholder,
+    nope: 'js/placeholder.min.js'
+});
+function goToNewPage() {
+    if (document.getElementById('target').value) {
+        window.location.href = document.getElementById('target').value;
+    }
+}
+</script>
+<script>
+$(document).ready(function () {
+    $('ul.sf-menu').superfish({
+        animation: {
+            height: 'show'
+        },
+        delay: 400
+    });
+    $("img.scrollToTop").click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, "slow");
+    });
+    $('.flexslider').flexslider();
+    $('.flexcar').flexslider();
+});
+</script>
+</body>
+</html>
