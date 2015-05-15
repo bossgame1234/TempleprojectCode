@@ -15,12 +15,9 @@ public class History {
     @Id
     long historyID;
     String historyDes;
-
     @OneToMany(fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     Set<Picture> historyPictureLocation = new HashSet<>();
-
-
 
     public History(){
     }

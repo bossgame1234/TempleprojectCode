@@ -54,14 +54,11 @@
     <script src="js/contactService.js"></script>
     <script src="js/questionController.js"></script>
     <script src="js/questionService.js"></script>
-<<<<<<< HEAD
-=======
     <script src="js/answerController.js"></script>
     <script src="js/answerService.js"></script>
     <script src="js/newsController.js"></script>
     <script src="js/newsService.js"></script>
 
->>>>>>> 37d44e8079741cf0094e0971239f01cb88029053
     <script src="bower_components/ng-flow/dist/ng-flow-standalone.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src ="bower_components/angular-translate/angular-translate.js"></script>
@@ -92,11 +89,7 @@
                     <li ng-class="{true: 'active'}[menuActive('/Historypage')]">
                         <a href="#/Historypage">ประวัติ</a>
                     </li>
-<<<<<<< HEAD
-                    <li ng-class="{true: 'active'}[menuActive('/QuestionAnswer')]">
-=======
                     <li ng-class="{true: 'active'}[menuActive('/Questionpage')]">
->>>>>>> 37d44e8079741cf0094e0971239f01cb88029053
                         <a  href="#/Questionpage">ถาม-ตอบธรรมะ</a>
                     </li>
                         <li ng-class="{true: 'active'}[menuActive('/Questionpage')]">
