@@ -26,31 +26,24 @@ public class Gallery {
     public Long getGalleryId() {
         return galleryId;
     }
-
     public void setGalleryId(Long galleryId) {
         this.galleryId = galleryId;
     }
-
     public String getGalleryName() {
         return galleryName;
     }
-
     public void setGalleryName(String galleryName) {
         this.galleryName = galleryName;
     }
-
     public Date getGalleryDate() {
         return galleryDate;
     }
-
     public void setGalleryDate(Date galleryDate) {
         this.galleryDate = galleryDate;
     }
-
     public List<Picture> getPictureList() {
         return pictureList;
     }
-
     public void setPictureList(List<Picture> pictureList) {
         this.pictureList = pictureList;
     }

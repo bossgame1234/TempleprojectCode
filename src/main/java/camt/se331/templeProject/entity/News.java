@@ -1,8 +1,8 @@
 package camt.se331.templeProject.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.hibernate.annotations.Cascade;
+
+import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
 import java.util.HashSet;
@@ -15,13 +15,14 @@ import java.util.Set;
 public class News {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     long newsId;
-private String newsName;
-private Date newsDate;
-
+    private String newsName;
+    private Date newsDate;
     private Time newsTime;
     private String newsPlace;
+    @OneToMany(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     Set<Picture> newsPictureLocation = new HashSet<>();
 
     public News(){
@@ -36,7 +37,6 @@ public News(String name, Date newsDate, Time newsTime, String newsPlace){
     this.newsDate = newsDate;
     this.newsTime = newsTime;
     this.newsPlace = newsPlace;
-
     }
 
     public Time getNewsTime() {

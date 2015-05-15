@@ -37,8 +37,10 @@ public class HistoryTest {
         HistoryDao historyDao = mock(HistoryDao.class);
         when(historyDao.updateHistory(history)).thenReturn(history);
 
-     //   HistoryService historyService = new HistoryServiceImpl(historyDao);
-     //   assertThat(historyService.updateHistory(history).getHistoryDes(),is("this is temple history"));
+
+        HistoryService historyService = new HistoryServiceImpl();
+        assertThat(historyService.updateHistory(history).getHistoryDes(),is("this is temple history"));
+
 
 
     }
