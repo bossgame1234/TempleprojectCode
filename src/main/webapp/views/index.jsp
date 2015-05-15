@@ -71,6 +71,7 @@
         font-size: 15px;
     }
 
+
     </style>
 
 </head>
@@ -131,4 +132,13 @@
 </div>
 
 </body>
+<footer>
+    <div>
+        <div class="columns large-11 credit" style="background-color: #161616"> &copy; College of Arts, Media and Technology Chiang Mai University Design by: PowerPuff Girls w/ Proposal
+        </div>
+
+    </div>
+
+
+</footer>
 </html>

@@ -29,14 +29,7 @@ Modernizr.load({
      <h1 class="page-title services" align="center">กิจกรรมวัดเจดีย์หลวง</h1>
             
             <table width="1000" align="center">
-<<<<<<< HEAD
-            <tr>
-              <td rowspan="2" width="300"> <div class="columns large-4 content sidebar">
-              <p align="center"> <img src="../../../../../../../Users/PimpapornChaichompoo/Downloads/templateSWCon/InterfaceSwCon/picture/history.jpg" alt=""> </p>
-              </td>
-              <td width="700">
-        <h1 class="page-title services" align="center">กิจกรรมที่1</h1>
-=======
+
             <tr ng-repeat="news in allNews">
             <td>
                 <div ng-repeat="picture in news.newsPictureLocation" class="text-center">
@@ -45,7 +38,6 @@ Modernizr.load({
             </td>
             <td>
                <a href="#"> {{news.newsName}}</a>
->>>>>>> 601e59163a4fc9e4fdacc996a5d5d0888276d3f8
         	</td>
             <tr>
             <td> วันที่กิจกรรม </td>
@@ -58,41 +50,5 @@ Modernizr.load({
    
 </div>
 </body>
-<footer>
-<div class="credit-row">
-  <div class="row">
-    <div class="columns large-11 credit"> &copy; College of Arts, Media and Technology<a href="#"> Chiang Mai University</a>
-    </div>
-  </div>
-</div>
 
-<script>
-Modernizr.load({
-    test: Modernizr.placeholder,
-    nope: 'js/placeholder.min.js'
-});
-function goToNewPage() {
-    if (document.getElementById('target').value) {
-        window.location.href = document.getElementById('target').value;
-    }
-}
-</script>
-<script>
-$(document).ready(function () {
-    $('ul.sf-menu').superfish({
-        animation: {
-            height: 'show'
-        },
-        delay: 400
-    });
-    $("img.scrollToTop").click(function () {
-        $("html, body").animate({
-            scrollTop: 0
-        }, "slow");
-    });
-    $('.flexslider').flexslider();
-    $('.flexcar').flexslider();
-});
-</script>
-</footer>
 </html>
