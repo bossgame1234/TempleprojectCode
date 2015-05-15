@@ -15,22 +15,7 @@ Modernizr.load({
 });
 </script>
 
-<!--[if lt IE 9]>
-<link rel="stylesheet" href="css/ie-fixes.css">
-<![endif]-->
-    <div class="columns large-12">
-
-        <div class="columns large-4 small-12"><a href="#/Homepage"><img src="picture/logo.png" alt="" class="logo"></a>
-    </div></div>
-</head>
-
 <body>
-<div class="header">
-  <div class="row">
-    <div class="columns large-12">
-  </div>
-  </div>
-</div>
 <div class="row content-wrapper">
 
 <h1 class="page-title services">แก้ไขหน้าประวัติ</h1>  
@@ -38,12 +23,12 @@ Modernizr.load({
     <div class="row wrapper">
       <div class="columns large-4 content sidebar">
         <ul class="row">
-            <form  novalidate flow-init>
+            <form  novalidate flow-init >
         <div>
 <table width="1000">
 <tr>
 <td width="150" bgcolor="">รูปภาพประวัติ : </td>
-<td><input align="middle" type="file"  flow-btn /></td></tr>
+<td><input align="middle" type="file" flow-file-added="!!{jpg:1}[$file.getExtension()]" flow-btn /></td></tr>
    <!-- preview-->
 
 <tr>
@@ -68,11 +53,11 @@ Modernizr.load({
                   </tr>
               </table>
           </div>
+
      <input type="submit" ng-click="editHistory($flow)" value="แก้ไข"/>
      <input name="btnSubmit" type="submit" value="ยกเลิก" />
-
-          </form>
 </div>
+                </form>
         </ul>
 
       </div>

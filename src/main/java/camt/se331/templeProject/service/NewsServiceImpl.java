@@ -2,6 +2,7 @@ package camt.se331.templeProject.service;
 
 import camt.se331.templeProject.dao.NewsDao;
 import camt.se331.templeProject.entity.News;
+import camt.se331.templeProject.entity.Picture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,5 +35,7 @@ public class NewsServiceImpl implements NewsService {
         News news  = newsDao.getNews(id);
       return newsDao.deleteNews(news);
     }
+
+
 
 }
