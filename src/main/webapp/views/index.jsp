@@ -23,10 +23,6 @@
     <link rel="stylesheet" href="css/flexslider.css">
     <link rel="stylesheet" href="css/lightbox.css">
 
-    <link href='http://fonts.googleapis.com/css?family=Quando' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,300' rel='stylesheet' type='text/css'>
-    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-
     <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
@@ -36,12 +32,10 @@
     <script src="bower_components/angular-file-upload/angular-file-upload-shim.js"></script>
     <script src="bower_components/angular-file-upload/angular-file-upload.min.js"></script>
     <script src="app.js"></script>
-    <script src="js/colorbox/jquery.colorbox-min.js"></script>
+   <script src="js/colorbox/jquery.colorbox-min.js"></script>
     <script src="js/slider/jquery.flexslider.js"></script>
     <script src="js/vendor/custom.modernizr.js"></script>
-    <script src="js/lightbox/prototype.js" ></script>
-    <script src="js/lightbox/scriptaculous.js?load=effects" ></script>
-    <script src="js/lightbox/lightbox.js" ></script>
+<!--     <script src="js/lightbox/prototype.js" ></script>!-->
 
     <script src="js/userController.js"></script>
     <script src="js/securityController.js"></script>
@@ -83,6 +77,7 @@
     <div role="navigation">
     <nav class="nav nav-pills nav-justified">
             <div class="collapse navbar-collapse" align="center">
+
                     <ul class="nav navbar-nav">
                     <li class="nav" ng-class="{true: 'active'}[menuActive('/Homepage')]">
                         <a  href="#/Homepage"><p class="fontnav">หน้าแรก</p></a>

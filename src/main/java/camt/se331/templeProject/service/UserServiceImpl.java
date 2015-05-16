@@ -1,15 +1,13 @@
 package camt.se331.templeProject.service;
 
-import camt.se331.templeProject.dao.UserDao;
-import camt.se331.templeProject.entity.Role;
 import camt.se331.templeProject.entity.User;
+import camt.se331.templeProject.repository.RoleRepository;
 import camt.se331.templeProject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Dell on 14/4/2558.
@@ -19,6 +17,8 @@ import java.util.Set;
 public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Override
     public List<User> findAll() {
@@ -32,9 +32,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User addUser(User user) {
-        Role role = new Role();
-        role.setRoleName("registered user");
-        user.getRoles().add(role);
+        user.getRoles().add(roleRepository.findOne(2L));
         return userRepository.save(user);
     }
 
