@@ -1,7 +1,16 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Untitled Document</title>
+
     <style>
+
+        .editHome{
+            position: absolute;
+            top:-60px;
+            right: -60px;
+        }
         .myButton {
             -moz-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
             -webkit-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
@@ -38,61 +47,27 @@
             position:relative;
             top:1px;
         }
-    .logintable{
-        position: absolute;
-        top: -100px;
-        left: 250px;
-    }
-
 
 
     </style>
 </head>
 <body>
+<div class="container">
 
-<div class="bb" style=";width:800px; height:570px; margin-top:5px; position:relative;left:20px;top:130px;">
-<form class="form-inline" ng-hide="user" ng-controller="loginController">
 
-  <table class="logintable" align="center" style="width: 300px; height: 300px">
 
-    <th colspan="2" align="center">ล็อกอินเข้าสู่ระบบ สำหรับสมาชิก<br></th>
-      <tr>
-          <td width="100">
-              <label for="username" class="col-sm-3 control-label" style="width: 100px">ชื่อผู้ใช้งาน </label>
-          </td>
-          <td>
-          <input ng-model="username" id="username" type="text" class="form-control" />
-          </td>
-      </tr>
-      <tr>
-          <td width="100">
-          <label for="password" class="col-sm-3 control-label" style="width: 100px">รหัสผ่าน </label>
-          </td>
-          <td>
-              <input ng-model="password" id="password" type="password" class="form-control"/>
-          </td>
-      </tr>
-      <tr>
-        <td align="center" colspan="2">
-            <a href="#/register">
-                <a href="#" class="myButton" ng-click="editPicture($flow)">ลงทะเบียน</a>
-                <a href="#" class="myButton"  ng-click="login()">เข้าสู่ระบบ</a>
-                </a>
-        </td>
-          <tr>
-      <td colspan="2" align="center"> <a class="into" href="#/Homepage">เข้าสู่เว็บไซต์</a> </td>
-  </tr>
+    <table align="center" width="1000" style="border: 0px">
+        <tr><td colspan="2" bgcolor="white"><h1 class="page-title">แก้ไข ข้อมูลส่วนตัว</h1></td></tr>
+        <tr><td width="100" bgcolor="white">ชื่อ-นามสกุล</td><td bgcolor="white"><textarea style="height: 10px" class="set" ng-model=""> </textarea></td></tr>
+        <tr><td width="100" bgcolor="white">ชื่อผู้ใช้</td><td bgcolor="white"><textarea style="height: 10px" class="set" ng-model=""> </textarea></td></tr>
+        <tr><td width="100" bgcolor="white">รหัสผ่าน</td><td bgcolor="white"><textarea style="height: 10px" class="set" ng-model=""> </textarea></td></tr>
 
-      </tr>
-    <tr><td colspan="2"><div class="ng-hide" ng-show="initialized">
-        <div class="alert alert-danger" ng-show="error">{{error}}</div></div></td><br/><br/>
-    </tr>
-  </table>
-</form>
-</div>
+        <tr><td></td>
+            <td align="left" bgcolor="white"><a href="#/" class="myButton" ng-click="editProfile()">แก้ไข</a>
+                <a href="#/" class="myButton">ยกเลิก</a></td></tr>
+
+    </table>
 
 </div>
-
 </body>
-
 </html>

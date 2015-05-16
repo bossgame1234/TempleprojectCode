@@ -5,228 +5,124 @@
 <title>Untitled Document</title>
 
 <style>
-body {
-    background-image: url(http://www.fotobug.net/forum/attachments/month_1411/14110309420d0f986ed4e14127.jpg);
-    font-family: "Helvetica Neue", Helvetica, Arial;
-    padding-top: 20px;
+
+ .editHome{
+     position: absolute;
+     top:-60px;
+     right: -60px;
+ }
+.myButton {
+    -moz-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+    box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c7c7c7), color-stop(1, #dbdbdb));
+    background:-moz-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+    background:-webkit-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+    background:-o-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+    background:-ms-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+    background:linear-gradient(to bottom, #c7c7c7 5%, #dbdbdb 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7c7c7', endColorstr='#dbdbdb',GradientType=0);
+    background-color:#c7c7c7;
+    border:1px solid #b5b5b5;
+    display:inline-block;
+    cursor:pointer;
+    color:#000000;
+    font-family:Arial;
+    font-size:12px;
+    font-weight:bold;
+    padding:3px 20px;
+    text-decoration:none;
+}
+.myButton:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dbdbdb), color-stop(1, #c7c7c7));
+    background:-moz-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+    background:-webkit-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+    background:-o-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+    background:-ms-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+    background:linear-gradient(to bottom, #dbdbdb 5%, #c7c7c7 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbdbdb', endColorstr='#c7c7c7',GradientType=0);
+    background-color:#dbdbdb;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
 }
 
-.container {
-	
-    width: 406px;
-    max-width: 406px;
-    margin: 0 auto;
-}
 
-#signup {
-    padding: 0px 25px 25px;
-    background: #fff;
-    box-shadow: 
-        0px 0px 0px 5px rgba( 255,255,255,0.4 ), 
-        0px 4px 20px rgba( 0,0,0,0.33 );
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    display: table;
-    position: static;
-}
-
-#signup .header {
-    margin-bottom: 20px;
-}
-
-#signup .header h3 {
-    color: #333333;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-#signup .header p {
-    color: #8f8f8f;
-    font-size: 14px;
-    font-weight: 300;
-}
-
-#signup .sep {
-    height: 1px;
-    background: #e8e8e8;
-    width: 406px;
-    margin: 0px -25px;
-}
-
-#signup .inputs {
-    margin-top: 25px;
-}
-
-#signup .inputs label {
-    color: #8f8f8f;
-    font-size: 12px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    margin-bottom: 7px;
-    display: block;
-}
-
-input::-webkit-input-placeholder {
-    color:    #b5b5b5;
-}
-
-input:-moz-placeholder {
-    color:    #b5b5b5;
-}
-
-#signup .inputs input[type=name], input[type=password], input[type=repassword], input[type=username] {
-    background: #f5f5f5;
-    font-size: 0.8rem;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    border: none;
-    padding: 13px 10px;
-    width: 330px;
-    margin-bottom: 20px;
-    box-shadow: inset 0px 2px 3px rgba( 0,0,0,0.1 );
-    clear: both;
-}
-
-#signup .inputs input[type=name]:focus, input[type=password]:focus, input[type=repassword]:focus, input[type=username]:focus {
-    background: #fff;
-    box-shadow: 0px 0px 0px 3px #fff38e, inset 0px 2px 3px rgba( 0,0,0,0.2 ), 0px 5px 5px rgba( 0,0,0,0.15 );
-    outline: none;   
-}
-
-#signup .inputs .checkboxy {
-    display: block;
-    position: static;
-    height: 25px;
-    margin-top: 10px;
-    clear: both;
-}
-
-#signup .inputs input[type=checkbox] {
-    float: left;
-    margin-right: 10px;
-    margin-top: 3px;
-}
-
-#signup .inputs label.terms {
-    float: left;
-    font-size: 14px;
-    font-style: italic;
-}
-
-#signup .inputs #submit {
-    width: 100%;
-    margin-top: 20px;
-    padding: 15px 0;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-align: center;
-    text-decoration: none;
-        background: -moz-linear-gradient(
-        top,
-        #b9c5dd 0%,
-        #a4b0cb);
-    background: -webkit-gradient(
-        linear, left top, left bottom, 
-        from(#b9c5dd),
-        to(#a4b0cb));
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px solid #737b8d;
-    -moz-box-shadow:
-        0px 5px 5px rgba(000,000,000,0.1),
-        inset 0px 1px 0px rgba(255,255,255,0.5);
-    -webkit-box-shadow:
-        0px 5px 5px rgba(000,000,000,0.1),
-        inset 0px 1px 0px rgba(255,255,255,0.5);
-    box-shadow:
-        0px 5px 5px rgba(000,000,000,0.1),
-        inset 0px 1px 0px rgba(255,255,255,0.5);
-    text-shadow:
-        0px 1px 3px rgba(000,000,000,0.3),
-        0px 0px 0px rgba(255,255,255,0);
-    display: table;
-    position: static;
-    clear: both;
-}
-
-#signup .inputs #submit:hover {
-    background: -moz-linear-gradient(
-        top,
-        #a4b0cb 0%,
-        #b9c5dd);
-    background: -webkit-gradient(
-        linear, left top, left bottom, 
-        from(#a4b0cb),
-        to(#b9c5dd));
-}
 </style>
 </head>
 <body>
 <div class="container">
-    <form id="signup" name="signup"   novalidate>
-        <div class="header">
-            <h3>ลงทะเบียน</h3>
-            <p>*กรอกให้ครบทุกช่อง</p>
-        </div>
-        <div class="sep"></div>
-        <div class="inputs">
-        <div class="form-group" >
-               <input ng-model="user.f_name" id="f_name" name="f_name" type="name" class="form-control"  placeholder="ชื่อ" autofocus required/>
-                  <div class="alert alert-danger" role="alert"  ng-show="signup.f_name.$error.required">
-              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-              โปรดใส่ชื่อ
-                 </div>
 
-            </div>
-            <div class="form-group" >
-            <input ng-model="user.l_name" id="l_name" name="l_name" type="name" placeholder="นามสกุล"  required/>
-            <div class="alert alert-danger" role="alert" ng-show="signup.l_name.$error.required">
-                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                โปรดใส่นามสกุล
-            </div>
-                </div>
-            <div class="form-group" >
-        <input ng-model="user.username" type="text" ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="username" name="username" placeholder="ชื่อผู้ใช้งาน(E-mail)"  required/>
-                <div class="alert alert-danger" role="alert" ng-show="signup.username.$error.required">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    โปรดใส่ชื่อผู้ใช้งาน ในรูปแบบ e-mail
-                </div>
-                <div class="alert alert-danger" role="alert" ng-show="signup.username.$error.pattern">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    โปรดใส่ชื่อผู้ใช้งาน ในรูปแบบ e-mail
-                    </div>
-                <div class="alert alert-danger" role="alert"  ng-show="duplicateUser">
-                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    ใส่ชื่อผู้ใช้ซํ้า กรุณาใส่ใหม่
-                </div>
-            </div>
-            <div class="form-group" >
-            <input ng-model="user.password" type="password" id="password" name="password" placeholder="รหัสผ่าน" required/>
-                <div class="alert alert-danger" role="alert" ng-show="signup.password.$error.required">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    โปรดใส่รหัสผ่าน
-                </div>
-            </div>
-            <div class="form-group" >
-            <input ng-model="password2" type="password" id="repassword" name="repassword"  placeholder="ยืนยัน-รหัสผ่าน" required/>
-                <div class="alert alert-danger" role="alert" ng-show="signup.repassword.$error.required">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    โปรดยืนยันรหัสผ่าน
-                </div>
-                <div class="alert alert-danger" role="alert" ng-show="confirmPassError">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    กรุณายืนยันรหัสให้ถูกต้อง
-                </div>
-            </div>
-            <a id="submit" ng-click="addUser()" ng-disabled="signup.$invalid">สมัครสมาชิก วัดเจดีย์หลวง</a>
-        
-        </div>
+    <form id="signup" name="signup"   novalidate>
+       <table style="border: 0px"><tr><td><h3 style="font-size: 30px">ลงทะเบียน</h3></td>
+        <td><p align="justify" style="color: red">*กรุณากรอกให้ครบทุกช่อง</p></td></table>
+                <table width="500" style="border: 0px">
+
+                    <tr>
+                        <td style="width: 300px; background-color:#ffffff">
+                            <input ng-model="user.f_name" id="f_name" name="f_name" type="name" class="form-control"  placeholder="ชื่อ" autofocus required/>
+                        </td>
+                        <td style="width: 200px; background-color:#ffffff">
+                            <div class="alert alert-danger" role="alert"  ng-show="signup.f_name.$error.required">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">โปรดใส่ชื่อ</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 300px; background-color:#ffffff">
+                            <input ng-model="user.l_name" id="l_name" name="l_name" type="name" class="form-control" placeholder="นามสกุล"  required/>
+                        </td>
+                        <td style="width: 200px; background-color:#ffffff">
+                            <div class="alert alert-danger" role="alert" ng-show="signup.l_name.$error.required">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">โปรดใส่นามสกุล</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 300px; background-color:#ffffff">
+                            <input class="form-control" ng-model="user.username" type="text" ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" id="username" name="username" placeholder="ชื่อผู้ใช้งาน(E-mail)"  required/>
+                        </td>
+                        <td style="width: 200px; background-color:#ffffff">
+                            <div class="alert alert-danger" role="alert" ng-show="signup.username.$error.required">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">โปรดใส่ชื่อผู้ใช้งาน<br/> ในรูปแบบe-mail</span>
+                            </div>
+                            <div class="alert alert-danger" role="alert" ng-show="signup.username.$error.pattern">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">โปรดใส่ชื่อผู้ใช้งาน<br/> ในรูปแบบe-mail</span>
+                            </div>
+                            <div class="alert alert-danger" role="alert"  ng-show="duplicateUser">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">ใส่ชื่อผู้ใช้ซํ้า กรุณาใส่ใหม่</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 500px; background-color:#ffffff">
+                            <input class="form-control" ng-model="user.password" type="password" id="password" name="password" placeholder="รหัสผ่าน" required/>
+                        </td>
+                        <td style="width: 300px; background-color:#ffffff">
+                            <div class="alert alert-danger" role="alert" ng-show="signup.password.$error.required">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">โปรดใส่รหัสผ่าน</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 500px; background-color:#ffffff">
+                            <input class="form-control" ng-model="password2" type="password" id="repassword" name="repassword"  placeholder="ยืนยัน-รหัสผ่าน" required/>
+                        </td>
+                        <td style="width: 300px; background-color:#ffffff">
+                            <div class="alert alert-danger" role="alert" ng-show="signup.repassword.$error.required">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">โปรดยืนยันรหัสผ่าน</span>
+                            </div>
+                            <div class="alert alert-danger" role="alert" ng-show="confirmPassError">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">กรุณายืนยันรหัสให้ถูกต้อง</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><a class="myButton" ng-click="addUser()" ng-disabled="signup.$invalid">สมัครสมาชิก วัดเจดีย์หลวง</a></td>
+                    </tr>
+                </table>
+
     </form>
 
 </div>

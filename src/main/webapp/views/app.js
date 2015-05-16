@@ -59,13 +59,12 @@ $routeProvider.
         templateUrl: 'template/Question.html',
         controller: 'listQuestionController'
     }).
-    when('/Answerpage',{
+    when('/Answerpage', {
         templateUrl: 'template/Answer.html',
         controller: 'listQuestionControllerAdmin'
-
     }).
     when('/OwnQuestionpage',{
-        templateUrl: 'template/Answer.html',
+        templateUrl: 'template/ownquestion.html',
         controller: ''
     }).
     when('/Mappage',{
@@ -96,6 +95,10 @@ $routeProvider.
     when('/register',{
         templateUrl: 'template/register.html',
         controller:   'addUserController'
+    }).
+    when('/setting',{
+        templateUrl: 'template/setting.html',
+        controller: ''
     }).
 
 otherwise({redirectTo: '/Loginpage'});
