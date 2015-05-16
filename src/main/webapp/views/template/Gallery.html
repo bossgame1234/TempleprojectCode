@@ -1,15 +1,9 @@
-<head>
-
-
-</head>
 
 <div class="row content-wrapper">
     <h1 class="page-title">อัลบั้มรูปภาพ</h1>
 
-    <div class="thumbnail-block">
 
-
-
+<<<<<<< HEAD
         <ul class="large-block-grid-4">
             <div class="col-md-3" width="300" height="200" ng-repeat="gallery in galleries">
                 <table width="700">
@@ -22,10 +16,27 @@
                             <img ng-src="picture/add.jpg" class="thumbnail" /> </a>
                             <p> เพิ่มรูปภาพ</p>
                         </td>
+=======
+                <table width="900">
+                    <tr>
+                <td>
+                    <div class="col-md-3" width="500" height="200" ng-repeat="gallery in galleries">
+                    <a class="thumbnail" href="#/Picturepage/{{gallery.galleryId}}">
+                    <img ng-src="data:{{gallery.pictureList[0].pictureType}};base64,{{gallery.pictureList[0].pictureLocation}}" class="thumbnail" />
+                    </a>
+                   <p> {{gallery.galleryName}}</p>
+                </div></td>
+                </tr>
+                    <tr><td>
+                    <a class="thumbnail" href="#/editGallery">
+                    <img ng-src="picture/add.jpg" class="thumbnail" />
+                    </a>
+                    <p> เพิ่มรูปภาพ</p>
+                </td>
+>>>>>>> 4897cb42915dbf36d1e4ebcb60f98f49bc2b8be3
 
                      </tr>
             </table>
-        </ul>
 
     </div>
 </div>

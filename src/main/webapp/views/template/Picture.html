@@ -1,28 +1,28 @@
 <div>
 <div class="row content-wrapper">
   <div class="columns large-12">
-    <div class="row wrapper">
-      <div class="columns large-12 content">
-        <textarea class="tiltle-gallery" ng-model="gallery.galleryName"> {{gallery.galleryName}}</textarea>
+      <div class="row wrapper">
+          <div class="columns large-12 content">
+              <textarea class="tiltle-gallery" ng-model="gallery.galleryName"> {{gallery.galleryName}}</textarea><br/>
 
-        <div class="thumbnail-block">
-          <ul class="large-block-grid-4">
-              <div class="col-md-3" width="300" height="200" ng-repeat="picture in gallery.pictureList">
-                  <figure ><a href="data:{{picture.pictureType}};base64,{{picture.pictureLocation}}"><img ng-src="data:{{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail"/>
+              <div class="thumbnail-block">
+                  <ul class="large-block-grid-4">
+                      <div class="col-md-3" width="400" height="300" ng-repeat="picture in gallery.pictureList">
+                          <figure ><a href="data:{{picture.pictureType}};base64,{{picture.pictureLocation}}"><img ng-src="data:{{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail"/>
+                          </a></figure>
+                      </div>
+                      <div  class="col-md-3" width="400" height="200">
+                          <figure><a class="thumbnail" href="#/addPicture/{{gallery.galleryId}}"><img ng-src="picture/add.jpg" class="thumbnail" />
+
+                      <figcaption><a style="align-content: center"> เพิ่มรูปภาพ </a></figcaption>
                   </a></figure>
               </div>
-              <div  class="col-md-3" width="300" height="200">
-                  <figure><a class="thumbnail" href="#/addPicture/{{gallery.galleryId}}"><img ng-src="picture/add.jpg" class="thumbnail" />
-                      <figcaption>เพิ่มรูปภาพ</figcaption>
-                  </a></figure>
+                  </ul>
               </div>
-
-      </ul>
+          </div>
       </div>
-      </div>
-      </div>
-      </div>
-      </div>
+  </div>
+</div>
     <input align="left" type="submit" name="answer" value="ตกลง" ng-click="editGallery()">
 
 </div>
