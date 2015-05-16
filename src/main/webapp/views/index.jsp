@@ -76,17 +76,7 @@
 
 </head>
 <body>
-<<<<<<< HEAD
-<div class="page-header"  >
-    <div class="row">       <h1><img src="picture/logo.png" alt="" class="logo"></h1>
 
-    <div class="col-md-11">
-    <div role="navigation">
-    <nav class="nav nav-pills nav-justified">
-            <div class="collapse navbar-collapse" align="center">
-
-                    <ul class="nav navbar-nav">
-=======
 <div class="page-header" style="background-color: transparent; background: url(picture/head.png)" >
     <div class="row">
 
@@ -95,7 +85,6 @@
     <nav class="nav nav-pills nav-justified" style="padding-top: 180px" >
             <div class="collapse navbar-collapse" align="center" >
                     <ul class="nav navbar-nav" style="top: 100px">
->>>>>>> origin/master
                     <li class="nav" ng-class="{true: 'active'}[menuActive('/Homepage')]">
                         <a  href="#/Homepage"><p class="fontnav">หน้าแรก</p></a>
                     </li>
