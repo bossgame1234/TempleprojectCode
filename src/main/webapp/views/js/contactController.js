@@ -11,6 +11,9 @@ contactMainController.controller('addContactController', ['$scope', '$http', '$l
         $scope.addContact = true;
         $scope.editContact = false;
         $scope.addContact = function () {
+            if(!$scope.myForm.email-input.$valid){
+                alert(valid);
+            }
             contactService.save($scope.contact,function(){
                 $rootScope.addSuccess = true;
                 $location.path("Contactpage");

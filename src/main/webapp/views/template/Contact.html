@@ -80,26 +80,26 @@
             <tr>
                 <td  bgcolor="white" width="10"></td>
                  <td bgcolor="white" width="90" align="left"> ชื่อผู้ติดต่อ  </td>
-                 <td bgcolor="white" width="900"><input type="text" name="name" placeholder="ชื่อผู้ติดต่อ"></td>
+                 <td bgcolor="white" width="900"><input type="text" name="name" placeholder="ชื่อผู้ติดต่อ" required></td>
             </tr>
             <tr>
                 <td bgcolor="white" width="10"></td>
                 <td bgcolor="white" width="90" align="left">Email</td>
-                <td bgcolor="white" width="900"><input type="text" name="email" placeholder="Email"></td>
+                <td bgcolor="white" width="900"><input type="text" name="email" placeholder="Email" required></td>
             </tr>
             <tr>
                 <td bgcolor="white" width="10"></td>
                 <td bgcolor="white" width="90" align="left">หัวข้อ</td>
-                <td bgcolor="white" width="900"><input width="30" type="text" name="subject" placeholder="หัวข้อ"></td>
+                <td bgcolor="white" width="900"><input width="30" type="text" name="subject" placeholder="หัวข้อ" required></td>
             </tr>
             <tr>
                 <td bgcolor="white" width="10"></td>
                 <td bgcolor="white" width="90" align="left">ข้อความ</td>
-                <td bgcolor="white" width="900"><textarea rows="60" cols="70" class="contacttext"  name="message" placeholder="ข้อความ"></textarea></td>
+                <td bgcolor="white" width="900"><textarea rows="60" cols="70" class="contacttext"  name="message" placeholder="ข้อความ" required></textarea></td>
             </tr>
             <tr>
                 <td bgcolor="white" width="10" colspan="2"></td>
-                <td bgcolor="white"> <a href="#" class="myButton" ng-click="addContact()">ส่ง</a>
+                <td bgcolor="white"> <a href="#/Contactpage" class="myButton" ng-click="addContact(myForm.email-input.$valid)">ส่ง</a>
                     <a href="#" class="myButton">ยกเลิก</a></td>
             </tr>
             </form>
