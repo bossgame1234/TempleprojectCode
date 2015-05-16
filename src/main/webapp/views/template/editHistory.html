@@ -71,19 +71,20 @@
 
                             </table>
 
-                            <div>
-                                <table>
-                                    <tr ng-repeat="file in $flow.files">
-                                        <td>{{$index+1}}</td>
-                                        <td>{{file.name}}</td>
-                                        <!--to see the preview image file-->
-                                        <td><img flow-img="$flow.files[{{$index}}]" /></td>
-                                        <!--ng-click="addHistory($flow)" -->
-                                    </tr>
-                                </table>
-                            </div>
-                            <a href="#/Historypage" ng-click="editHistory($flow)"  class="myButton">แก้ไข</a>
-                            <a href="#" class="myButton">ยกเลิก</a>
+              <div>
+              <table>
+                  <tr ng-repeat="file in $flow.files">
+                      <td>{{$index+1}}</td>
+                      <td>{{file.name}}</td>
+                      <!--to see the preview image file-->
+                      <td><img flow-img="$flow.files[{{$index}}]" /></td>
+                      <!--ng-click="addHistory($flow)" -->
+                  </tr>
+              </table>
+          </div>
+            <a href="#/Historypage" ng-click="editHistory($flow)"  class="myButton">แก้ไข</a>
+            <a href="#/editHistory" class="myButton">ยกเลิก</a>
+
 
                         </div>
                     </form>
