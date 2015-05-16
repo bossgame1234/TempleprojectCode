@@ -15,20 +15,29 @@
           <div class="columns large-8">
             
             <table align="center" width="1100px">
+            <tr ng-repeat="news in allNews">
+            <td width="200" rowspan="2" align="center">
+                <div ng-repeat="picture in news.newsPictureLocation" class="text-center">
+                    <img ng-src="data: {{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail">
+                </div>
+            </td>
+
+                <tr>
+            <th width="150" align="left"> ชื่อกิจกรรม </th>
+            <td> {{news.newsName}}</td>
+                </tr>
             <tr>
-            <td width="200" rowspan="2" align="center">  <img src="picture/history.jpg" alt=""> </th> 
-            <th width="150" align="left"> ชื่อ กิจกรรม </td>
-            <td> ปอยหลวง</td> 
-            </tr>
-            <tr>
-            <th width="150" align="left">วัน-เวลา จัดกิจกกรม</th>
-            <td>22/01/58</th>
+            <th width="150" align="left">วัน-เวลา จัดกิจกรรม</th>
+            <td>{{news.newsDate}}</th>
+                <td>{{news.newsTime}}</th>
             </tr> 
             <tr>
            <th> รายละเอียดกิจกรรม</td>
-           <td colspan="2"> กกกกกกกกกกกกกก </td>
-            </tr> </table>
-           
+           <td colspan="2"> {{news.newsPlace}} </td>
+            </tr>
+
+            </table>
+
             
             
           </div>

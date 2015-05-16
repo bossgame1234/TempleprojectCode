@@ -31,12 +31,16 @@ $routeProvider.
         controller: 'loginController'
     }).
     when('/editNews',{
-        templateUrl: 'template/admin/editNews.html',
+        templateUrl: 'template/editNews.html',
         controller: ''
     }).
     when('/Newspage',{
         templateUrl: 'template/News.html',
         controller: 'listNewsController'
+    }).
+    when('/detailNews',{
+        templateUrl: 'template/detailNews.html',
+        controller: 'editNewsController'
     }).
     when('/editNews',{
         templateUrl: 'template/editNews.html',
