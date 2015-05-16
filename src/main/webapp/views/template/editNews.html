@@ -1,133 +1,108 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
-<!--[if IE 8]><html class="lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--><html><!--<![endif]-->
+
 <head>
 <title>edithistory</title>
-<script>
-Modernizr.load({
-    // test if browser understands media queries
-    test: Modernizr.mq('only all'),
-    // if not load ie8-grid
-    nope: 'css/ie8-grid-foundation-4.css'
-});
-</script>
 
-<!--[if lt IE 9]>
-<link rel="stylesheet" href="css/ie-fixes.css">
-<![endif]-->
-    <div class="columns large-12">
+<style>
+    .myButton {
+        -moz-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+        -webkit-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+        box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c7c7c7), color-stop(1, #dbdbdb));
+        background:-moz-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+        background:-webkit-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+        background:-o-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+        background:-ms-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+        background:linear-gradient(to bottom, #c7c7c7 5%, #dbdbdb 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7c7c7', endColorstr='#dbdbdb',GradientType=0);
+        background-color:#c7c7c7;
+        border:1px solid #b5b5b5;
+        display:inline-block;
+        cursor:pointer;
+        color:#000000;
+        font-family:Arial;
+        font-size:12px;
+        font-weight:bold;
+        padding:3px 20px;
+        text-decoration:none;
+    }
+    .myButton:hover {
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dbdbdb), color-stop(1, #c7c7c7));
+        background:-moz-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+        background:-webkit-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+        background:-o-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+        background:-ms-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+        background:linear-gradient(to bottom, #dbdbdb 5%, #c7c7c7 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbdbdb', endColorstr='#c7c7c7',GradientType=0);
+        background-color:#dbdbdb;
+    }
+    .myButton:active {
+        position:relative;
+        top:1px;
+    }
 
-        <div class="columns large-4 small-12"><a href="#/Homepage"><img src="picture/logo.png" alt="" class="logo"></a>
-    </div></div>
+
+
+</style>
 </head>
 
 <body>
-<div class="header">
-  <div class="row">
-    <div class="columns large-12">
-  </div>
-  </div>
-</div>
-<div class="row content-wrapper">
 
-<h1 class="page-title services">แก้ไขหน้าประวัติ</h1>
+<div class="row content-wrapper">
+    <h1 class="page-title services" align="left">แก้ไขกิจกรรม</h1>
   <div class="columns large-12">
     <div class="row wrapper">
       <div class="columns large-4 content sidebar">
         <ul class="row">
             <form  novalidate flow-init>
-        <div>
-<table width="1000">
+
+<table width="1000" align="center" style="border: 0px">
+
 <tr>
-<td width="150" bgcolor="">รูปภาพกิจกรรม : </td>
-<td><input align="middle" type="file" flow-file-added="!!{jpg:1}[$file.getExtension()]" flow-btn /></td></tr>
+<td width="200" bgcolor="white">รูปภาพกิจกรรม : </td>
+<td bgcolor="white"><input align="middle" type="file" flow-file-added="!!{jpg:1}[$file.getExtension()]" flow-btn /></td>
+</tr>
    <!-- preview-->
 <tr>
-<td>วันที่กิจกรรม</td>
-<td>
+<td bgcolor="white">วันที่กิจกรรม</td>
+<td bgcolor="white"><input type="datetime-local" name="bdaytime"></td>
+</tr>
 
-
-  <input type="datetime-local" name="bdaytime">
-
- </td>
+<tr>
+<td height="10" bgcolor="white">รายละเอียดกิจกรรม </td>
+<td height="10" bgcolor="white"><textarea rows="10" cols="40" ng-model="news.newsName"> </textarea></td>
 </tr>
 <tr>
-<td height="10">รายละเอียดกิจกรรม </td>
-<td height="10"><textarea rows="10" cols="40" ng-model="news.newsName"> </textarea></td>
-<tr> <td width="150" bgcolor="#FFFFFF"></td>
-<td bgcolor="#FFFFFF">
- </td>
+<td width="200" bgcolor="#FFFFFF"></td>
+<td bgcolor="#FFFFFF"></td>
 </tr>
-</tr>
-
-</table>
-
-              <div>
-              <table>
-                  <tr ng-repeat="file in $flow.files">
+<tr ng-repeat="file in $flow.files">
                       <td>{{$index+1}}</td>
                       <td>{{file.name}}</td>
                       <!--to see the preview image file-->
-                      <td><img flow-img="$flow.files[{{$index}}]" /></td>
+                   <img flow-img="$flow.files[{{$index}}]" />
                       <!--ng-click="addHistory($flow)" -->
-                  </tr>
-              </table>
-          </div>
-     <input type="submit" ng-click="editNews($flow)" value="แก้ไข"/>
-     <input name="btnSubmit" type="submit" value="ยกเลิก" />
-</div>
+</tr>
+
+<tr>
+
+    <td>
+    <form action=""><input type="checkbox" name="sendNews" value="sendNews"> ส่งข่าวสารให้สมาชิก<br></form>
+</td>
+<td>ลิ้งค์รายชื่อผู้ใช้ของสมาชิก แบบเวลาติ๊กปุ่มนี้แล้ว แล้วมันจะโชว์ลิส เช่น pare@cmu.ac.th, pim@gmail.com</td>
+</tr>
+    <tr>
+    <td></td>
+        <td style="color: #ffffff"><a href="#" class="myButton" ng-click="editNews($flow)">บันทึก</a>
+            <a href="#" class="myButton">ยกเลิก</a></td></tr>
+</table>
+
           </form>
 
         </ul>
 
       </div>
-      <div class="columns large-8">
-    
-        <div class="row">
-        
-     
-     </div></div></div></div></div></body>
-<footer class="footer">
-  <div class="row"></div>
-</footer>
-<div class="credit-row">
-  <div class="row">
-    <div class="columns large-11 credit"> &copy; College of Arts, Media and Technology<a href="#"> Chiang Mai University</a> Design by: <a href="http://topwebsitetemplates.org">PowerPuff Girls w/</a></div>
-  </div>
-</div>
-<script src="js/jquery.min.js"></script>
-<script src="js/hoverIntent.js"></script>
-<script src="js/superfish.js"></script>
-<script src="js/slider/jquery.flexslider.js"></script>
-<script>
-Modernizr.load({
-    test: Modernizr.placeholder,
-    nope: 'js/placeholder.min.js'
-});
-function goToNewPage() {
-    if (document.getElementById('target').value) {
-        window.location.href = document.getElementById('target').value;
-    }
-}
-</script>
-<script>
-$(document).ready(function () {
-    $('ul.sf-menu').superfish({
-        animation: {
-            height: 'show'
-        },
-        delay: 400
-    });
-    $("img.scrollToTop").click(function () {
-        $("html, body").animate({
-            scrollTop: 0
-        }, "slow");
-    });
-    $('.flexslider').flexslider();
-    $('.flexcar').flexslider();
-});
-</script>
+   </div></div></div>
+
 </body>
 </html>

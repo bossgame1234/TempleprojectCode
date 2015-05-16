@@ -11,16 +11,55 @@ Modernizr.load({
     nope: 'css/ie8-grid-foundation-4.css'
 });
 </script>
-        <style>
+    <style>
         .editNews{
-            position: fixed;
-            top: 30px;
-            right: 30px;
+            position: absolute;
+            top:-60px;
+            right: -60px;
         }
+        .myButton {
+            -moz-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            -webkit-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c7c7c7), color-stop(1, #dbdbdb));
+            background:-moz-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-webkit-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-o-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-ms-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:linear-gradient(to bottom, #c7c7c7 5%, #dbdbdb 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7c7c7', endColorstr='#dbdbdb',GradientType=0);
+            background-color:#c7c7c7;
+            border:1px solid #b5b5b5;
+            display:inline-block;
+            cursor:pointer;
+            color:#000000;
+            font-family:Arial;
+            font-size:12px;
+            font-weight:bold;
+            padding:3px 20px;
+            text-decoration:none;
+        }
+        .myButton:hover {
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dbdbdb), color-stop(1, #c7c7c7));
+            background:-moz-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-webkit-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-o-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-ms-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:linear-gradient(to bottom, #dbdbdb 5%, #c7c7c7 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbdbdb', endColorstr='#c7c7c7',GradientType=0);
+            background-color:#dbdbdb;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
+
+
     </style>
 
     <form class="editNews" method="post">
-        <a href="#/editNews"> <input type="submit" class="button" name="submit" value="แก้ไข"></a>
+        <a href="#/editNews" class="myButton">แก้ไขหน้านี้</a>
+
     </form>
 </head>
 <body>
@@ -28,24 +67,19 @@ Modernizr.load({
     
      <h1 class="page-title services" align="center">กิจกรรมวัดเจดีย์หลวง</h1>
             
-            <table width="1000" align="center">
+            <table width="1000" align="center" style="border: 0px">
 
             <tr ng-repeat="news in allNews">
-            <td>
-                <div ng-repeat="picture in news.newsPictureLocation" class="text-center">
+            <td width="400">
+                    <div ng-repeat="picture in news.newsPictureLocation" class="text-center">
                     <a href="#"><img ng-src="data: {{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail"></a>
                 </div>
             </td>
-            <td>
-               <a href="#"> {{news.newsName}}</a>
+            <td width="600" align="left">
+               <a href="#" style="color: #000000">กิจกรรม {{news.newsName}}</a>
         	</td>
-            <tr>
-            <td> วันที่กิจกรรม </td>
-            </tr>
-            <tr>
-            <td></td>
-            <td> รายละเอียดกิจกรรม </td>
-            </tr>
+           </tr>
+
             </table>
    
 </div>

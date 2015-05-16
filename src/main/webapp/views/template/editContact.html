@@ -3,26 +3,71 @@
 <head>
 <title>Home</title>
 <meta charset="utf-8">
+    <style>
+
+        .myButton {
+            -moz-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            -webkit-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c7c7c7), color-stop(1, #dbdbdb));
+            background:-moz-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-webkit-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-o-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-ms-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:linear-gradient(to bottom, #c7c7c7 5%, #dbdbdb 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7c7c7', endColorstr='#dbdbdb',GradientType=0);
+            background-color:#c7c7c7;
+            border:1px solid #b5b5b5;
+            display:inline-block;
+            cursor:pointer;
+            color:#000000;
+            font-family:Arial;
+            font-size:12px;
+            font-weight:bold;
+            padding:3px 20px;
+            text-decoration:none;
+        }
+        .myButton:hover {
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dbdbdb), color-stop(1, #c7c7c7));
+            background:-moz-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-webkit-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-o-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-ms-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:linear-gradient(to bottom, #dbdbdb 5%, #c7c7c7 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbdbdb', endColorstr='#c7c7c7',GradientType=0);
+            background-color:#dbdbdb;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
+
+
+
+    </style>
 </head>
 
 <body>
 <div class="row content-wrapper">
+    <table align="center" width="1000" style="border: 0px">
+    <tr><td colspan="2" bgcolor="white"><h1 class="page-title">ติดต่อ วัดเจดีย์หลวง</h1></td></tr>
+   <tr><td width="100" bgcolor="white">ที่อยู่</td><td bgcolor="white"><textarea class="context" ng-model="contact.contactPlace"> </textarea></td></tr>
+    <tr><td width="100" bgcolor="white">เบอร์โทรศัพท์</td><td bgcolor="white"><textarea class="context" ng-model="contact.contactTel"> </textarea></td></tr>
+    <tr><td width="100" bgcolor="white">เฟสบุ๊ค</td><td bgcolor="white"><textarea class="context" ng-model="contact.contactFacebook"> </textarea></td></tr>
+
+   <tr><td></td>
+       <td align="left" bgcolor="white"><a href="#/Contactpage" class="myButton" ng-click="editContact()">แก้ไข</a>
+    <a href="#/editContact" class="myButton">ยกเลิก</a></td></tr>
+
+        </table>
   <div class="columns large-12">
     <div class="row wrapper">
       <div class="columns large-12 content ">
-        <h1 class="page-title">ติดต่อ วัดเจดีย์หลวง</h1>
-          <td height="10"><textarea rows="5" cols="6" ng-model="contact.contactPlace"> </textarea></td><br/>
-          <td height="10"><textarea rows="5" cols="6" ng-model="contact.contactTel"> </textarea></td><br/>
-          <td height="10"><textarea rows="5" cols="6" ng-model="contact.contactFacebook"> </textarea></td><br/>
-        <div class="row contact-form">
-          <div class="columns large-8">
-            
-           <input ng-click="editContact()" align="left" type="button" name="btnSubmit" value="ตกลง">  <input type="button" name="btnSubmit" value="ยกเลิก">
+
+
+
           </div>
-          <div class="columns large-4">
-            
-             
-          </div>
+
         </div>
       </div>
       <div class="row collapse">
@@ -31,5 +76,5 @@
     </div>
   </div>
 </div>
-
+</body>
 </html>

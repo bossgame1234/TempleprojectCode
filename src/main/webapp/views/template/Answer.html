@@ -15,11 +15,51 @@ Modernizr.load({
         .button{
             color: #505050;
             height: 50px;
+            top: 5px;
         }
         .textbut{
             color: #ffffff;
-            font-size: 15px;
+            font-size:15px;
         }
+
+        .myButton {
+            -moz-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            -webkit-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c7c7c7), color-stop(1, #dbdbdb));
+            background:-moz-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-webkit-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-o-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-ms-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:linear-gradient(to bottom, #c7c7c7 5%, #dbdbdb 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7c7c7', endColorstr='#dbdbdb',GradientType=0);
+            background-color:#c7c7c7;
+            border:1px solid #b5b5b5;
+            display:inline-block;
+            cursor:pointer;
+            color:#000000;
+            font-family:Arial;
+            font-size:12px;
+            font-weight:bold;
+            padding:3px 20px;
+            text-decoration:none;
+        }
+        .myButton:hover {
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dbdbdb), color-stop(1, #c7c7c7));
+            background:-moz-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-webkit-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-o-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-ms-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:linear-gradient(to bottom, #dbdbdb 5%, #c7c7c7 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbdbdb', endColorstr='#c7c7c7',GradientType=0);
+            background-color:#dbdbdb;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
+
+
     </style>
 </head>
 <body>
@@ -44,14 +84,13 @@ Modernizr.load({
                       <input type="text" ng-model="question.answerDes"></td>
                   </td>
                   <td  bgcolor="white" class="text-center">
-                      <a ng-href="#/Answerpage"><button class="button" ng-click="addAnswer(question)"><p class="textbut">ตอบ</p></button></a></td>
+                      <a ng-href="#/Answerpage"><a href="#" class="myButton" ng-click="addAnswer(question)">ตอบ</a>
                       <!--<span class="glyphicon glyphicon-edit" aria-hidden="true" ng-click="addAnswer(question)"></span></a></td>-->
                   <td bgcolor="white" class="text-center">
-                      <a ng-href="#/Answerpage">
-                      <a ng-href="#/Answerpage"><button class="button" ng-click="deleteQuestion(question.questionId)"><p class="textbut">ลบ</p></button></a></a> </td>
-
+                       <a href="#" class="myButton" ng-click="deleteQuestion(question.questionId)">ลบ</a></td></a>
                           <!--<span class="glyphicon glyphicon-remove-circle" aria-hidden="true" ng-click="deleteQuestion(question.questionId)"></span></a></td>-->
                 </tr>
+
 
           </table>
             

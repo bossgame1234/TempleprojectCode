@@ -1,24 +1,64 @@
-<div class="columns large-12">
+<html>
+<head>
+    <style>
+        .editHome{
+        position: absolute;
+        top:-60px;
+        right: -60px;
+    }
+        .myButton {
+            -moz-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            -webkit-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c7c7c7), color-stop(1, #dbdbdb));
+            background:-moz-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-webkit-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-o-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-ms-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:linear-gradient(to bottom, #c7c7c7 5%, #dbdbdb 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7c7c7', endColorstr='#dbdbdb',GradientType=0);
+            background-color:#c7c7c7;
+            border:1px solid #b5b5b5;
+            display:inline-block;
+            cursor:pointer;
+            color:#000000;
+            font-family:Arial;
+            font-size:12px;
+            font-weight:bold;
+            padding:3px 20px;
+            text-decoration:none;
+        }
+        .myButton:hover {
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dbdbdb), color-stop(1, #c7c7c7));
+            background:-moz-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-webkit-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-o-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-ms-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:linear-gradient(to bottom, #dbdbdb 5%, #c7c7c7 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbdbdb', endColorstr='#c7c7c7',GradientType=0);
+            background-color:#dbdbdb;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
 
-        <div class="columns large-4 small-12"><a href="#/Homepage"><img src="../picture/logo.png" alt="" class="logo"></a>
-    </div>
-<div align="right"> <form id="contact-form" method="post">
-   <a href="#/editHome"> <input type="submit" class="button" name="submit" value="แก้ไข"></a>
-           </form></div>
-           </div>
-<div class="header">
-  <div class="row">
-  <div class="slider">
 
-            <div class="flexslider">
-              <ul class="slides">
-                <li> <img src="../picture/slideNew3.jpg" alt=""> </li>
-                <li> <img src="../picture/slideHome2.jpg" alt=""> </li>
-                <li> <img src="../picture/slideHome3.jpg" alt=""> </li>
-                <li> <img src="../picture/slideHome4.jpg" alt=""> </li>
-              </ul>
-            </div>
-          </div>
+    </style>
+    <form class="editHome" method="post">
+        <a href="#/editHome" class="myButton">แก้ไขหน้านี้</a>
 
+    </form>
+
+</head>
+<body>
+
+<div class="a" style="color: #ffffff">
+  <div class="sliderr" style="height:800px; height: 600px; color: #ffffff">
+      <a href="#" style="color: #ffffff">
+          <img style="max-height: 800px; max-width: 900px" ng-src="data:{{HomeGallery.pictureList[0].pictureType}};base64,{{HomeGallery.pictureList[0].pictureLocation}}" class="thumbnail" /></a>
+
+  </div>
 </div>
-    </div>
+</body>
+</html>

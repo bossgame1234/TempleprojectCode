@@ -1,19 +1,8 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
-<!--[if IE 8]><html class="lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--><html><!--<![endif]-->
+<html>
 <head>
-    <title>editcontact</title>
+    <title>News</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/foundation.min.css">
-    <link rel="stylesheet" href="css/superfish.css">
-    <link rel="stylesheet" href="css/stylesheet.css">
-    <link rel="stylesheet" href="js/slider/flexslider.css">
-    <link rel="stylesheet" href="js/slider/flexcar.css">
-    <link href="http://fonts.googleapis.com/css?family=Quando" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,300" rel="stylesheet" type="text/css">
-    <script src="js/vendor/custom.modernizr.js"></script>
     <script>
         Modernizr.load({
             // test if browser understands media queries
@@ -23,23 +12,61 @@
         });
     </script>
     <style>
-        .editNews{
-            position: fixed;
-            top: 30px;
-            right: 30px;
+        .editContact{
+            position: absolute;
+            top:-60px;
+            right: -60px;
         }
+        .myButton {
+            -moz-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            -webkit-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c7c7c7), color-stop(1, #dbdbdb));
+            background:-moz-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-webkit-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-o-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-ms-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:linear-gradient(to bottom, #c7c7c7 5%, #dbdbdb 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7c7c7', endColorstr='#dbdbdb',GradientType=0);
+            background-color:#c7c7c7;
+            border:1px solid #b5b5b5;
+            display:inline-block;
+            cursor:pointer;
+            color:#000000;
+            font-family:Arial;
+            font-size:12px;
+            font-weight:bold;
+            padding:3px 20px;
+            text-decoration:none;
+        }
+        .myButton:hover {
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dbdbdb), color-stop(1, #c7c7c7));
+            background:-moz-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-webkit-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-o-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-ms-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:linear-gradient(to bottom, #dbdbdb 5%, #c7c7c7 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbdbdb', endColorstr='#c7c7c7',GradientType=0);
+            background-color:#dbdbdb;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
+
+
+
     </style>
 
-
-    <form class="editNews" method="post">
-        <a href="#/editContact"> <input type="submit" class="button" name="submit" value="แก้ไข"></a>
+    <form class="editContact" method="post">
+       <a href="#/editContact" class="myButton">แก้ไขหน้านี้</a>
     </form>
 </head>
 <body>
 <div class="row">
+    <div class="row">
 
-
-    <table class="tablee" width="1000" > <form>
+        <table width="1000"style="border: 0px"> <form>
 
         <tr>
             <td colspan="3"  bgcolor="white" width="10">  {{contact.contactPlace}}</td>
@@ -53,32 +80,32 @@
             <tr>
                 <td  bgcolor="white" width="10"></td>
                  <td bgcolor="white" width="90" align="left"> ชื่อผู้ติดต่อ  </td>
-                 <td bgcolor="white" width="900"><input type="text" name="name" placeholder="ชื่อผู้ติดต่อ"></td>
+                 <td bgcolor="white" width="900"><input type="text" name="name" placeholder="ชื่อผู้ติดต่อ" required></td>
             </tr>
             <tr>
                 <td bgcolor="white" width="10"></td>
                 <td bgcolor="white" width="90" align="left">Email</td>
-                <td bgcolor="white" width="900"><input type="text" name="email" placeholder="Email"></td>
+                <td bgcolor="white" width="900"><input type="text" name="email" placeholder="Email" required></td>
             </tr>
             <tr>
                 <td bgcolor="white" width="10"></td>
                 <td bgcolor="white" width="90" align="left">หัวข้อ</td>
-                <td bgcolor="white" width="900"><input width="30" type="text" name="subject" placeholder="หัวข้อ"></td>
+                <td bgcolor="white" width="900"><input width="30" type="text" name="subject" placeholder="หัวข้อ" required></td>
             </tr>
             <tr>
                 <td bgcolor="white" width="10"></td>
                 <td bgcolor="white" width="90" align="left">ข้อความ</td>
-                <td bgcolor="white" width="900"><textarea rows="60" cols="70" class="contacttext"  name="message" placeholder="ข้อความ"></textarea></td>
+                <td bgcolor="white" width="900"><textarea rows="60" cols="70" class="contacttext"  name="message" placeholder="ข้อความ" required></textarea></td>
             </tr>
             <tr>
                 <td bgcolor="white" width="10" colspan="2"></td>
-                <td bgcolor="white"><input ng-click="addContact()" align="left" type="submit" name="button" value="ส่ง">
-                <input align="left" type="submit" name="button" value="ยกเลิก"></td>
+                <td bgcolor="white"> <a href="#/Contactpage" class="myButton" ng-click="addContact(myForm.email-input.$valid)">ส่ง</a>
+                    <a href="#" class="myButton">ยกเลิก</a></td>
             </tr>
             </form>
     </table>
 </div>
-
+</div>
 </body>
 
 </html>

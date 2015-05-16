@@ -4,71 +4,55 @@
 <!--[if IE 8]><html class="lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!--><html><!--<![endif]-->
 <head>
-<title>home</title>
-<meta charset="utf-8">
-<link rel="stylesheet" href="css/foundation.min.css">
-<link rel="stylesheet" href="css/superfish.css">
-<link rel="stylesheet" href="css/stylesheet.css">
-<link rel="stylesheet" href="js/slider/flexslider.css">
-<link rel="stylesheet" href="js/slider/flexcar.css">
-<link href='http://fonts.googleapis.com/css?family=Quando' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,300' rel='stylesheet' type='text/css'>
-<script src="js/vendor/custom.modernizr.js"></script>
-<script>
-Modernizr.load({
-    // test if browser understands media queries
-    test: Modernizr.mq('only all'),
-    // if not load ie8-grid
-    nope: 'css/ie8-grid-foundation-4.css'
-});
-</script>
-<!--[if lt IE 9]>
-<link rel="stylesheet" href="css/ie-fixes.css">
-<![endif]-->
+    <style>
+        .editNews{
+            position: absolute;
+            top:-60px;
+            right: -60px;
+        }
+        .myButton {
+            -moz-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            -webkit-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c7c7c7), color-stop(1, #dbdbdb));
+            background:-moz-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-webkit-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-o-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-ms-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:linear-gradient(to bottom, #c7c7c7 5%, #dbdbdb 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7c7c7', endColorstr='#dbdbdb',GradientType=0);
+            background-color:#c7c7c7;
+            border:1px solid #b5b5b5;
+            display:inline-block;
+            cursor:pointer;
+            color:#000000;
+            font-family:Arial;
+            font-size:12px;
+            font-weight:bold;
+            padding:3px 20px;
+            text-decoration:none;
+        }
+        .myButton:hover {
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dbdbdb), color-stop(1, #c7c7c7));
+            background:-moz-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-webkit-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-o-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-ms-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:linear-gradient(to bottom, #dbdbdb 5%, #c7c7c7 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbdbdb', endColorstr='#c7c7c7',GradientType=0);
+            background-color:#dbdbdb;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
+
+
+    </style>
 </head>
-<body background="background.jpg">
-<div class="header">
-  <div class="row">
-    <div class="columns large-12">
-      <div class="columns large-4 small-12"><a href="home.html"><img src="images/logo.png" alt="" class="logo"></a> 
-    </div>
-     
-       <div><nav>
-            <section>
-              <ul class="sf-menu large-12">
-                <li class="active"><a href="home.html">หน้าแรก</a></li>
-                <li><a href="News.html">ข่าวสาร</a></li>
-                <li><a href="History.html">ประวัติ</a></li>
-                <li><a href="Question-Answer.html">ถาม-ตอบ</a></li>
-                <li><a href="Gallery.html">แกลเลอรี่</a></li>
-                <li><a href="Map.html">แผนที่</a></li>
-                <li><a href="Contact.html">ติดต่อวัด</a></li>
-              </ul>
-            </section>
-          </nav></div>
-    </div>
-  </div>
- 
-  <div class="row">
-    <div class="columns large-12 small-top-menu">
-      <div class="row">
-        <div class="columns large-12 plr0 top-nav">
-  
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-    <div class="columns large-12 small-top-menu">
-      <div class="row">
-        <div class="columns large-12 plr0 top-nav">
-  
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+ <body>
+
 <div class="row content-wrapper">
   <div class="columns large-12">
     <div class="row wrapper">
@@ -78,18 +62,20 @@ Modernizr.load({
          
         </div>
         <ul class="row">
+            <table align="right">
           <form name="form1" method="post" action="#">
 
 
-Picture1 : <input align="middle" type="file" name="filUpload"><br>
-Picture2 : <input align="middle" type="file" name="filUpload"><br>
-Picture3 : <input align="middle" type="file" name="filUpload"><br>
-Picture4 : <input align="middle" type="file" name="filUpload"><br>
-Picture5 : <input align="middle" type="file" name="filUpload"><br>
-
-<input name="btnSubmit" type="submit" value="บันทึก">
-<input name="btnSubmit" type="submit" value="ยกเลิก">
-</form>	
+                <tr><td>Picture1 :</td><td><input align="middle" type="file" name="filUpload"></td>
+                <tr><td>Picture2 :</td><td><input align="middle" type="file" name="filUpload"></td>
+              <tr><td>Picture3 :</td><td><input align="middle" type="file" name="filUpload"></td>
+              <tr><td>Picture4 :</td><td><input align="middle" type="file" name="filUpload"></td>
+              <tr><td>Picture5 :</td><td><input align="middle" type="file" name="filUpload"></td>
+             <tr><td></td>
+              <td>  <a href="#/Homepage" class="myButton">บันทึก</a>
+                  <a href="#/editHome" class="myButton">ยกเลิก</a></td></tr>
+</form>
+                </table>
         </ul>
       </div>
       <div class="columns sidebar large-4 large-offset-1">
@@ -99,46 +85,6 @@ Picture5 : <input align="middle" type="file" name="filUpload"><br>
     </div>
   </div>
 </div>
-        
-<footer class="footer">
-  <div class="row"></div>
-</footer>
-<div class="credit-row">
-  <div class="row">
-    <div class="columns large-11 credit"> &copy; College of Arts, Media and Technology<a href="#"> Chiang Mai University</a> Design by: <a href="http://topwebsitetemplates.org">PowerPuff Girls w/</a></div>
-  </div>
-</div>
-<script src="js/jquery.min.js"></script>
-<script src="js/hoverIntent.js"></script>
-<script src="js/superfish.js"></script>
-<script src="js/slider/jquery.flexslider.js"></script>
-<script>
-Modernizr.load({
-    test: Modernizr.placeholder,
-    nope: 'js/placeholder.min.js'
-});
-function goToNewPage() {
-    if (document.getElementById('target').value) {
-        window.location.href = document.getElementById('target').value;
-    }
-}
-</script>
-<script>
-$(document).ready(function () {
-    $('ul.sf-menu').superfish({
-        animation: {
-            height: 'show'
-        },
-        delay: 400
-    });
-    $("img.scrollToTop").click(function () {
-        $("html, body").animate({
-            scrollTop: 0
-        }, "slow");
-    });
-    $('.flexslider').flexslider();
-    $('.flexcar').flexslider();
-});
-</script>
+
 </body>
 </html>
