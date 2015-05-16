@@ -1,12 +1,64 @@
+<html>
+<head>
+    <style>
+        .editHome{
+        position: absolute;
+        top:-60px;
+        right: -60px;
+    }
+        .myButton {
+            -moz-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            -webkit-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c7c7c7), color-stop(1, #dbdbdb));
+            background:-moz-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-webkit-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-o-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-ms-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:linear-gradient(to bottom, #c7c7c7 5%, #dbdbdb 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7c7c7', endColorstr='#dbdbdb',GradientType=0);
+            background-color:#c7c7c7;
+            border:1px solid #b5b5b5;
+            display:inline-block;
+            cursor:pointer;
+            color:#000000;
+            font-family:Arial;
+            font-size:12px;
+            font-weight:bold;
+            padding:3px 20px;
+            text-decoration:none;
+        }
+        .myButton:hover {
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dbdbdb), color-stop(1, #c7c7c7));
+            background:-moz-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-webkit-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-o-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-ms-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:linear-gradient(to bottom, #dbdbdb 5%, #c7c7c7 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbdbdb', endColorstr='#c7c7c7',GradientType=0);
+            background-color:#dbdbdb;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
 
-<div align="right">
-    <form id="contact-form" method="post">
-   <a href="#/editHome"> <input type="submit" class="button" name="submit" value="แก้ไข"></a>
+
+    </style>
+    <form class="editHome" method="post">
+        <a href="#/editHome" class="myButton">แก้ไข</a>
+
     </form>
-</div>
+
+</head>
+<body>
+
 <div class="header">
-  <div class="slider" >
-      <a href="#"><img ng-src="data:{{HomeGallery.pictureList[0].pictureType}};base64,{{HomeGallery.pictureList[0].pictureLocation}}" class="thumbnail" /></a>
+  <div class="slider" style="height: 700px; height: 500px">
+      <a href="#">
+          <img style="width:1000px;height:1000px" ng-src="data:{{HomeGallery.pictureList[0].pictureType}};base64,{{HomeGallery.pictureList[0].pictureLocation}}" class="thumbnail" /></a>
 
   </div>
 </div>
+</body>
+</html>
