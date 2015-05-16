@@ -3,14 +3,12 @@
 <head>
 <title>Home</title>
 <meta charset="utf-8">
- 
 </head>
 <body>
-<div id="aa" style=" background-image:url(picture/background.jpg);" align="center">
 <div id="bb" style="width:1200px; height:570px; margin-top:5px; position:relative;left:20px;top:130px">
-<form class="form-inline" ng-hide="user">
+<form class="form-inline" ng-hide="user" ng-controller="loginController">
 
-  <table border="0" cellspacing="0" cellpadding="5" style="width: 300px">
+  <table border="0" cellspacing="0" cellpadding="5" style="width: 300px" >
     <tbody>
     <th colspan="2">ล็อกอินเข้าสู่ระบบ<br></th>
       <tr>
@@ -31,18 +29,19 @@
       </tr>
       <tr>
         <td><a class="into" href="#/Homepage">เข้าสู่เว็บไซต์</a></td>
-        <td align="right">  
-               <input align="left" type="submit" name="btnSubmit" value="ลงทะเบียน">
+        <td align="center">
+            <a href="#/register"><input align="left" type="submit" name="btnSubmit" value="ลงทะเบียน"></a>
             <input ng-click="login()" type="submit" name="btnSubmit" value="เข้าสู่ระบบ">
         </td>
       </tr>
+    <tr><td colspan="2"><div class="ng-hide" ng-show="initialized">
+        <div class="alert alert-danger" ng-show="error">{{error}}</div></div></td>
+    </tr>
     </tbody>
   </table>
 </form>
 </div>
-<div class="container ng-hide" ng-show="initialized">
-    <div class="alert alert-danger" ng-show="error">{{error}}</div>
-</div>
+
 </div>
 
 </body>

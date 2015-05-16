@@ -1,3 +1,46 @@
+
+<style>
+    .myButton {
+        -moz-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+        -webkit-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+        box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c7c7c7), color-stop(1, #dbdbdb));
+        background:-moz-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+        background:-webkit-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+        background:-o-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+        background:-ms-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+        background:linear-gradient(to bottom, #c7c7c7 5%, #dbdbdb 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7c7c7', endColorstr='#dbdbdb',GradientType=0);
+        background-color:#c7c7c7;
+        border:1px solid #b5b5b5;
+        display:inline-block;
+        cursor:pointer;
+        color:#000000;
+        font-family:Arial;
+        font-size:12px;
+        font-weight:bold;
+        padding:3px 20px;
+        text-decoration:none;
+    }
+    .myButton:hover {
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dbdbdb), color-stop(1, #c7c7c7));
+        background:-moz-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+        background:-webkit-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+        background:-o-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+        background:-ms-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+        background:linear-gradient(to bottom, #dbdbdb 5%, #c7c7c7 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbdbdb', endColorstr='#c7c7c7',GradientType=0);
+        background-color:#dbdbdb;
+    }
+    .myButton:active {
+        position:relative;
+        top:1px;
+    }
+
+
+
+</style>
+
 <div class="row content-wrapper" align="left">
   <h1 class="page-title services">อัพโหลด รูปภาพ</h1> 
 </div>
@@ -5,36 +48,30 @@
   <div class="columns large-12">
     <div class="row wrapper">
         <ul class="row">
+
             <form  novalidate flow-init>
-                <div>
-                    <input align="middle" type="file" flow-file-added="!!{jpg:1}[$file.getExtension()]"  flow-btn />
-                    <table>
-                        <tr ng-repeat="file in $flow.files">
+                <table align="center"><tr>
+                   <td align="center"><input align="middle" type="file" flow-file-added="!!{jpg:1}[$file.getExtension()]"  flow-btn />
+                       </td> </tr>
+                <tr align="center" ng-repeat="file in $flow.files">
                             <td>{{$index+1}}</td>
                             <td>{{file.name}}</td>
                             <!--to see the preview image file-->
                             <td><img flow-img="$flow.files[{{$index}}]" /></td>
                             <!--ng-click="addHistory($flow)" -->
                         </tr>
-                    </table>
-                </div>
-                <input type="submit" ng-click="editPicture($flow)" value="บันทึก"/>
-                <input name="btnSubmit" type="submit" value="ยกเลิก" />
+                       <tr style="color: #ffffff"><td colspan="3" align="center" style="color: #ffffff">
+                           <a href="#" class="myButton" ng-click="editPicture($flow)">บันทึก</a>
+                           <a href="#" class="myButton">ยกเลิก</a>
 
+                </td></tr>
             </form>
+            </table>
         </ul>
     </div>
       <div class="columns sidebar large-4 large-offset-1">
-      
-     
+
+
       </div>
-  </div>
-</div>
-<footer class="footer">
-  <div class="row"></div>
-</footer>
-<div class="credit-row">
-  <div class="row">
-    <div class="columns large-11 credit"> &copy; College of Arts, Media and Technology<a href="#"> Chiang Mai University</a> Design by: <a href="http://topwebsitetemplates.org">PowerPuff Girls w/</a></div>
   </div>
 </div>

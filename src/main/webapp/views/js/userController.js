@@ -4,34 +4,37 @@
 'use strict';
 var userMainController = angular.module('userMainController', ['userServices']);
 
-userMainController.controller('loginController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','userService',
-        function($http,$scope,$rootScope,userService) {
-            $scope.user = {
-                username: '',
-                password: ''
-            };
-            $scope.login = function () {
-                console.log("Hello World");
-            };
-        }]);
-
 userMainController.controller('addUserController', ['$scope', '$http', '$location', '$rootScope','userService',
     function ($scope, $http, $location, $rootScope,userService) {
-        $scope.user = {};
+        $scope.confirmPassError=false;
+        $scope.duplicateUser=false;
+        $scope.password2 ="";
+        $scope.user = {f_name:'',l_name:'',username:'',password:''};
         $scope.addUser = true;
         $scope.editUser = false;
         $scope.addUser = function () {
-            userService.save($scope.user,function(data){
-                // after adding the object, add a new picture
-                // get the product id which the image will be added
-                var userid = data.id;
-                // set location
-                $rootScope.addSuccess = true;
-                $location.path("listUser");
-                $scope.$apply();
-            });
-        };
-    }]);
+            $http.get("/user/" + $scope.user.username).success(function (data) {
+                if(data.username==undefined){
+                    if($scope.password2==$scope.user.password) {
+                        userService.save($scope.user, function (data) {
+                            // after adding the object, add a new picture
+                            // get the product id which the image will be added
+                            var userid = data.id;
+                            // set location
+                            $rootScope.addSuccess = true;
+                            $location.path("loginpage");
+                            $scope.$apply();
+                        });
+                    }else{
+                        $scope.confirmPassError=true;
+                        $location.path("register")
+                    }
+                }else{
+                    $scope.duplicateUser=true;
+                }
+            })
+    }
+        }]);
 
 userMainController.controller('editUserController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','userService',
     function ($scope, $http, $routeParams, $location, $rootScope,userService) {

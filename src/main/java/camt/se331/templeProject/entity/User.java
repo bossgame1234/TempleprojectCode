@@ -20,7 +20,17 @@ public class User {
     String l_name;
     String username;
     String password;
+
     public User(){}
+
+    public User(String f_name, String password, String username, String l_name, Role role) {
+        this.f_name = f_name;
+        this.password = password;
+        this.username = username;
+        this.l_name = l_name;
+        this.roles.add(role);
+    }
+
     @ManyToMany(fetch= FetchType.EAGER)
     // Cascade and CascadeType must be the org.hibernate.annotation
     @Cascade(CascadeType.ALL)
