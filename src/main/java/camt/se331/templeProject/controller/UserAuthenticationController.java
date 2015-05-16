@@ -60,6 +60,13 @@ public class UserAuthenticationController {
         String[] token = body.split("&");
         String username = token[0].split("=")[1];
         String password = token[1].split("=")[1];
+        String []usernameC = username.split("%40");
+        if(usernameC.length==1){
+        } else if(usernameC.length==2){
+            username = usernameC[0] +"@"+usernameC[1];
+        }else{
+        }
+        System.out.println(username);
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,password);
         Authentication authentication = this.authenticationManager.authenticate(authenticationToken);
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -72,4 +79,5 @@ public class UserAuthenticationController {
     }
 
 }
+
 

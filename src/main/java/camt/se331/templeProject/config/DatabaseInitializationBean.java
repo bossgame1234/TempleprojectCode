@@ -25,23 +25,26 @@ public class DatabaseInitializationBean implements InitializingBean {
     QuestionRepository questionRepository;
     @Autowired
     NewsRepository newsRepository;
+    @Autowired
+    RoleRepository roleRepository;
 
     @Override
     public void afterPropertiesSet() throws Exception {
         //id สำหรับ admin
         Role adminRole = new Role("admin");
-
         //create admin
         User admin = new User();
         admin.setF_name("admin");
         admin.setL_name("admin");
-        admin.setUsername("admin");
+        admin.setUsername("admin@hotmail.com");
         admin.setPassword("1234");
         Set<Role> roles = new HashSet<>();
         roles.add(adminRole);
         admin.setRoles(roles);
-
         userRepository.save(admin);
+        Role userRole = new Role("registered user");
+        userRole.setId(2l);
+        roleRepository.save(userRole);
 
         //History
         History initHistory = new History();
