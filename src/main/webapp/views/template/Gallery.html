@@ -1,28 +1,41 @@
 
-<div class="row content-wrapper">
-    <h1 class="page-title">อัลบั้มรูปภาพ</h1>
 
 
-                <table width="900">
-                    <tr>
-                <td>
-                    <div class="col-md-3" width="500" height="200" ng-repeat="gallery in galleries">
-                    <a class="thumbnail" href="#/Picturepage/{{gallery.galleryId}}">
-                    <img ng-src="data:{{gallery.pictureList[0].pictureType}};base64,{{gallery.pictureList[0].pictureLocation}}" class="thumbnail" />
-                    </a>
-                   <p> {{gallery.galleryName}}</p>
-                </div></td>
-                </tr>
-                    <tr><td>
-                    <a class="thumbnail" href="#/editGallery">
-                    <img ng-src="picture/add.jpg" class="thumbnail" />
-                    </a>
-                    <p> เพิ่มรูปภาพ</p>
-                </td>
 
-                     </tr>
-            </table>
 
+<div>
+    <div class="row content-wrapper">
+        <div class="columns large-12">
+            <div class="row wrapper">
+                <div class="columns large-12 content">
+                    <h1 class="page-title">อัลบั้มรูปภาพ</h1>
+
+                    <div class="thumbnail-block">
+                        <ul class="large-block-grid-4">
+                            <div class="col-md-3" width="300" height="200" ng-repeat="gallery in galleries">
+
+                                <figure ><a class="thumbnail" href="#/Picturepage/{{gallery.galleryId}}">
+                                    <img ng-src="data:{{gallery.pictureList[0].pictureType}};base64,{{gallery.pictureList[0].pictureLocation}}" class="thumbnail" />
+                                </a>
+                                    <p  style="color: #000000" align="center"> {{gallery.galleryName}}</p></figure>
+                            </div>
+                            <div  class="col-md-3" width="400" height="200">
+                                <figure><a class="thumbnail" href="#/editGallery">
+                                    <img ng-src="picture/add.jpg" class="thumbnail" /> </a>
+                                    <p  style="color: #000000" align="center">เพิ่มรูปภาพ</p></figure>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 </div>
+
+
+
+
+
+
 
