@@ -12,20 +12,17 @@
 
         <ul class="large-block-grid-4">
             <div class="col-md-3" width="300" height="200" ng-repeat="gallery in galleries">
-                <table width="1000" align="center">
+                <table width="700">
                     <tr>
-                <td align="center"><a class="thumbnail" href="#/Picturepage/{{gallery.galleryId}}">
+                <td><a class="thumbnail" href="#/Picturepage/{{gallery.galleryId}}">
                     <img ng-src="data:{{gallery.pictureList[0].pictureType}};base64,{{gallery.pictureList[0].pictureLocation}}" class="thumbnail" />
                    </a>
-                   <p align="center"> {{gallery.galleryName}}</p>
-                </td>
-
-                        <td align="center"><a class="thumbnail" href="#/editGallery">
+                   <p> {{gallery.galleryName}}</p>
+                </td> <td><a class="thumbnail" href="#/editGallery">
                             <img ng-src="picture/add.jpg" class="thumbnail" /> </a>
-                            <p align="center"> เพิ่มรูปภาพ</p>
+                            <p> เพิ่มรูปภาพ</p>
                         </td>
-                <td></td>
-                <td></td>
+
                      </tr>
             </table>
         </ul>
