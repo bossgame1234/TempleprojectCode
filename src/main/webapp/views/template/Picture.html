@@ -47,8 +47,8 @@
       <div class="row wrapper">
           <div class="columns large-12 content">
               <table style="border: 0px">
-              <tr><td><textarea class="tiltle-gallery" ng-model="gallery.galleryName"> {{gallery.galleryName}}</textarea></td>
-             <td> <a href="#/Gallerypage" ng-click="editGallery()" class="myButton">ตกลง</a></td>
+              <tr ng-show="hasRole('admin')"><td><textarea class="tiltle-gallery" ng-model="gallery.galleryName"> {{gallery.galleryName}}</textarea></td>
+             <td> <a ng-click="editGallery()" class="myButton">ตกลง</a></td>
               </tr></table>
               <div class="thumbnail-block">
                   <ul class="large-block-grid-4">
@@ -56,7 +56,7 @@
                           <figure ><a href="data:{{picture.pictureType}};base64,{{picture.pictureLocation}}"><img ng-src="data:{{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail"/>
                           </a></figure>
                       </div>
-                      <div  class="col-md-3" width="400" height="200">
+                      <div  class="col-md-3" width="400" height="200" ng-show="hasRole('admin')">
                           <figure><a class="thumbnail" href="#/addPicture/{{gallery.galleryId}}"><img ng-src="picture/add.jpg" class="thumbnail" />
                         <p style="color: #000000" align="center"> เพิ่มรูปภาพ </p></a></figure>
               </div>

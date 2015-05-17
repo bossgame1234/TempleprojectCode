@@ -58,13 +58,14 @@
 
     <table align="center" width="1000" style="border: 0px">
         <tr><td colspan="2" bgcolor="white"><h1 class="page-title">แก้ไข ข้อมูลส่วนตัว</h1></td></tr>
-        <tr><td width="100" bgcolor="white">ชื่อ-นามสกุล</td><td bgcolor="white"><textarea style="height: 10px" class="set" ng-model=""> </textarea></td></tr>
-        <tr><td width="100" bgcolor="white">ชื่อผู้ใช้</td><td bgcolor="white"><textarea style="height: 10px" class="set" ng-model=""> </textarea></td></tr>
-        <tr><td width="100" bgcolor="white">รหัสผ่าน</td><td bgcolor="white"><textarea style="height: 10px" class="set" ng-model=""> </textarea></td></tr>
+        <tr><td width="100" bgcolor="white">ชื่อ</td><td bgcolor="white"><textarea style="height: 10px" class="set" ng-model="user.f_name"> </textarea></td></tr>
+        <tr><td width="100" bgcolor="white">นามสกุล</td><td bgcolor="white"><textarea style="height: 10px" class="set" ng-model="user.l_name"> </textarea></td></tr>
+        <tr><td width="100" bgcolor="white">ชื่อผู้ใช้</td><td bgcolor="white"><textarea style="height: 10px" class="set" ng-model="user.username"> </textarea></td></tr>
+        <tr><td width="100" bgcolor="white">รหัสผ่าน</td><td bgcolor="white"><textarea style="height: 10px" class="set" ng-model="user.password"> </textarea></td></tr>
 
         <tr><td></td>
-            <td align="left" bgcolor="white"><a href="#/" class="myButton" ng-click="editProfile()">แก้ไข</a>
-                <a href="#/" class="myButton">ยกเลิก</a></td></tr>
+            <td align="left" bgcolor="white"><a class="myButton" ng-click="editProfile()">แก้ไข</a>
+                <a href="#/setting" class="myButton">ยกเลิก</a></td></tr>
 
     </table>
 

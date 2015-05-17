@@ -51,7 +51,7 @@
 <body>
 
 <div class="bb" style=";width:800px; height:570px; margin-top:5px; position:relative;left:20px;top:130px;">
-<form class="form-inline" ng-hide="user" ng-controller="loginController">
+<form class="form-inline" ng-hide="user" >
 
   <table class="logintable" align="center" style="width: 300px; height: 300px">
 
@@ -73,11 +73,18 @@
           </td>
       </tr>
       <tr>
+      <td  width="100" colspan="2" >
+      <label>
+          <input type="checkbox" ng-model="rememberMe"> Remember me
+      </label>
+     </td>
+      </tr>
+      <tr>
         <td align="center" colspan="2">
-            <a href="#/register">
-                <a href="#" class="myButton" ng-click="editPicture($flow)">ลงทะเบียน</a>
-                <a href="#" class="myButton"  ng-click="login()">เข้าสู่ระบบ</a>
-                </a>
+
+                <a href="#/register" class="myButton" >ลงทะเบียน</a>
+                <a class="myButton"  ng-click="login()">เข้าสู่ระบบ</a>
+
         </td>
           <tr>
       <td colspan="2" align="center"> <a class="into" href="#/Homepage">เข้าสู่เว็บไซต์</a> </td>

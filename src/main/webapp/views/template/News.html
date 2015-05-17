@@ -57,7 +57,7 @@ Modernizr.load({
 
     </style>
 
-    <form class="editNews" method="post">
+    <form class="editNews" method="post" ng-show="hasRole('admin')">
         <a href="#/editNews" class="myButton">แก้ไขหน้านี้</a>
 
     </form>

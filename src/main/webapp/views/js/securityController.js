@@ -2,8 +2,8 @@
  * Created by Dell on 2/5/2558.
  */
 'use strict';
-var securityController = angular.module('securityControllers',['securityServices','ngCookies']);
-securityController.controller('loginController',['$scope','$rootScope','$location','$cookieStore','UserService',function($scope,$rootScope,$location,$cookieStore,UserService){
+var securityController = angular.module('securityControllers',['securityServices','ngCookies','userServices']);
+securityController.controller('loginController',['$scope','$rootScope','$location','$cookieStore','UserService','userService',function($scope,$rootScope,$location,$cookieStore,UserService,userService){
     $scope.rememberMe = false;
     $scope.login = function(){
         UserService.authenticate($.param({username:$scope.username,password:$scope.password}),
@@ -16,6 +16,10 @@ securityController.controller('loginController',['$scope','$rootScope','$locatio
                 }
                 UserService.get(function(user){
                     $rootScope.user = user;
+                    userService.findUser({username:$rootScope.user.name},function(data) {
+                        $rootScope.Loguser =data;
+                    })
+
                     $location.path("Homepage")
                 })
             })

@@ -16,10 +16,10 @@
                                 </a>
                                     <p  style="color: #000000" align="center"> {{gallery.galleryName}}</p></figure>
                             </div>
-                            <div  class="col-md-3" width="400" height="200">
+                            <div  class="col-md-3" width="400" height="200" ng-show="hasRole('admin')">
                                 <figure><a class="thumbnail" href="#/editGallery">
                                     <img ng-src="picture/add.jpg" class="thumbnail" /> </a>
-                                    <p  style="color: #000000" align="center">เพิ่มรูปภาพ</p></figure>
+                                    <p  style="color: #000000" align="center">เพิ่มแกเลอรี่</p></figure>
                             </div>
                         </ul>
                     </div>

@@ -14,6 +14,7 @@ import java.util.Set;
 public class History {
     @Id
     long historyID;
+    @Column(length=50000)
     String historyDes;
     @OneToMany(fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.ALL)

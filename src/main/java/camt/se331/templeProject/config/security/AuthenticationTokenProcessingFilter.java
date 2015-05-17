@@ -21,7 +21,7 @@ import java.io.IOException;
  * Created by Dto on 4/18/2015.
  */
 @Component
-public class AuthenticationTokenProcessingFilter extends GenericFilterBean {
+public class  AuthenticationTokenProcessingFilter extends GenericFilterBean {
     @Autowired
     private UserDetailsService userService;
 
