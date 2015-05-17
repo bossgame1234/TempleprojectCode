@@ -8,6 +8,11 @@ contactService.factory('contactService',function($resource){
     return $resource('/Contact', {}, {
         update: {
             method: 'PUT' // this method issues a PUT request
-        }});
+        },
+        addNews:{
+
+            method:'GET'
+        }
+    });
 
 });

@@ -69,12 +69,15 @@
     </tr>
     <tr>
 <td bgcolor="white">วันที่กิจกรรม</td>
-<td bgcolor="white"><input type="datetime-local"  ng-model="news.newsDate"></td>
+<td bgcolor="white"><input type="date"  ng-model="news.newsDate">
+
+</td>
 </tr>
 
     <tr>
         <td bgcolor="white">เวลากิจกรรม</td>
-        <td bgcolor="white"><input type="datetime-local" ng-model="news.newsTime"></td>
+        <td bgcolor="white">   <input type="time" ng-model="news.newsTime"
+       placeholder="HH:mm:ss" min="00:00:00" max="24:00:00" required /></td>
     </tr>
 
 <tr>
@@ -102,16 +105,19 @@
 </tr>
     <tr>
     <td></td>
-        <td style="color: #ffffff"><a href="#/Newspage" class="myButton" ng-click="editNews($flow)">บันทึก</a>
+        <td style="color: #ffffff"><a class="myButton" ng-click="editNews($flow)">บันทึก</a>
             <a href="#/editNews" class="myButton">ยกเลิก</a></td></tr>
 </table>
-
           </form>
 
         </ul>
 
       </div>
-   </div></div></div>
+   </div>
+
+  </div>
+
+</div>
 
 </body>
 </html>
