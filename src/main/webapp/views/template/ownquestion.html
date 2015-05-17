@@ -28,9 +28,10 @@ th.thh{
             <th class="thh" width="500" align="center">คำถาม</th>
             <th class="thh"  width="400" align="center">คำตอบ</th>
             </tr> 
-            <tr>
-         <td style="background-color: #ffffff">A</td>
-         <td style="background-color: #ffffff">B</td>
+            <tr ng-repeat="question in questions">
+
+         <td style="background-color: #ffffff">{{question.questionDes}}</td>
+         <td style="background-color: #ffffff">{{question.answerDes}}</td>
             </tr> </table>
            
             

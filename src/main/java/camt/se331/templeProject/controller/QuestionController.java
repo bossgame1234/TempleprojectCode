@@ -28,11 +28,6 @@ public class QuestionController {
     }
 
 
-    @RequestMapping(value = "Question/{id}",method = RequestMethod.GET)
-    public Question getQuestion(@PathVariable("id") Long id){
-        return questionService.getQuestionById(id);
-    }
-
     @RequestMapping(value = "Question",method = RequestMethod.POST)
     public @ResponseBody
     Question addQuestion(@RequestBody Question question, BindingResult bindingResult){
@@ -49,8 +44,8 @@ public class QuestionController {
         return questionService.deleteQuestion(id);
     }
 
-    @RequestMapping(value = "Question/username/{username}",method = RequestMethod.GET)
-    public List<Question> getQuestion(@PathVariable("username") String username){
+    @RequestMapping(value = "Question/ownquestion",method = RequestMethod.GET)
+    public List<Question> getQuestion(@RequestParam(value = "username") String username){
         return questionService.getUserQuestion(username);
     }
 

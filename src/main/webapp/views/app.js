@@ -11,7 +11,6 @@ var templeApp = angular.module('templeApp', [
     'galleryMainController',
     'contactMainController',
     'questionMainController',
-    'answerMainController',
     'newsMainController',
     'userMainController'
 ]);
@@ -73,7 +72,7 @@ $routeProvider.
     }).
     when('/OwnQuestionpage',{
         templateUrl: 'template/ownquestion.html',
-        controller: ''
+        controller: 'ownQuestionController'
     }).
     when('/Mappage',{
         templateUrl: 'template/Map.html',
@@ -95,8 +94,13 @@ $routeProvider.
         templateUrl: 'template/Picture.html',
         controller: 'editGalleryController'
     }).
+<<<<<<< HEAD
     when('/addPicture/:id',{
         templateUrl: 'template/Picture.html',
+=======
+    when('/addPicture/:id', {
+        templateUrl: 'template/editPicture.html',
+>>>>>>> 664ae539aa809dcf93042250885c6fac1fc3240c
         controller: 'addPictureController'
     }).
     when('/editGallery',{
@@ -110,7 +114,7 @@ $routeProvider.
     }).
     when('/setting',{
         templateUrl: 'template/setting.html',
-        controller: ''
+        controller: 'editUserController'
     }).
 
 otherwise({redirectTo: '/Loginpage'});
@@ -194,6 +198,13 @@ templeApp.config(['$locationProvider','$httpProvider',function($locationProvider
             return false;
         }
         return $rootScope.user.roles[role];
+    }
+
+    $rootScope.logOut = function(){
+        delete $rootScope.authToken;
+        delete $rootScope.user;
+        $cookieStore.remove('authToken');
+        $location.path("/Loginpage");
     }
 });
 

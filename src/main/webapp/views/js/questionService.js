@@ -13,6 +13,11 @@ questionService.factory('questionService',function($resource){
           method: 'GET',
             params:{ 'state' :'admin'},
             isArray : true
+        },
+        getOwnQuestion:{
+            params:{ 'state' :'ownquestion'},
+            method:'GET',
+            isArray: true
         }
 
     });

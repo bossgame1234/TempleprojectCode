@@ -24,32 +24,22 @@ questionMainController.controller('listQuestionController', ['$scope', '$http', 
         var data = questionService.query( function(){
             $scope.questions = data;
         });
-
         $scope.$on('$locationChangeStart', function (event) {
             $rootScope.addSuccess = false;
             $rootScope.editSuccess = false;
             $rootScope.deleteSuccess = false;
         });
-
-        $scope.deleteQuestion = function (id) {
-            var answer = confirm("คุณต้องการที่จะลบคำถามนี้?");
-            if (answer) {
-                questionService.delete({id:id},function(){
-                    $rootScope.deleteSuccess = true;
-                    $location.path("Questionpage");
-                });
-            }
+        $scope.question={username:'',questionDes:''};
+        if($rootScope.user.name!==undefined){
+            $scope.question.username= $rootScope.user.name;
         }
-
-        $scope.question = {};
-        $scope.addQuestion = true;
-        $scope.editQuestion = false;
-        $scope.addQuestion = function () {
+        $scope.addQuestion = function (){
             questionService.save($scope.question,function(){
                 $rootScope.addSuccess = true;
                 $route.reload();
             });
         };
+
 
 
 
@@ -73,11 +63,11 @@ questionMainController.controller('listQuestionControllerAdmin', ['$scope', '$ht
         };
 
         $scope.deleteQuestion = function (id) {
-            var answer = confirm("Do you want to delete the Question?");
+            var answer = confirm("คุณต้องการที่จะลบคำถามนี้?");
             if (answer) {
                 questionService.delete({id:id},function(){
                     $rootScope.deleteSuccess = true;
-                    $location.path("Questionpage");
+                    $route.reload();
                 });
             }
         }
@@ -85,14 +75,13 @@ questionMainController.controller('listQuestionControllerAdmin', ['$scope', '$ht
 
 
     }]);
-questionMainController.controller('editQuestionController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','questionService',
+questionMainController.controller('ownQuestionController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','questionService',
     function ($scope, $http, $routeParams, $location, $rootScope,questionService) {
         $scope.addQuestion = false;
         $scope.editQuestion = true;
-        var id = $routeParams.id;
-        $http.get("/Question/" + id).success(function (data) {
-            $scope.question = data;
-        });
+        questionService.getOwnQuestion({username:$rootScope.user.name},function(data){
+            $scope.questions =data;
+        })
 
         $scope.editQuestion = function () {
             questionService.update({id:$scope.question.id},$scope.question,function(){

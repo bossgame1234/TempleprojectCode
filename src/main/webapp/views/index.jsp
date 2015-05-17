@@ -50,8 +50,6 @@
     <script src="js/contactService.js"></script>
     <script src="js/questionController.js"></script>
     <script src="js/questionService.js"></script>
-    <script src="js/answerController.js"></script>
-    <script src="js/answerService.js"></script>
     <script src="js/newsController.js"></script>
     <script src="js/newsService.js"></script>
 
@@ -122,18 +120,23 @@
 
 <div class="page-header" style="background-color: transparent; background: url(picture/head.png)" >
     <div class="row">
-                <table class="account" style="background: transparent; border: 0px">
-                    <tr >
+                <table class="account" style="background: transparent; border: 0px" ng-show="hasRole('admin')||hasRole('registered user')" >
+                    <tr>
                         <td style="color: #ffffff">ยินดีต้อนรับคุณ</td>
-                        <td style="color: #ffffff">(ชื่อคนที่ล็อคอิน)</td>
+                        <td style="color: #ffffff">{{Loguser.f_name}} {{Loguser.l_name}}</td>
                     </tr>
                     <tr style="background: transparent">
                         <td colspan="2" style="background: transparent" align="right">
-                            <a href="#/setting" class="myButton">ตั้งค่า</a>
-                        <a href="#" ng-click="logOut()" class="myButton">ออกจากระบบ</a> </td>
+                            <a href="#/setting" class="myButton" ng-hide="hasRole('admin')">ตั้งค่า</a>
+                        <a ng-click="logOut()" class="myButton">ออกจากระบบ</a> </td>
                     </tr>
                  </table>
-
+        <table class="account" style="background: transparent; border: 0px" ng-hide="hasRole('admin')||hasRole('registered user')">
+            <tr style="background: transparent">
+                <td style="background: transparent" align="right">
+                    <a href="#/Loginpage" class="myButton" >ล็อกอิน</a>
+            </tr>
+        </table>
     <div class="col-md-11" >
     <div role="navigation" >
     <nav class="nav nav-pills nav-justified" style="padding-top: 180px" >
@@ -148,10 +151,13 @@
                     <li ng-class="{true: 'active'}[menuActive('/Historypage')]">
                         <a href="#/Historypage"><p class="fontnav">ประวัติ</p></a>
                     </li>
-                    <li ng-class="{true: 'active'}[menuActive('/Questionpage')]">
+                    <li ng-class="{true: 'active'}[menuActive('/Questionpage')]" ng-hide="hasRole('admin')">
                         <a  href="#/Questionpage"><p class="fontnav">ถาม-ตอบธรรมะ</p></a>
                     </li>
-                        <li ng-class="{true: 'active'}[menuActive('/Questionpage')]">
+                        <li ng-class="{true: 'active'}[menuActive('/Questionpage')]" ng-show="hasRole('registered user')">
+                            <a  href="#/OwnQuestionpage"><p class="fontnav">คำถามส่วนตัว</p></a>
+                        </li>
+                        <li ng-class="{true: 'active'}[menuActive('/Questionpage')]" ng-show="hasRole('admin')">
                             <a  href="#/Answerpage"><p class="fontnav">ตอบธรรมะ</p></a>
                         </li>
                     <li ng-class="{true: 'active'}[menuActive('/Gallerypage')]">

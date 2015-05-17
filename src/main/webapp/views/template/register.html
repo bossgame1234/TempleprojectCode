@@ -85,41 +85,41 @@
                         </td>
                         <td style="width: 200px; background-color:#ffffff">
                             <div class="alert alert-danger" role="alert" ng-show="signup.username.$error.required">
-                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">โปรดใส่ชื่อผู้ใช้งาน<br/> ในรูปแบบe-mail</span>
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">โปรดใส่ชื่อผู้ใช้งานในรูปแบบe-mail</span>
                             </div>
                             <div class="alert alert-danger" role="alert" ng-show="signup.username.$error.pattern">
-                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">โปรดใส่ชื่อผู้ใช้งาน<br/> ในรูปแบบe-mail</span>
-                            </div>
-                            <div class="alert alert-danger" role="alert"  ng-show="duplicateUser">
-                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">ใส่ชื่อผู้ใช้ซํ้า กรุณาใส่ใหม่</span>
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">ชื่อผู้ใช้นี้มีคนใช้แล้ว </span>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td style="width: 500px; background-color:#ffffff">
-                            <input class="form-control" ng-model="user.password" type="password" id="password" name="password" placeholder="รหัสผ่าน" required/>
+                            <input class="form-control" ng-model="user.password" type="password" ng-minlength="9" maxlength="12" id="password" name="password" placeholder="รหัสผ่าน" required/>
                         </td>
                         <td style="width: 300px; background-color:#ffffff">
                             <div class="alert alert-danger" role="alert" ng-show="signup.password.$error.required">
                                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">โปรดใส่รหัสผ่าน</span>
                             </div>
+                            <div class="alert alert-danger" role="alert" ng-show="signup.password.$error.minlength">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">รหัสผ่านต้องมีความยาว 9-12 ตัวอักษร</span>
+                            </div>
                         </td>
                     </tr>
                     <tr>
                         <td style="width: 500px; background-color:#ffffff">
-                            <input class="form-control" ng-model="password2" type="password" id="repassword" name="repassword"  placeholder="ยืนยัน-รหัสผ่าน" required/>
+                            <input class="form-control" ng-model="password2" type="password" id="repassword" ng-minlength="9" maxlength="12" name="repassword"  placeholder="ยืนยัน-รหัสผ่าน" required/>
                         </td>
                         <td style="width: 300px; background-color:#ffffff">
                             <div class="alert alert-danger" role="alert" ng-show="signup.repassword.$error.required">
                                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">โปรดยืนยันรหัสผ่าน</span>
                             </div>
                             <div class="alert alert-danger" role="alert" ng-show="confirmPassError">
-                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">กรุณายืนยันรหัสให้ถูกต้อง</span>
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน</span>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2"><a class="myButton" ng-click="addUser()" ng-disabled="signup.$invalid">สมัครสมาชิก วัดเจดีย์หลวง</a></td>
+                        <td colspan="2"><button type="submit" class="myButton" ng-click="addUser()" ng-disabled="signup.$invalid">สมัครสมาชิก วัดเจดีย์หลวง</button></td>
                     </tr>
                 </table>
 

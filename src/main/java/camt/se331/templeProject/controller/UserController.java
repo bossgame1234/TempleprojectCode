@@ -17,19 +17,14 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "user/{username}",method = RequestMethod.GET)
-    public User getUser(@PathVariable("username") String username){
-        String findUsername = username+".com";
-        return userService.findByUserName(findUsername);
+    @RequestMapping(value = "user/verifyusername",method = RequestMethod.GET)
+    public User getUser(@RequestParam(value = "username")String user){
+        return userService.findByUserName(user);
     }
 
     @RequestMapping(value = "user",method = RequestMethod.POST)
     public @ResponseBody
-    User addUser(@RequestBody User User, BindingResult bindingResult){
-        return userService.addUser(User);
-    }
-    @RequestMapping(value = "user/{id}",method = RequestMethod.PUT)
-    public  User editUser(@RequestBody User user, BindingResult bindingResult){
-        return   userService.editUser(user);
+    User addUser(@RequestBody User user, BindingResult bindingResult){
+        return userService.addUser(user);
     }
 }
