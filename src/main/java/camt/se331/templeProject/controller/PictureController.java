@@ -83,6 +83,28 @@ public class PictureController {
         return gallery;
     }
 
+    @RequestMapping(value = "/addNewsPicture",method = RequestMethod.POST)
+    @ResponseBody
+    public News addNewsPicture(HttpServletRequest request,
+                                     HttpServletResponse response,@RequestParam("newsid")Long newsId){
+        MultipartHttpServletRequest mRequest;
+        News news = newsService.getNewsById(newsId);
+        try{
+            mRequest = (MultipartHttpServletRequest)request;
+            Iterator<String> itr= mRequest.getFileNames();
+            while(itr.hasNext()){
+                MultipartFile multipartFile = mRequest.getFile(itr.next());
+                Picture picture = new Picture();
+                picture.setPictureName(multipartFile.getName());
+                picture.setPictureType(multipartFile.getContentType());
+                picture.setPictureLocation(multipartFile.getBytes());
+                newsService.addPictureNews(news, picture);
+            }
 
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return news;
+    }
 
 }

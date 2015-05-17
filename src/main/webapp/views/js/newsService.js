@@ -5,9 +5,9 @@
 var newsService = angular.module('newsServices',['ngResource']);
 
 newsService.factory('newsService',function($resource){
-    return $resource('/news/:id', { id: '@_id'}, {
+    return $resource('/news/:state', {}, {
         update: {
-            method: 'PUT' // this method issues a PUT request
+            params:{ 'state' :'add'},
+            method: 'GET' // this method issues a PUT request
         }});
-
 })

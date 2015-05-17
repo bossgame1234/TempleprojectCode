@@ -40,6 +40,12 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
+    public News addPictureNews(News news, Picture picture) {
+        news.getNewsPictureLocation().add(picture);
+        return newsDao.addNews(news);
+    }
+
+    @Override
     public News deleteNews(Long id) {
         News news  = newsDao.getNews(id);
       return newsDao.deleteNews(news);

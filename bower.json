@@ -17,7 +17,8 @@
     "angular-translate":"2.6.x",
     "angular-translate-loader-url":"2.6.x",
     "ng-flow" : "~2",
-    "angular-cookies": "~1.2.x"
+    "angular-cookies": "~1.2.x",
+    "webshim" : "1.12.4"
   }
 }
 
