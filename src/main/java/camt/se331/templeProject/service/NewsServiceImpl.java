@@ -4,6 +4,7 @@ import camt.se331.templeProject.dao.NewsDao;
 import camt.se331.templeProject.entity.News;
 import javax.mail.Session;
 
+import camt.se331.templeProject.entity.Picture;
 import camt.se331.templeProject.entity.User;
 import camt.se331.templeProject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,6 +89,7 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
+
     public News addPictureNews(News news, Picture picture) {
         news.getNewsPictureLocation().add(picture);
         return newsDao.addNews(news);

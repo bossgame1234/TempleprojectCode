@@ -74,8 +74,5 @@ public class NewsController {
     }
 
 
-    @RequestMapping(value = "news",method = RequestMethod.PUT)
-    public  List<News> sendNews(News news){
-        return   newsService.sendNews(news);
-    }
+
 }
