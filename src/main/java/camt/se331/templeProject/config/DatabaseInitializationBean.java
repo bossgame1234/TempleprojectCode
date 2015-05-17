@@ -50,7 +50,7 @@ public class DatabaseInitializationBean implements InitializingBean {
         History initHistory = new History();
         initHistory.setHistoryID(1L);
         initHistory.setHistoryDes("วัดของเรา");
-        initHistory.getHistoryPictureLocation().add(PictureUtil.getPicture("picture/slideHome1.jpg"));
+        initHistory.getHistoryPictureLocation().add(PictureUtil.getPicture("views/picture/slideHome1.jpg"));
         historyRepository.save(initHistory);
 
         Gallery HomeGallery = new Gallery();
