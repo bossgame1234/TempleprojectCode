@@ -1,43 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Home</title>
-<meta charset="utf-8">
+    <style>
+        .myButton {
+            -moz-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            -webkit-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            box-shadow:inset 0px 1px 0px 0px #d1d1d1;
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c7c7c7), color-stop(1, #dbdbdb));
+            background:-moz-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-webkit-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-o-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:-ms-linear-gradient(top, #c7c7c7 5%, #dbdbdb 100%);
+            background:linear-gradient(to bottom, #c7c7c7 5%, #dbdbdb 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7c7c7', endColorstr='#dbdbdb',GradientType=0);
+            background-color:#c7c7c7;
+            border:1px solid #b5b5b5;
+            display:inline-block;
+            cursor:pointer;
+            color:#000000;
+            font-family:Arial;
+            font-size:12px;
+            font-weight:bold;
+            padding:3px 20px;
+            text-decoration:none;
+        }
+        .myButton:hover {
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dbdbdb), color-stop(1, #c7c7c7));
+            background:-moz-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-webkit-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-o-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:-ms-linear-gradient(top, #dbdbdb 5%, #c7c7c7 100%);
+            background:linear-gradient(to bottom, #dbdbdb 5%, #c7c7c7 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbdbdb', endColorstr='#c7c7c7',GradientType=0);
+            background-color:#dbdbdb;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
+    .logintable{
+        position: absolute;
+        top: -100px;
+        left: 250px;
+    }
+
+
+
+    </style>
 </head>
 <body>
-<div id="bb" style="width:1200px; height:570px; margin-top:5px; position:relative;left:20px;top:130px">
+
+<div class="bb" style=";width:800px; height:570px; margin-top:5px; position:relative;left:20px;top:130px;">
 <form class="form-inline" ng-hide="user" ng-controller="loginController">
 
-  <table border="0" cellspacing="0" cellpadding="5" style="width: 300px" >
-    <tbody>
-    <th colspan="2">ล็อกอินเข้าสู่ระบบ<br></th>
+  <table class="logintable" align="center" style="width: 300px; height: 300px">
+
+    <th colspan="2" align="center">ล็อกอินเข้าสู่ระบบ สำหรับสมาชิก<br></th>
       <tr>
-          <td>
-         <label for="username" class="control-label" >ชื่อผู้ใช้ </label>
+          <td width="100">
+              <label for="username" class="col-sm-3 control-label" style="width: 100px">ชื่อผู้ใช้งาน </label>
           </td>
           <td>
-          <input ng-model="username" id="username" type="text" class="form-control"/>
+          <input ng-model="username" id="username" type="text" class="form-control" />
           </td>
       </tr>
       <tr>
-          <td>
-          <label for="password" class="col-sm-3 control-label" >รหัสผ่าน </label>
+          <td width="100">
+          <label for="password" class="col-sm-3 control-label" style="width: 100px">รหัสผ่าน </label>
           </td>
           <td>
               <input ng-model="password" id="password" type="password" class="form-control"/>
           </td>
       </tr>
       <tr>
-        <td><a class="into" href="#/Homepage">เข้าสู่เว็บไซต์</a></td>
-        <td align="center">
-            <a href="#/register"><input align="left" type="submit" name="btnSubmit" value="ลงทะเบียน"></a>
-            <input ng-click="login()" type="submit" name="btnSubmit" value="เข้าสู่ระบบ">
+        <td align="center" colspan="2">
+            <a href="#/register">
+                <a href="#" class="myButton" ng-click="editPicture($flow)">ลงทะเบียน</a>
+                <a href="#" class="myButton"  ng-click="login()">เข้าสู่ระบบ</a>
+                </a>
         </td>
+          <tr>
+      <td colspan="2" align="center"> <a class="into" href="#/Homepage">เข้าสู่เว็บไซต์</a> </td>
+  </tr>
+
       </tr>
     <tr><td colspan="2"><div class="ng-hide" ng-show="initialized">
-        <div class="alert alert-danger" ng-show="error">{{error}}</div></div></td>
+        <div class="alert alert-danger" ng-show="error">{{error}}</div></div></td><br/><br/>
     </tr>
-    </tbody>
   </table>
 </form>
 </div>
