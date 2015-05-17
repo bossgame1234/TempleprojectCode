@@ -49,11 +49,12 @@
     </style>
 
 
-    <form class="editHistory" method="post" ng-show="hasRole('admin')">
-        <a href="#/editHistory" class="myButton">แก้ไขหน้านี้</a>
-    </form>
 
    </head>
+<body>
+<form class="editHistory" method="post" ng-show="hasRole('admin')">
+    <a href="#/editHistory" class="myButton">แก้ไขหน้านี้</a>
+</form>
 
   <div class="row">
 <div class="row content-wrapper">
@@ -64,12 +65,13 @@
           <div ng-repeat="picture in history.historyPictureLocation" class="text-center">
               <table width="1000" border="0">
          <tr>
-             <td width="300" ><img ng-src="data: {{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail"></td>
-          <td width="700" align="left">
+             <td width="300" ><img style="top: 110px" ng-src="data: {{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail"></td>
+          <td width="700" align="left" height="100" rowspan="2">
               <font color="#000000"> {{history.historyDes}} </font></td>
 
                      <!-- <p> <img src="picture/history.jpg" alt=""> </p> -->
        </tr>
+                  <tr></tr><tr></tr>
         </table>
               </div>
           </div>
@@ -85,6 +87,6 @@
 
 
 
-
+</body>
 
 </html>
