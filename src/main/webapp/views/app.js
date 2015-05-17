@@ -47,6 +47,10 @@ $routeProvider.
         templateUrl: 'template/editNews.html',
         controller: 'editNewsController'
     }).
+    when('/sendNews',{
+        templateUrl: 'template/Newspage.html',
+        controller: 'sendNewsController'
+    }).
     when('/Historypage',{
         templateUrl: 'template/History.html',
         controller: 'listHistoryController'

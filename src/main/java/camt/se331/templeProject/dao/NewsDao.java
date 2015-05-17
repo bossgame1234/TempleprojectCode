@@ -13,5 +13,6 @@ public News getNews(Long id);
 public News updateNews(News news);
 public News addNews(News news);
 public News deleteNews(News news);
+public List<News> sendNews(News news);
 
 }

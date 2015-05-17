@@ -43,5 +43,8 @@ NewsRepository newsRepository;
         return news;
     }
 
-
+    @Override
+    public List<News> sendNews(News news) {
+        return newsRepository.findAll();
+    }
 }
