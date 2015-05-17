@@ -94,13 +94,8 @@ $routeProvider.
         templateUrl: 'template/Picture.html',
         controller: 'editGalleryController'
     }).
-<<<<<<< HEAD
-    when('/addPicture/:id',{
-        templateUrl: 'template/Picture.html',
-=======
     when('/addPicture/:id', {
         templateUrl: 'template/editPicture.html',
->>>>>>> 664ae539aa809dcf93042250885c6fac1fc3240c
         controller: 'addPictureController'
     }).
     when('/editGallery',{
