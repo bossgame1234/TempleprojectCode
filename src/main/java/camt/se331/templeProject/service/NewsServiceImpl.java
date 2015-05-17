@@ -15,6 +15,11 @@ import java.util.List;
 public class NewsServiceImpl implements NewsService {
 @Autowired
     NewsDao newsDao;
+
+    public News getNewsById(Long id){
+        return newsDao.getNews(id);
+    }
+
     @Override
     public List<News> getNews() {
         return newsDao.getNews();

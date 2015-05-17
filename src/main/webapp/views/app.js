@@ -39,7 +39,7 @@ $routeProvider.
         templateUrl: 'template/News.html',
         controller: 'listNewsController'
     }).
-    when('/detailNews',{
+    when('/detailNews/:id',{
         templateUrl: 'template/detailNews.html',
         controller: 'editNewsController'
     }).
@@ -164,7 +164,7 @@ templeApp.config(['$locationProvider','$httpProvider',function($locationProvider
 
 
     var originalPath = $location.path();
-    $location.path("/Loginpage");
+    //$location.path("/Loginpage");
     var authToken = $cookieStore.get('authToken');
     if (authToken != undefined) {
         $rootScope.authToken = authToken;

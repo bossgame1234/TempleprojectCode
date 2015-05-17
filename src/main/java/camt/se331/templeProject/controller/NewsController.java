@@ -22,6 +22,11 @@ public class NewsController {
         return newsService.getNews();
     }
 
+    @RequestMapping(value = "news/{id}",method = RequestMethod.GET)
+    public News getNewsById(@PathVariable("id") Long id){
+        return newsService.getNewsById(id);
+    }
+
 
     @RequestMapping(value = "news",method = RequestMethod.POST)
     public @ResponseBody
