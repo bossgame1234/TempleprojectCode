@@ -2,14 +2,25 @@ package camt.se331.templeProject.service;
 
 import camt.se331.templeProject.dao.NewsDao;
 import camt.se331.templeProject.entity.News;
-import camt.se331.templeProject.entity.Picture;
-import org.hsqldb.Session;
+import javax.mail.Session;
+
+import camt.se331.templeProject.entity.User;
+import camt.se331.templeProject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.net.PasswordAuthentication;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+
+
+import javax.mail.MessagingException;
+import javax.mail.Transport;
+import javax.mail.PasswordAuthentication;
+import javax.mail.internet.MimeMessage;
 
 
 /**
@@ -19,6 +30,8 @@ import java.util.Properties;
 public class NewsServiceImpl implements NewsService {
 @Autowired
     NewsDao newsDao;
+    @Autowired
+    UserRepository userRepository;
 
     public News getNewsById(Long id){
         return newsDao.getNews(id);
@@ -36,6 +49,41 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public News addNews(News news) {
+
+        final String username = "cartoon5019@gmail.com";
+        final String password = "5492134322";
+
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+
+        Session session = Session.getDefaultInstance(props,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication("username", "password");
+                    }
+                });
+        try {
+            List<User> userList = new ArrayList<User>(userRepository.findAll());
+            for(int i=0; i < userList.size() ; i++){
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("from-email@gmail.com"));
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(userList.get(i).getUsername()));
+            message.setSubject("Testing Subject");
+            message.setText("Dear Mail Component Based,"
+                    + "\n\n HELLO WORLD!");
+            Transport.send(message);
+
+            System.out.println("Done");
+
+            }
+
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
         return newsDao.addNews(news);
     }
 
@@ -51,19 +99,5 @@ public class NewsServiceImpl implements NewsService {
       return newsDao.deleteNews(news);
     }
 
-    @Override
-    public List<News> sendNews(News news) {
 
-        final String username = "username@gmail.com";
-        final String password = "password";
-
-
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
-
-        return null;
-    }
 }
