@@ -15,12 +15,13 @@
           <div class="columns large-8">
             
             <table align="center" width="1100px">
-            <tr ng-repeat="news in allNews">
+            <tr>
             <td width="200" rowspan="2" align="center">
                 <div ng-repeat="picture in news.newsPictureLocation" class="text-center">
                     <img ng-src="data: {{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail">
                 </div>
             </td>
+                </tr>
 
                 <tr>
             <th width="150" align="left"> ชื่อกิจกรรม </th>
@@ -28,14 +29,13 @@
                 </tr>
             <tr>
             <th width="150" align="left">วัน-เวลา จัดกิจกรรม</th>
-            <td>{{news.newsDate}}</th>
-                <td>{{news.newsTime}}</th>
+            <td>{{news.newsDate}}</td>
+                <td>{{news.newsTime}}</td>
             </tr> 
             <tr>
            <th> รายละเอียดกิจกรรม</td>
            <td colspan="2"> {{news.newsPlace}} </td>
             </tr>
-
             </table>
 
             

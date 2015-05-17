@@ -38,13 +38,17 @@ $routeProvider.
         templateUrl: 'template/News.html',
         controller: 'listNewsController'
     }).
-    when('/detailNews',{
+    when('/detailNews/:id',{
         templateUrl: 'template/detailNews.html',
         controller: 'editNewsController'
     }).
     when('/editNews',{
         templateUrl: 'template/editNews.html',
         controller: 'editNewsController'
+    }).
+    when('/sendNews',{
+        templateUrl: 'template/Newspage.html',
+        controller: 'sendNewsController'
     }).
     when('/Historypage',{
         templateUrl: 'template/History.html',
@@ -170,7 +174,7 @@ templeApp.config(['$locationProvider','$httpProvider',function($locationProvider
 
 
     var originalPath = $location.path();
-    $location.path("/Loginpage");
+    //$location.path("/Loginpage");
     var authToken = $cookieStore.get('authToken');
     if (authToken != undefined) {
         $rootScope.authToken = authToken;

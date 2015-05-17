@@ -14,8 +14,8 @@ Modernizr.load({
     <style>
         .editNews{
             position: absolute;
-            top:-60px;
-            right: -60px;
+            top:-55px;
+            right:60px;
         }
         .myButton {
             -moz-box-shadow:inset 0px 1px 0px 0px #d1d1d1;
@@ -72,11 +72,11 @@ Modernizr.load({
             <tr ng-repeat="news in allNews">
             <td width="400">
                     <div ng-repeat="picture in news.newsPictureLocation" class="text-center">
-                    <a href="#/detailNews"><img ng-src="data: {{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail"></a>
+                    <a href="#/detailNews/{{news.newsId}}"><img ng-src="data: {{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail"></a>
                 </div>
             </td>
             <td width="600" align="left">
-               <a href="#/detailNews" style="color: #000000">กิจกรรม {{news.newsName}}</a>
+               <a href="#/detailNews/{{news.newsId}}" style="color: #000000">กิจกรรม {{news.newsName}}</a>
         	</td>
            </tr>
 
