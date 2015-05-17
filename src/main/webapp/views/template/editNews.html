@@ -63,14 +63,23 @@
 <td bgcolor="white"><input align="middle" type="file" flow-file-added="!!{jpg:1}[$file.getExtension()]" flow-btn /></td>
 </tr>
    <!-- preview-->
-<tr>
+    <tr>
+        <td bgcolor="white">ชื่อกิจกรรม</td>
+        <td bgcolor="white"><input type="text" ng-model="news.newsName"></td>
+    </tr>
+    <tr>
 <td bgcolor="white">วันที่กิจกรรม</td>
-<td bgcolor="white"><input type="datetime-local" name="bdaytime"></td>
+<td bgcolor="white"><input type="datetime-local"  ng-model="news.newsDate"></td>
 </tr>
 
+    <tr>
+        <td bgcolor="white">เวลากิจกรรม</td>
+        <td bgcolor="white"><input type="datetime-local" ng-model="news.newsTime"></td>
+    </tr>
+
 <tr>
-<td height="10" bgcolor="white">รายละเอียดกิจกรรม </td>
-<td height="10" bgcolor="white"><textarea rows="10" cols="40" ng-model="news.newsName"> </textarea></td>
+<td height="10" bgcolor="white">สถานที่ </td>
+<td height="10" bgcolor="white"><input type="text" ng-model="news.newsPlace"></td>
 </tr>
 <tr>
 <td width="200" bgcolor="#FFFFFF"></td>
@@ -93,8 +102,8 @@
 </tr>
     <tr>
     <td></td>
-        <td style="color: #ffffff"><a href="#" class="myButton" ng-click="editNews($flow)">บันทึก</a>
-            <a href="#" class="myButton">ยกเลิก</a></td></tr>
+        <td style="color: #ffffff"><a href="#/Newspage" class="myButton" ng-click="editNews($flow)">บันทึก</a>
+            <a href="#/editNews" class="myButton">ยกเลิก</a></td></tr>
 </table>
 
           </form>

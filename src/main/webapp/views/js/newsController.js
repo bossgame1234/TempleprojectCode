@@ -6,23 +6,18 @@ var newsMainController = angular.module('newsMainController', ['newsServices']);
 
 newsMainController.controller('addNewsController', ['$scope', '$http', '$location', '$rootScope','newsService',
     function ($scope, $http, $location, $rootScope,newsService) {
-        $scope.news = {};
-        $scope.addNews = true;
-        $scope.editNews = false;
-        $scope.addNews = function (flowFiles) {
-            newsService.save($scope.news,function(data){
-                // after adding the object, add a new picture
-                // get the product id which the image will be added
-                var newsid = data.id;
-                // set location
-                flowFiles.opts.target = '/newsImage/add';
-                flowFiles.opts.testChunks = false;
-                flowFiles.opts.query ={newsid:newsid};
-                flowFiles.upload();
-                $rootScope.addSuccess = true;
-                $location.path("Newspage");
-                $scope.$apply();
-            });
+
+        $scope.addNews = false;
+        $scope.editNews = true;
+        var id = $routeParams.id;
+        $scope.editNews = function (flowFiles) {
+            flowFiles.opts.target = '/picture/addNewsPicture';
+            flowFiles.opts.testChunks = false;
+            flowFiles.opts.query ={newsid:newsid};
+            flowFiles.upload();
+            $scope.$apply();
+            $rootScope.editSuccess = true;
+            $location.path("Newspage/"+id);
         };
     }]);
 
