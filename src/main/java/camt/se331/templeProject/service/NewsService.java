@@ -13,4 +13,5 @@ public News getNewsById(Long id);
 public News updateNews(News news);
 public News addNews(News news);
 public News deleteNews(Long id);
+    public List<News> sendmail();
 }

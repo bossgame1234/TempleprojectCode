@@ -47,11 +47,18 @@ public class NewsServiceImpl implements NewsService {
         return newsDao.updateNews(news);
     }
 
+
     @Override
     public News addNews(News news) {
 
-        final String username = "cartoon5019@gmail.com";
-        final String password = "5492134322";
+
+        return newsDao.addNews(news);
+    }
+
+    @Override
+    public List<News> sendmail() {
+        final String username = "componentbased702@gmail.com";
+        final String password = "702componentbased";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -68,23 +75,23 @@ public class NewsServiceImpl implements NewsService {
         try {
             List<User> userList = new ArrayList<User>(userRepository.findAll());
             for(int i=0; i < userList.size() ; i++){
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("from-email@gmail.com"));
-            message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(userList.get(i).getUsername()));
-            message.setSubject("Testing Subject");
-            message.setText("Dear Mail Component Based,"
-                    + "\n\n HELLO WORLD!");
-            Transport.send(message);
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress("from-email@gmail.com"));
+                message.setRecipients(Message.RecipientType.TO,
+                        InternetAddress.parse(userList.get(i).getUsername()));
+                message.setSubject("Testing Subject");
+                message.setText("Dear Mail Component Based,"
+                        + "\n\n HELLO WORLD!");
+                Transport.send(message);
 
-            System.out.println("Done");
+                System.out.println("Done");
 
             }
 
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
-        return newsDao.addNews(news);
+        return newsDao.getNews();
     }
 
     @Override

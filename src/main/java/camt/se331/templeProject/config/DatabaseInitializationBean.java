@@ -97,21 +97,21 @@ public class DatabaseInitializationBean implements InitializingBean {
 
         //Question
         Question[] initQuestion = {
-                new Question(1L, "What is this temple name?", "Cartoon"),
-                new Question(2L, "This is a question", "Boss"),
-                new Question(3L, "How many dogs in the temple?", "Nook"),
-                new Question(4L, "Can I take a photo", "Pare")
+                new Question(1L, "ถ้าอยากจะเข้าไปพบหลวงพ่อพรุ่งนี้(19/05/2558) จะสะดวกตอนไหนบ้างคะ", "จามจุรี สวยจัง"),
+                new Question(2L, "ประวัติของวัดเจดีย์หลวง ผมขออนุญาติก็อบปี้นำไปลงเว็บได้ไหมครับ", "ไอ้วัน"),
+                new Question(3L, "ที่จอดรถเต็มหรือยังคะ เวลาประมาณเที่ยงๆ", "ฉัน อ้วน"),
+                new Question(4L, "I Love This Place .....", "Chinese Love Thailand")
         };
 
-        initQuestion[0].setAnswerDes("JD");
-        initQuestion[1].setAnswerDes("Really?????");
+        initQuestion[0].setAnswerDes("หลวงพ่อไม่ว่างเลยครับวันพรุ่งนี้ ขออภัยด้วยนะครับ");
+        initQuestion[1].setAnswerDes("ได้เลยครับ");
         questionRepository.save(Arrays.asList(initQuestion));
 
         //News
         Calendar calendar1 = new GregorianCalendar(2015, 7,11);
         News[] initNews = {
-                new News("Activity1",calendar1.getTime(),Time.valueOf("10:30:00"),"จัดที่วัด",PictureUtil.getPicture("picture/slideNew1.jpg")),
-                new News("Activity2",calendar1.getTime(),Time.valueOf("18:00:00"),"จัดที่บ้านนนนนนนน",PictureUtil.getPicture("picture/slideNew2.jpg"))
+                new News("งานประเพณีใส่ขันดอก อินทขีล",calendar1.getTime(),Time.valueOf("10:30:00"),"ณ วัดเจดีย์หลวง วรวิหาร เมืองเชียงใหม่  ในวันที่ ๑๔-๒๑ พฤษภาคม ๒๕๕๘",PictureUtil.getPicture("picture/slideNew1.jpg")),
+                new News("งานประเพณีสงกรานต์ 2558",calendar1.getTime(),Time.valueOf("18:00:00"),"ณ วัดเจดีย์หลวง วรวิหาร เมืองเชียงใหม่  ในวันที่ ๑๓-๑๕ เมษายน ๒๕๕๘",PictureUtil.getPicture("picture/slideNew2.jpg"))
         };
         newsRepository.save(Arrays.asList(initNews));
 

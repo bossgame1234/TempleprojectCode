@@ -55,15 +55,13 @@ newsMainController.controller('sendNewsController', ['$scope', '$http', '$routeP
             $scope.news = data;
         });
 
-        $scope.editNews = function (flowFiles) {
-            newsService.update($scope.news,function(data){
-                $scope.news.newsPictureLocation = null;
-                var newsid = data.newsID;
 
-                flowFiles.opts.target = '/picture/addNewsPicture';
-                flowFiles.opts.testChunks = false;
-                flowFiles.opts.query ={newsid:newsid};
-                flowFiles.upload();
+        $scope.sendnews = function () {
+            newsService.save($scope.news,function(data){
+                $http.get("/sendnew/").success(function (data) {
+                    $scope.news = data;
+                });
+
                 $rootScope.editSuccess = true;
                 $location.path("Newspage");
                 $scope.$apply();

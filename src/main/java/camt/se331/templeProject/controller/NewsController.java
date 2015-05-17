@@ -16,7 +16,11 @@ import java.util.List;
 public class NewsController {
     @Autowired
     NewsService newsService;
+@RequestMapping(value="sendnews",method = RequestMethod.GET)
+public List<News> sendnews(){
+    return newsService.sendmail();
 
+}
     @RequestMapping(value = "news",method = RequestMethod.GET)
     public List<News> getNews(){
         return newsService.getNews();
@@ -34,7 +38,6 @@ public class NewsController {
         return newsService.addNews(news);
     }
 
-
     @RequestMapping(value = "news/{id}",method = RequestMethod.PUT)
     public  News editNews(@RequestBody News news, BindingResult bindingResult){
       return   newsService.updateNews(news);
@@ -46,8 +49,5 @@ public class NewsController {
     }
 
 
-    @RequestMapping(value = "news",method = RequestMethod.PUT)
-    public  List<News> sendNews(News news){
-        return   newsService.sendNews(news);
-    }
+
 }

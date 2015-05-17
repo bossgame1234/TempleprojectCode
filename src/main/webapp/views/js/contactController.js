@@ -30,6 +30,17 @@ contactMainController.controller('listContactController', ['$scope', '$http', '$
             $scope.contact = data;
             $location.path("Contactpage");
         });
+
+        $scope.addContact = function () {
+            if(!$scope.myForm.email-input.$valid){
+                alert(valid);
+            }
+            contactService.save($scope.contact,function(){
+                $rootScope.addSuccess = true;
+                $location.path("Contactpage");
+
+            });
+        };
     }]);
 
 contactMainController.controller('editContactController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','contactService',
