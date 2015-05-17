@@ -56,8 +56,9 @@
                           <figure ><a href="data:{{picture.pictureType}};base64,{{picture.pictureLocation}}"><img ng-src="data:{{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail"/>
                           </a></figure>
                       </div>
-                      <div  class="col-md-3" width="400" height="200" ng-show="hasRole('admin')">
-                          <figure><a class="thumbnail" href="#/addPicture/{{gallery.galleryId}}"><img ng-src="picture/add.jpg" class="thumbnail" />
+                      <div  class="col-md-3" width="400" height="200">
+                          <figure><a class="thumbnail" href="#/addPicture/{{gallery.galleryId}}" ng-click="addPicture($flow)"><img ng-src="picture/add.jpg" class="thumbnail" />
+
                         <p style="color: #000000" align="center"> เพิ่มรูปภาพ </p></a></figure>
               </div>
                   </ul>

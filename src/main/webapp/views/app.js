@@ -30,10 +30,6 @@ $routeProvider.
         templateUrl: 'template/Login.html',
         controller: 'loginController'
     }).
-    when('/editNews',{
-        templateUrl: 'template/editNews.html',
-        controller: ''
-    }).
     when('/Newspage',{
         templateUrl: 'template/News.html',
         controller: 'listNewsController'
@@ -45,6 +41,10 @@ $routeProvider.
     when('/editNews',{
         templateUrl: 'template/editNews.html',
         controller: 'editNewsController'
+    }).
+    when('/addNews',{
+        templateUrl: 'template/editNews.html',
+        controller: 'addNewsController'
     }).
     when('/sendNews',{
         templateUrl: 'template/Newspage.html',
