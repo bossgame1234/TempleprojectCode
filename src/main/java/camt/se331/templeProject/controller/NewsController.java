@@ -36,26 +36,37 @@ public class NewsController {
     public News getNewsById(@PathVariable("id") Long id){
         return newsService.getNewsById(id);
     }
-    public static Date parseDateTime(String dateString) {
-        if (dateString == null) return null;
-        DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ssZ");
-        if (dateString.contains("T")) dateString = dateString.replace('T', ' ');
-        if (dateString.contains("Z")) dateString = dateString.replace("Z", "+0000");
-        else
-            dateString = dateString.substring(0, dateString.lastIndexOf(':')) + dateString.substring(dateString.lastIndexOf(':')+1);
-        try {
-            return fmt.parse(dateString);
+    public static Date parse( String input ) throws java.text.ParseException {
+
+        //NOTE: SimpleDateFormat uses GMT[-+]hh:mm for the TZ which breaks
+        //things a bit.  Before we go on we have to repair this.
+        SimpleDateFormat df = new SimpleDateFormat( "yyyy-MM-dd'T'HH:mm:ssz" );
+
+        //this is zero time so we need to add that TZ indicator for
+        if ( input.endsWith( "Z" ) ) {
+            input = input.substring( 0, input.length() - 1) + "GMT-00:00";
+        } else {
+            int inset = 6;
+
+            String s0 = input.substring( 0, input.length() - inset );
+            String s1 = input.substring( input.length() - inset, input.length() );
+
+            input = s0 + "GMT" + s1;
         }
-        catch (ParseException e) {
-            return null;
-        }
+
+        return df.parse( input );
+
     }
 
     @RequestMapping(value = "news/add",method = RequestMethod.GET)
     public  News addNews(@RequestParam(value = "newsName") String name,@RequestParam(value = "newsDate") String date,
-                         @RequestParam(value = "newsPlace") String place,@RequestParam(value = "newsTime") String time){
+                         @RequestParam(value = "newsPlace") String place, @RequestParam(value = "newsTime") String time){
         News news = new News();
-        news.setNewsDate(parseDateTime(date));
+        try {
+            news.setNewsDate(parse(date));
+        }catch (Exception e){System.out.println(e);
+        }
+
         news.setNewsTime(Time.valueOf(time+":00"));
         news.setNewsName(name);
         news.setNewsPlace(place);
@@ -73,9 +84,4 @@ public class NewsController {
         return newsService.deleteNews(id);
     }
 
-
-    @RequestMapping(value = "news",method = RequestMethod.PUT)
-    public  List<News> sendNews(News news){
-        return   newsService.sendNews(news);
-    }
 }
