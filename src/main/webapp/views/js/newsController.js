@@ -6,6 +6,10 @@ var newsMainController = angular.module('newsMainController', ['newsServices']);
 
 newsMainController.controller('addNewsController', ['$scope', '$http', '$location', '$rootScope','newsService',
     function ($scope, $http, $location, $rootScope,newsService) {
+        var data = newsService.query(function(){
+            $scope.allNews = data;
+            $location.path("Newspage");
+        });
 
         $scope.addNews = false;
         $scope.editNews = true;
@@ -72,17 +76,6 @@ newsMainController.controller('listNewsController', ['$scope', '$http', '$rootSc
             $location.path("Newspage");
         });
 
-        $scope.sendnews = function () {
-            newsService.save($scope.news,function(data){
-                $http.get("/sendnews/").success(function (data) {
-                    $scope.news = data;
-                });
-
-                $rootScope.editSuccess = true;
-                $location.path("Newspage");
-                $scope.$apply();
-            });
-        };
 
 
     }]);

@@ -40,6 +40,7 @@ public List<News> sendnews(){
     public News getNewsById(@PathVariable("id") Long id){
         return newsService.getNewsById(id);
     }
+
     public static Date parseDateTime(String dateString) {
         if (dateString == null) return null;
         DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ssZ");
