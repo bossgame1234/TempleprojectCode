@@ -47,4 +47,8 @@ public class DbQuestionDao implements QuestionDao{
         return questionRepository.findQuestionByUsernameLike(username);
     }
 
+    @Override
+    public List<Question> getQuestionToAdmin() {
+        return questionRepository.findAll();
+    }
 }

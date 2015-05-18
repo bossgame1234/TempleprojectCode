@@ -59,8 +59,9 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public List<Question> getQuestionToAdmin() {
-        return questionDao.getQuestion() ;
+        return questionDao.getQuestionToAdmin() ;
     }
+
 
 
 }
