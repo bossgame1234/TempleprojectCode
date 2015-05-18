@@ -6,11 +6,15 @@ var newsMainController = angular.module('newsMainController', ['newsServices']);
 
 newsMainController.controller('addNewsController', ['$scope', '$http', '$location', '$rootScope','newsService',
     function ($scope, $http, $location, $rootScope,newsService) {
+        var data = newsService.query(function(){
+            $scope.allNews = data;
+            $location.path("Newspage");
+        });
 
         $scope.addNews = false;
         $scope.editNews = true;
         var id = $routeParams.id;
-        $scope.editNews = function (flowFiles) {
+        $scope.addNews = function (flowFiles) {
             flowFiles.opts.target = '/picture/addNewsPicture';
             flowFiles.opts.testChunks = false;
             flowFiles.opts.query ={newsid:newsid};
@@ -26,10 +30,17 @@ newsMainController.controller('editNewsController', ['$scope', '$http', '$routeP
         $scope.addNews = false;
         $scope.editNews = true;
         $scope.news = {newsId:'',newsName:'',newsDate:'',newsTime:'',newsPlace:'',newsPictureLocation:''};
+        if($routeParams.id!=undefined) {
+        var id = $routeParams.id;
+
+        $http.get("/news/" + id).success(function (data) {
+            $scope.news = data;
+        });
+        }
         $scope.editNews = function (flowFiles) {
             $scope.news.newsDate  = new Date($scope.news.newsDate);
             newsService.update($scope.news,function(data){
-                var newsid = data.newsID;
+                var newsid = data.newsId;
                 flowFiles.opts.target = '/picture/addNewsPicture';
                 flowFiles.opts.testChunks = false;
                 flowFiles.opts.query ={newsid:newsid};
@@ -45,19 +56,21 @@ newsMainController.controller('sendNewsController', ['$scope', '$http', '$routeP
     function ($scope, $http, $routeParams, $location, $rootScope,newsService) {
         $scope.addNews = false;
         $scope.editNews = true;
-        var id = $routeParams.id;
-        $http.get("/news/" + id).success(function (data) {
-            $scope.news = data;
-        });
+        if($routeParams.id!=undefined) {
+            var id = $routeParams.id;
+            $http.get("/news/" + id).success(function (data) {
+                $scope.news = data;
+            });
+        }
 
-        $scope.editNews = function (flowFiles) {
-            newsService.update($scope.news,function(data){
-                $scope.news.newsPictureLocation = null;
-                var newsid = data.newsID;
-                flowFiles.opts.target = '/picture/addNewsPicture';
-                flowFiles.opts.testChunks = false;
-                flowFiles.opts.query ={newsid:newsid};
-                flowFiles.upload();
+
+        $scope.sendnews = function () {
+            newsService.save($scope.news,function(data){
+                $http.get("/sendnews/").success(function (data) {
+                    $scope.news = data;
+                });
+
+
                 $rootScope.editSuccess = true;
                 $location.path("Newspage");
                 $scope.$apply();

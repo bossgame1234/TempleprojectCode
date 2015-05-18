@@ -15,4 +15,5 @@ public News updateNews(News news);
 public News addNews(News news);
 public News addPictureNews(News news,Picture picture);
 public News deleteNews(Long id);
+    public List<News> sendmail();
 }

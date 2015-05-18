@@ -26,7 +26,11 @@ import java.util.List;
 public class NewsController {
     @Autowired
     NewsService newsService;
+@RequestMapping(value="sendnews",method = RequestMethod.GET)
+public List<News> sendnews(){
+    return newsService.sendmail();
 
+}
     @RequestMapping(value = "news",method = RequestMethod.GET)
     public List<News> getNews(){
         return newsService.getNews();
@@ -36,27 +40,27 @@ public class NewsController {
     public News getNewsById(@PathVariable("id") Long id){
         return newsService.getNewsById(id);
     }
-    public static Date parse( String input ) throws java.text.ParseException {
 
-        //NOTE: SimpleDateFormat uses GMT[-+]hh:mm for the TZ which breaks
-        //things a bit.  Before we go on we have to repair this.
-        SimpleDateFormat df = new SimpleDateFormat( "yyyy-MM-dd'T'HH:mm:ssz" );
+    public static Date parseDateTime(String input) throws ParseException {
 
-        //this is zero time so we need to add that TZ indicator for
-        if ( input.endsWith( "Z" ) ) {
-            input = input.substring( 0, input.length() - 1) + "GMT-00:00";
-        } else {
-            int inset = 6;
+            SimpleDateFormat df = new SimpleDateFormat( "yyyy-MM-dd'T'HH:mm:ssz" );
 
-            String s0 = input.substring( 0, input.length() - inset );
-            String s1 = input.substring( input.length() - inset, input.length() );
+            //this is zero time so we need to add that TZ indicator for
+            if ( input.endsWith( "Z" ) ) {
+                input = input.substring( 0, input.length() - 1) + "GMT-00:00";
+            } else {
+                int inset = 6;
 
-            input = s0 + "GMT" + s1;
+                String s0 = input.substring( 0, input.length() - inset );
+                String s1 = input.substring( input.length() - inset, input.length() );
+
+                input = s0 + "GMT" + s1;
+            }
+
+            return df.parse(input);
+
         }
 
-        return df.parse( input );
-
-    }
 
     @RequestMapping(value = "news/add",method = RequestMethod.GET)
     public  News addNews(@RequestParam(value = "newsName") String name,@RequestParam(value = "newsDate") String date,
@@ -66,13 +70,17 @@ public class NewsController {
             news.setNewsDate(parse(date));
         }catch (Exception e){System.out.println(e);
         }
-
+        Calendar calendar = new GregorianCalendar();
+       try
+        { news.setNewsDate(parseDateTime(date));}
+       catch(Exception e){
+           news.setNewsDate(calendar.getTime());
+       }
         news.setNewsTime(Time.valueOf(time+":00"));
         news.setNewsName(name);
         news.setNewsPlace(place);
         return newsService.addNews(news);
     }
-
 
     @RequestMapping(value = "news/{id}",method = RequestMethod.PUT)
     public  News editNews(@RequestBody News news, BindingResult bindingResult){
@@ -83,5 +91,4 @@ public class NewsController {
     public News deleteNews(@PathVariable("id") Long id){
         return newsService.deleteNews(id);
     }
-
 }
