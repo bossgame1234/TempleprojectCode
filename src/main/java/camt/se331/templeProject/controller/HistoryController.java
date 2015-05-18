@@ -18,6 +18,10 @@ public class HistoryController {
         @Autowired
         HistoryService historyService;
 
+        public void setHistoryService(HistoryService historyService){
+            this.historyService = historyService;
+        }
+
         @RequestMapping(value = "History",method = RequestMethod.GET)
         public History getHistory(){
             return historyService.getHistory();

@@ -1,16 +1,11 @@
 package camt.se331.templeProject.entity;
 
-import camt.se331.templeProject.dao.DbHistoryDao;
 import camt.se331.templeProject.dao.HistoryDao;
 import camt.se331.templeProject.service.HistoryService;
 import camt.se331.templeProject.service.HistoryServiceImpl;
+import camt.se331.templeProject.service.PictureUtil;
 import org.junit.Test;
 import org.junit.Before;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-import static junitparams.JUnitParamsRunner.$;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.*;
@@ -22,24 +17,27 @@ public class HistoryTest {
     public void setUpHistory(){
     }
     @Test
-    public void testHistoryEntity(){
-        History history = new History();
-        history.setHistoryDes("this is temple history");
-        assertThat(history.getHistoryDes(), is("this is temple history"));
-        history.setHistoryDes(null);
-        assertThat(history.getHistoryDes(), is(isNull()));
-
+    public void testGetHistory(){
+        History history = new History("This is temple",PictureUtil.getPicture("picture/temple2.jpg"));
+        history.setHistoryID(1L);
+        HistoryDao historyDao = mock(HistoryDao.class);
+        HistoryService historyService = new HistoryServiceImpl(historyDao);
+        when(historyDao.getHistory()).thenReturn(history);
+        assertThat(historyService.getHistory(), is(history));
+        assertThat(historyService.getHistory().getHistoryDes(),is("This is temple"));
+        assertThat(historyService.getHistory().getHistoryID(), is(1L));
+        //เหลือ test picture location
     }
+
     @Test
     public void testUpdateHistory(){
-        History history = new History();
-        history.setHistoryDes("this is temple history");
+        History history = new History("This is temple",PictureUtil.getPicture("picture/temple2.jpg"));
+        history.setHistoryID(1L);
         HistoryDao historyDao = mock(HistoryDao.class);
+        HistoryService historyService = new HistoryServiceImpl(historyDao);
+        history.setHistoryDes("22");
         when(historyDao.updateHistory(history)).thenReturn(history);
-
-
-        HistoryService historyService = new HistoryServiceImpl();
-        assertThat(historyService.updateHistory(history).getHistoryDes(),is("this is temple history"));
+        assertThat(historyService.updateHistory(history).getHistoryDes(),is("22"));
 
 
 

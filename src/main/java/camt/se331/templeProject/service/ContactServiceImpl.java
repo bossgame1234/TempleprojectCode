@@ -19,19 +19,23 @@ import java.util.Properties;
  */
 @Service
 public class ContactServiceImpl implements ContactService{
-@Autowired
+    @Autowired
     ContactDao contactDao;
 
     @Autowired
     ContactRepository contactRepository;
+
+    public ContactServiceImpl(ContactDao contactDao){
+        this.contactDao = contactDao;
+    }
     @Override
     public Contact getContact() {
         return contactDao.getContact();
     }
 
     @Override
-    public void editContact(Contact contact) {
-       contactDao.editContact(contact);
+    public Contact editContact(Contact contact) {
+        return contactDao.editContact(contact);
     }
 
     @Override

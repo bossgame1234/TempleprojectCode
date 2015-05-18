@@ -31,11 +31,13 @@ public class DbQuestionDao implements QuestionDao{
     public Question addQuestion(Question question){
         return  questionRepository.save(question);
     }
+
     public  Question deleteQuestion(Question question){
         questionRepository.delete(question);
         question.setQuestionId(null);
         return question;
     }
+
     public  Question addAnswer(Question questionWithAnswer){
        return questionRepository.save(questionWithAnswer);
     }
