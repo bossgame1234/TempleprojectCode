@@ -51,7 +51,40 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public News addNews(News news) {
+        final String username = "componentbased702@gmail.com";
+        final String password = "702componentbased";
 
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+
+        Session session = Session.getDefaultInstance(props,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication("username", "password");
+                    }
+                });
+        try {
+            List<User> userList = new ArrayList<User>(userRepository.findAll());
+            for(int i=0; i < userList.size() ; i++){
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress("from-email@gmail.com"));
+                message.setRecipients(Message.RecipientType.TO,
+                        InternetAddress.parse(userList.get(i).getUsername()));
+                message.setSubject("Testing Subject");
+                message.setText("Dear Mail Component Based,"
+                        + "\n\n HELLO WORLD!");
+                Transport.send(message);
+
+                System.out.println("Done");
+
+            }
+
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
 
         return newsDao.addNews(news);
     }

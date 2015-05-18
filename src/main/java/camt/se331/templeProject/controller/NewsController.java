@@ -41,26 +41,37 @@ public List<News> sendnews(){
         return newsService.getNewsById(id);
     }
 
-    public static Date parseDateTime(String dateString) {
-        if (dateString == null) return null;
-        DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ssZ");
-        if (dateString.contains("T")) dateString = dateString.replace('T', ' ');
-        if (dateString.contains("Z")) dateString = dateString.replace("Z", "+0000");
-        else
-            dateString = dateString.substring(0, dateString.lastIndexOf(':')) + dateString.substring(dateString.lastIndexOf(':')+1);
-        try {
-            return fmt.parse(dateString);
+    public static Date parseDateTime(String input) throws ParseException {
+
+            SimpleDateFormat df = new SimpleDateFormat( "yyyy-MM-dd'T'HH:mm:ssz" );
+
+            //this is zero time so we need to add that TZ indicator for
+            if ( input.endsWith( "Z" ) ) {
+                input = input.substring( 0, input.length() - 1) + "GMT-00:00";
+            } else {
+                int inset = 6;
+
+                String s0 = input.substring( 0, input.length() - inset );
+                String s1 = input.substring( input.length() - inset, input.length() );
+
+                input = s0 + "GMT" + s1;
+            }
+
+            return df.parse(input);
+
         }
-        catch (ParseException e) {
-            return null;
-        }
-    }
+
 
     @RequestMapping(value = "news/add",method = RequestMethod.GET)
     public  News addNews(@RequestParam(value = "newsName") String name,@RequestParam(value = "newsDate") String date,
                          @RequestParam(value = "newsPlace") String place,@RequestParam(value = "newsTime") String time){
         News news = new News();
-        news.setNewsDate(parseDateTime(date));
+        Calendar calendar = new GregorianCalendar();
+       try
+        { news.setNewsDate(parseDateTime(date));}
+       catch(Exception e){
+           news.setNewsDate(calendar.getTime());
+       }
         news.setNewsTime(Time.valueOf(time+":00"));
         news.setNewsName(name);
         news.setNewsPlace(place);

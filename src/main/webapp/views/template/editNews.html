@@ -92,7 +92,7 @@
                       <td>{{$index+1}}</td>
                       <td>{{file.name}}</td>
                       <!--to see the preview image file-->
-                   <img flow-img="$flow.files[{{$index}}]" />
+                   <td><img flow-img="$flow.files[{{$index}}]" /></td>
                       <!--ng-click="addHistory($flow)" -->
 </tr>
 
@@ -105,7 +105,7 @@
 </tr>
     <tr>
     <td></td>
-        <td style="color: #ffffff"><a class="myButton" ng-click="addNews($flow)">บันทึก</a>
+        <td style="color: #ffffff"><a class="myButton" ng-click="editNews($flow)">บันทึก</a>
             <a href="#/editNews" class="myButton">ยกเลิก</a></td></tr>
 </table>
           </form>
