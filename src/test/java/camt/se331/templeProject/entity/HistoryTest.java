@@ -23,7 +23,6 @@ public class HistoryTest {
     @Test
     public void testGetHistory(){
         Picture picture = mock(Picture.class);
-
         History history = new History("This is temple",picture);
         history.setHistoryID(1L);
 
