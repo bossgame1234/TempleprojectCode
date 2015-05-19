@@ -21,6 +21,7 @@ newsMainController.controller('addNewsController', ['$scope', '$http', '$locatio
             flowFiles.upload();
             $scope.$apply();
             $rootScope.editSuccess = true;
+            $scope.alert("สำเร็จ");
             $location.path("Newspage/"+id);
         };
     }]);
@@ -29,7 +30,8 @@ newsMainController.controller('editNewsController', ['$scope', '$http', '$routeP
     function ($scope, $http, $routeParams, $location, $rootScope,newsService) {
         $scope.addNews = false;
         $scope.editNews = true;
-        $scope.news = {newsId:'',newsName:'',newsDate:'',newsTime:'',newsPlace:'',newsPictureLocation:''};
+        $scope.check = {};
+        $scope.news = {newsId:'',newsName:'',newsDate:'',newsTime:'',newsPlace:'',newsPictureLocation:'',check:''};
         if($routeParams.id!=undefined) {
         var id = $routeParams.id;
 
@@ -38,7 +40,6 @@ newsMainController.controller('editNewsController', ['$scope', '$http', '$routeP
         });
         }
         $scope.editNews = function (flowFiles) {
-            $scope.news.newsDate  = new Date($scope.news.newsDate);
             newsService.update($scope.news,function(data){
                 var newsid = data.newsId;
                 flowFiles.opts.target = '/picture/addNewsPicture';
@@ -50,32 +51,6 @@ newsMainController.controller('editNewsController', ['$scope', '$http', '$routeP
                 $scope.$apply();
             });
         }
-    }]);
-
-newsMainController.controller('sendNewsController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','newsService',
-    function ($scope, $http, $routeParams, $location, $rootScope,newsService) {
-        $scope.addNews = false;
-        $scope.editNews = true;
-        if($routeParams.id!=undefined) {
-            var id = $routeParams.id;
-            $http.get("/news/" + id).success(function (data) {
-                $scope.news = data;
-            });
-        }
-
-
-        $scope.sendnews = function () {
-            newsService.save($scope.news,function(data){
-                $http.get("/sendnews/").success(function (data) {
-                    $scope.news = data;
-                });
-
-
-                $rootScope.editSuccess = true;
-                $location.path("Newspage");
-                $scope.$apply();
-            });
-        };
     }]);
 
 newsMainController.controller('listNewsController', ['$scope', '$http', '$rootScope','newsService', '$location',

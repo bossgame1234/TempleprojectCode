@@ -16,6 +16,7 @@ contactMainController.controller('addContactController', ['$scope', '$http', '$l
             }
             contactService.save($scope.contact,function(){
                 $rootScope.addSuccess = true;
+                $scope.alert("สำเร็จ");
                 $location.path("Contactpage");
 
             });
@@ -53,6 +54,7 @@ contactMainController.controller('editContactController', ['$scope', '$http', '$
         $scope.editContact = function () {
             contactService.update({id:$scope.contact.id},$scope.contact,function(){
                 $rootScope.editSuccess = true;
+                alert("สำเร็จ");
                 $location.path("Contactpage");
             });
         }

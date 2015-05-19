@@ -23,6 +23,7 @@ historyMainController.controller('editHistoryController', ['$scope', '$http', '$
             flowFiles.opts.query ={historyid:historyid};
             flowFiles.upload();
                 $rootScope.editSuccess = true;
+                alert("สำเร็จ");
             $location.path("Historypage");
             $scope.$apply();
         });

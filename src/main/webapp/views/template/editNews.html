@@ -77,7 +77,7 @@
     <tr>
         <td bgcolor="white">เวลากิจกรรม</td>
         <td bgcolor="white">   <input type="time" ng-model="news.newsTime"
-       placeholder="HH:mm:ss" min="00:00:00" max="24:00:00" required /></td>
+        required /></td>
     </tr>
 
 <tr>
@@ -90,18 +90,16 @@
 </tr>
 <tr ng-repeat="file in $flow.files">
                       <td>{{$index+1}}</td>
-                      <td>{{file.name}}</td>
-                      <!--to see the preview image file-->
-                   <td><img flow-img="$flow.files[{{$index}}]" /></td>
-                      <!--ng-click="addHistory($flow)" -->
+                      <td>{{file.name}}<img flow-img="$flow.files[{{$index}}]" class="thumbnail"/>
+                      </td>
 </tr>
 
 <tr>
 
     <td>
-    <form action=""><input type="checkbox" name="sendNews" value="sendNews"> ส่งข่าวสารให้สมาชิก<br></form>
+    <form action=""><input type="checkbox" ng-true-value="'true'" ng-false-value="'false'" name="sendNews" value="sendNews" ng-model="news.check"> ส่งข่าวสารให้สมาชิก<br></form>
 </td>
-<td>ลิ้งค์รายชื่อผู้ใช้ของสมาชิก แบบเวลาติ๊กปุ่มนี้แล้ว แล้วมันจะโชว์ลิส เช่น pare@cmu.ac.th, pim@gmail.com</td>
+
 </tr>
     <tr>
     <td></td>

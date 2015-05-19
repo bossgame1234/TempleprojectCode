@@ -30,12 +30,13 @@ questionMainController.controller('listQuestionController', ['$scope', '$http', 
             $rootScope.deleteSuccess = false;
         });
         $scope.question={username:'',questionDes:''};
-        if($rootScope.user.name!==undefined){
+        if($rootScope.user!=undefined){
             $scope.question.username= $rootScope.user.name;
         }
         $scope.addQuestion = function (){
             questionService.save($scope.question,function(){
                 $rootScope.addSuccess = true;
+                alert("สำเร็จ");
                 $route.reload();
             });
         };
@@ -58,15 +59,17 @@ questionMainController.controller('listQuestionControllerAdmin', ['$scope', '$ht
         $scope.addAnswer= function(question){
             questionService.save(question,function(){
                 $rootScope.addSuccess = true;
+                alert("สำเร็จ");
                 $route.reload();
             });
         };
 
         $scope.deleteQuestion = function (id) {
             var answer = confirm("คุณต้องการที่จะลบคำถามนี้?");
-            if (answer) {
+                if (answer) {
                 questionService.delete({id:id},function(){
                     $rootScope.deleteSuccess = true;
+                    alert("สำเร็จ");
                     $route.reload();
                 });
             }
@@ -86,6 +89,7 @@ questionMainController.controller('ownQuestionController', ['$scope', '$http', '
         $scope.editQuestion = function () {
             questionService.update({id:$scope.question.id},$scope.question,function(){
                 $rootScope.editSuccess = true;
+                alert("สำเร็จ");
                 $location.path("Questionpage");
             });
         }

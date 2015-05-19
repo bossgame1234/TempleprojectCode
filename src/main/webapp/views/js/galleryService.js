@@ -5,10 +5,16 @@
 var galleryService = angular.module('galleryServices',['ngResource']);
 
 galleryService.factory('galleryService',function($resource){
-    return $resource('/gallery/:id', { id: '@_id' }, {
+    return $resource('/gallery/:state/:id', { id: '@_id' }, {
         update: {
             method: 'PUT' // this method issues a PUT request
-        }});
+        },
+        deletePicture:{
+            params:{ 'state' :'deletepicture'},
+            method: 'PUT'
+        }
+
+    });
 
 })
 

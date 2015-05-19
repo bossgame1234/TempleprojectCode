@@ -37,12 +37,10 @@ public class GalleryController {
     public  Gallery editGallery(@RequestBody Gallery Gallery, BindingResult bindingResult){
         return   galleryService.updateGallery(Gallery);
     }
-    @RequestMapping(value = "gallery/deletepicure/{pictureid}",method = RequestMethod.PUT)
+    @RequestMapping(value = "gallery/deletepicture/{pictureid}",method = RequestMethod.PUT)
     public  Gallery deletePicture(@RequestBody Gallery gallery,@PathVariable("pictureid") Long pictureId, BindingResult bindingResult){
         return   galleryService.deletePicture(gallery, pictureId);
     }
-
-
     @RequestMapping(value = "gallery/{id}",method = RequestMethod.DELETE)
     public Gallery deleteGallery(@PathVariable("id") Long id){
         return galleryService.deleteGallery(id);

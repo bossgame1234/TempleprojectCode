@@ -26,11 +26,6 @@ import java.util.List;
 public class NewsController {
     @Autowired
     NewsService newsService;
-@RequestMapping(value="sendnews",method = RequestMethod.GET)
-public List<News> sendnews(){
-    return newsService.sendmail();
-
-}
     @RequestMapping(value = "news",method = RequestMethod.GET)
     public List<News> getNews(){
         return newsService.getNews();
@@ -64,21 +59,16 @@ public List<News> sendnews(){
 
     @RequestMapping(value = "news/add",method = RequestMethod.GET)
     public  News addNews(@RequestParam(value = "newsName") String name,@RequestParam(value = "newsDate") String date,
-                         @RequestParam(value = "newsPlace") String place, @RequestParam(value = "newsTime") String time){
+                         @RequestParam(value = "newsPlace") String place, @RequestParam(value = "newsTime") String time,@RequestParam(value = "check") String check){
         News news = new News();
-        try {
-            news.setNewsDate(parse(date));
-        }catch (Exception e){System.out.println(e);
-        }
-        Calendar calendar = new GregorianCalendar();
-       try
-        { news.setNewsDate(parseDateTime(date));}
-       catch(Exception e){
-           news.setNewsDate(calendar.getTime());
-       }
-        news.setNewsTime(Time.valueOf(time+":00"));
+        news.setNewsDate(date);
+        news.setNewsTime(time);
         news.setNewsName(name);
         news.setNewsPlace(place);
+        System.out.print(check);
+        if(check.equals("'true'")){
+        newsService.sendmail(news);
+        }
         return newsService.addNews(news);
     }
 

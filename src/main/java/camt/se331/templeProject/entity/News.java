@@ -18,8 +18,8 @@ public class News {
     @GeneratedValue(strategy = GenerationType.AUTO)
     long newsId;
     private String newsName;
-    private Date newsDate;
-    private Time newsTime;
+    private String newsDate;
+    private String newsTime;
     private String newsPlace;
     @OneToMany(fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
@@ -32,7 +32,7 @@ public class News {
         this.newsPictureLocation.add(picture);
     }
 
-public News(String name, Date newsDate, Time newsTime, String newsPlace, Picture picture){
+public News(String name, String newsDate, String newsTime, String newsPlace, Picture picture){
     this.newsName = name;
     this.newsDate = newsDate;
     this.newsTime = newsTime;
@@ -40,11 +40,11 @@ public News(String name, Date newsDate, Time newsTime, String newsPlace, Picture
     this.newsPictureLocation.add(picture);
     }
 
-    public Time getNewsTime() {
+    public String getNewsTime() {
         return newsTime;
     }
 
-    public void setNewsTime(Time newsTime) {
+    public void setNewsTime(String newsTime) {
         this.newsTime = newsTime;
     }
     public long getNewsId() {
@@ -59,16 +59,16 @@ public News(String name, Date newsDate, Time newsTime, String newsPlace, Picture
     public void setNewsName(String newsName) {
         this.newsName = newsName;
     }
-    public Date getNewsDate() {
+    public String getNewsDate() {
         return newsDate;
     }
-    public void setNewsDate(Date newsDate) {
+    public void setNewsDate(String newsDate) {
         this.newsDate = newsDate;
     }
-    public Time getNewstime() {
+    public String getNewstime() {
         return newsTime;
     }
-    public void setNewstime(Time newsTime) {
+    public void setNewstime(String newsTime) {
         this.newsTime = newsTime;
     }
     public String getNewsPlace() {

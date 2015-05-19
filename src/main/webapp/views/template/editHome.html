@@ -62,20 +62,18 @@
          
         </div>
         <ul class="row">
+            <form novalidate flow-init>
             <table align="right">
-          <form name="form1" method="post" action="#">
-
-
-                <tr><td>Picture1 :</td><td><input align="middle" type="file" name="filUpload"></td>
-                <tr><td>Picture2 :</td><td><input align="middle" type="file" name="filUpload"></td>
-              <tr><td>Picture3 :</td><td><input align="middle" type="file" name="filUpload"></td>
-              <tr><td>Picture4 :</td><td><input align="middle" type="file" name="filUpload"></td>
-              <tr><td>Picture5 :</td><td><input align="middle" type="file" name="filUpload"></td>
+                <tr><td>Picture1 :</td><td><input align="middle" type="file" flow-file-added="!!{jpg:1}[$file.getExtension()]"  name="filUpload" flow-btn></td>
+                <tr><td>Picture2 :</td><td><input align="middle" type="file" flow-file-added="!!{jpg:1}[$file.getExtension()]"  name="filUpload" flow-btn></td>
+              <tr><td>Picture3 :</td><td><input align="middle" type="file"   flow-file-added="!!{jpg:1}[$file.getExtension()]"  name="filUpload" flow-btn></td>
+              <tr><td>Picture4 :</td><td><input align="middle" type="file"   flow-file-added="!!{jpg:1}[$file.getExtension()]"  name="filUpload" flow-btn></td>
+              <tr><td>Picture5 :</td><td><input align="middle" type="file"   flow-file-added="!!{jpg:1}[$file.getExtension()]"  name="filUpload" flow-btn></td>
              <tr><td></td>
-              <td>  <a href="#/Homepage" class="myButton">บันทึก</a>
+                <td>  <a ng-click="editHomePicture($flow)" class="myButton">บันทึก</a>
                   <a href="#/editHome" class="myButton">ยกเลิก</a></td></tr>
-</form>
                 </table>
+        </form>
         </ul>
       </div>
       <div class="columns sidebar large-4 large-offset-1">

@@ -110,8 +110,8 @@ public class DatabaseInitializationBean implements InitializingBean {
         //News
         Calendar calendar1 = new GregorianCalendar(2015, 7,11);
         News[] initNews = {
-                new News("งานประเพณีใส่ขันดอก อินทขีล",calendar1.getTime(),Time.valueOf("10:30:00"),"ณ วัดเจดีย์หลวง วรวิหาร เมืองเชียงใหม่  ในวันที่ ๑๔-๒๑ พฤษภาคม ๒๕๕๘",PictureUtil.getPicture("picture/slideNew1.jpg")),
-                new News("งานประเพณีสงกรานต์ 2558",calendar1.getTime(),Time.valueOf("18:00:00"),"ณ วัดเจดีย์หลวง วรวิหาร เมืองเชียงใหม่  ในวันที่ ๑๓-๑๕ เมษายน ๒๕๕๘",PictureUtil.getPicture("picture/slideNew2.jpg"))
+                new News("งานประเพณีใส่ขันดอก อินทขีล",calendar1.getTime().toString(),"10:30:00","ณ วัดเจดีย์หลวง วรวิหาร เมืองเชียงใหม่  ในวันที่ ๑๔-๒๑ พฤษภาคม ๒๕๕๘",PictureUtil.getPicture("picture/slideNew1.jpg")),
+                new News("งานประเพณีสงกรานต์ 2558",calendar1.getTime().toString(),"18:00:00","ณ วัดเจดีย์หลวง วรวิหาร เมืองเชียงใหม่  ในวันที่ ๑๓-๑๕ เมษายน ๒๕๕๘",PictureUtil.getPicture("picture/slideNew2.jpg"))
         };
         newsRepository.save(Arrays.asList(initNews));
 

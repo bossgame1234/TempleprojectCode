@@ -24,7 +24,7 @@ $routeProvider.
     }).
     when('/editHome',{
         templateUrl: 'template/editHome.html',
-        controller: 'editGalleryController'
+        controller: 'addPictureController'
     }).
     when('/Loginpage',{
         templateUrl: 'template/Login.html',

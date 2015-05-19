@@ -17,6 +17,7 @@ userMainController.controller('addUserController', ['$scope', '$http', '$locatio
                 if($scope.password2==$scope.user.password) {
                     userService.save($scope.user, function() {
                         $rootScope.addSuccess = true;
+                        alert("สำเร็จ");
                         $location.path("loginpage");
                     });
                 }else{

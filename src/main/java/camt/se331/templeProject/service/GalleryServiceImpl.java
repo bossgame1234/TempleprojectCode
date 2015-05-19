@@ -7,6 +7,7 @@ import camt.se331.templeProject.repository.PictureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -47,17 +48,30 @@ public class GalleryServiceImpl implements GalleryService {
     }
 
     @Override
+
     public Gallery addPicture(Gallery gallery, Picture picture) {
-        gallery.getPictureList().add(picture);
+        if(gallery.getGalleryId()==1) {
+            if(gallery.getPictureList().size()>5) {
+            gallery.getPictureList().clear();
+            }
+            gallery.getPictureList().add(picture);
+        }else {
+            gallery.getPictureList().add(picture);
+        }
         return galleryDao.updateGallery(gallery);
     }
 
     @Override
     public Gallery deletePicture(Gallery gallery, Long pictureId) {
         gallery.setPictureList(galleryDao.getGallery(gallery.getGalleryId()).getPictureList());
-        Picture picture = pictureRepository.findOne(pictureId);
-        gallery.getPictureList().remove(picture);
-        return galleryDao.updateGallery(gallery);
+        for(int i=0;i<gallery.getPictureList().size();i++) {
+            if (gallery.getPictureList().get(i).getPictureId() == pictureId) {
+                gallery.getPictureList().remove(i);
+            }
+        }
+        galleryDao.updateGallery(gallery);
+        pictureRepository.delete(pictureId);
+        return gallery;
     }
 
 
