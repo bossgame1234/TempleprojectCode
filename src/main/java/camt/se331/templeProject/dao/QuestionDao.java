@@ -15,4 +15,5 @@ public interface QuestionDao {
     public  Question deleteQuestion(Question question);
     public  Question addAnswer(Question questionWithAnswer);
     public  List<Question> getUserQuestion(String username);
+    public List<Question> getQuestionToAdmin();
 }

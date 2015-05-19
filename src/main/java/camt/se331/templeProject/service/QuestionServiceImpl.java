@@ -15,6 +15,11 @@ import java.util.List;
 public class QuestionServiceImpl implements QuestionService {
     @Autowired
     QuestionDao questionDao;
+
+    public QuestionServiceImpl(QuestionDao questionDao){
+        this.questionDao = questionDao;
+    }
+
     @Override
     public List<Question> getQuestion() {
         List<Question> question= new ArrayList<>();
@@ -54,8 +59,9 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public List<Question> getQuestionToAdmin() {
-        return questionDao.getQuestion() ;
+        return questionDao.getQuestionToAdmin() ;
     }
+
 
 
 }

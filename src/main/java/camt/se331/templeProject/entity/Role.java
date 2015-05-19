@@ -20,6 +20,16 @@ public class Role implements Serializable{
     public Role() {
     }
 
+    public Role(String roleName) {
+
+        this.roleName = roleName;
+    }
+
+    public Role(Long id, String roleName){
+        this.id = id;
+        this.roleName = roleName;
+    }
+
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
@@ -56,13 +66,5 @@ public class Role implements Serializable{
         this.roleName = roleName;
     }
 
-    public Role(String roleName) {
 
-        this.roleName = roleName;
-    }
-
-    public Role(Long id, String roleName){
-        this.id = id;
-        this.roleName = roleName;
-    }
 }
