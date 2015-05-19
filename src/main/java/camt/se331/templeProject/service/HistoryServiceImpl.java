@@ -18,11 +18,11 @@ public class HistoryServiceImpl implements HistoryService {
     @Autowired
     HistoryDao historyDao;
 
-   /*
+
    public HistoryServiceImpl(HistoryDao historyDao){
         this.historyDao = historyDao;
     }
-   */
+
 
     public void set(HistoryDao historyDao) {
     this.historyDao = historyDao;

@@ -34,6 +34,10 @@ public class NewsServiceImpl implements NewsService {
     @Autowired
     UserRepository userRepository;
 
+    public NewsServiceImpl(NewsDao newsDao){
+        this.newsDao = newsDao;
+    }
+
     public News getNewsById(Long id){
         return newsDao.getNews(id);
     }
@@ -56,9 +60,8 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public void sendmail(News news) {
-        final String username = "se552115068@vr.camt.info";
-        final String password = "552115068";
-
+        final String username = userRepository.findOne(1l).getUsername();
+        final String password = userRepository.findOne(1l).getPassword();
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -83,7 +86,7 @@ public class NewsServiceImpl implements NewsService {
                 Transport.send(message);
             }
         } catch (MessagingException e) {
-            throw new RuntimeException(e);
+            System.out.print(e);
         }
     }
 

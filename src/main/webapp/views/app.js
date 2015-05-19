@@ -206,3 +206,4 @@ templeApp.config(['$locationProvider','$httpProvider',function($locationProvider
 templeApp.config(['$compileProvider', function($compileProvider) {
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|file|data):/);
   }]);
+templeApp.filter('unsafe', function($sce) { return $sce.trustAsHtml; });
