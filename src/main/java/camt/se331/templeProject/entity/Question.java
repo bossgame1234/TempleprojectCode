@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 public class Question {
     @Id
     @GeneratedValue
-    Long questionId;
+    long questionId;
     String questionDes;
     String answerDes;
     String username;
@@ -22,18 +22,18 @@ public class Question {
 
     }
 
-    public Question(Long questionId, String questionDes, String username){
+    public Question(long questionId, String questionDes, String username){
         this.questionId = questionId;
         this.questionDes = questionDes;
         this.username = username;
 
     }
 
-    public Long getQuestionId() {
+    public long getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(Long questionId) {
+    public void setQuestionId(long questionId) {
         this.questionId = questionId;
     }
 
