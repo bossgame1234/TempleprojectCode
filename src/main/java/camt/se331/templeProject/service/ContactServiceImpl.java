@@ -24,10 +24,12 @@ public class ContactServiceImpl implements ContactService{
 
     @Autowired
     ContactRepository contactRepository;
-
     public ContactServiceImpl(ContactDao contactDao){
         this.contactDao = contactDao;
     }
+
+    public ContactServiceImpl(){}
+
     @Override
     public Contact getContact() {
         return contactDao.getContact();

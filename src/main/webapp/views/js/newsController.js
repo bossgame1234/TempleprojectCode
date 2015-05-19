@@ -30,11 +30,16 @@ newsMainController.controller('editNewsController', ['$scope', '$http', '$routeP
     function ($scope, $http, $routeParams, $location, $rootScope,newsService) {
         $scope.addNews = false;
         $scope.editNews = true;
+        $scope.selections = ['id-1'];
+
+        $scope.items = [{
+            id: 'id-1',
+            name: 'กิจกรรมประจำวัน'},
+            {id: 'id-2', name: 'กิจกรรมช่วงพิเศษ'}];
         $scope.check = {};
         $scope.news = {newsId:'',newsName:'',newsDate:'',newsTime:'',newsPlace:'',newsPictureLocation:'',check:''};
         if($routeParams.id!=undefined) {
         var id = $routeParams.id;
-
         $http.get("/news/" + id).success(function (data) {
             $scope.news = data;
         });
@@ -46,9 +51,9 @@ newsMainController.controller('editNewsController', ['$scope', '$http', '$routeP
                 flowFiles.opts.testChunks = false;
                 flowFiles.opts.query ={newsid:newsid};
                 flowFiles.upload();
-                $rootScope.editSuccess = true;
-                $location.path("Newspage");
                 $scope.$apply();
+                alert("สำเร็จ");
+                $location.path("Newspage");
             });
         }
     }]);

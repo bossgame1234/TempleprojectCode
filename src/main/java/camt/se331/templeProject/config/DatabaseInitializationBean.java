@@ -35,9 +35,9 @@ public class DatabaseInitializationBean implements InitializingBean {
         //create admin
         User admin = new User();
         admin.setF_name("admin");
-        admin.setL_name("admin");
-        admin.setUsername("admin@hotmail.com");
-        admin.setPassword("1234");
+        admin.setL_name("");
+        admin.setUsername("watchediluang2@gmail.com");
+        admin.setPassword("adminwat");
         Set<Role> roles = new HashSet<>();
         roles.add(adminRole);
         admin.setRoles(roles);
@@ -75,7 +75,6 @@ public class DatabaseInitializationBean implements InitializingBean {
         HomeGallery.setGalleryName("รูปวัด Homepage");
         galleryRepository.save(HomeGallery);
 
-
         Gallery gallery = new Gallery();
         gallery.getPictureList().add(PictureUtil.getPicture("picture/slideNew1.jpg"));
         gallery.getPictureList().add(PictureUtil.getPicture("picture/slideNew2.jpg"));
@@ -83,9 +82,6 @@ public class DatabaseInitializationBean implements InitializingBean {
         gallery.setGalleryDate(calendar.getTime());
         gallery.setGalleryName("งานประเพณี ใส่ขันดอก อินทขีล");
         galleryRepository.save(gallery);
-
-
-
 
         //Contact
         Contact initContact = new Contact();

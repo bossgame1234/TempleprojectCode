@@ -33,7 +33,7 @@ public class NewsServiceImpl implements NewsService {
     NewsDao newsDao;
     @Autowired
     UserRepository userRepository;
-
+    public NewsServiceImpl(){}
     public NewsServiceImpl(NewsDao newsDao){
         this.newsDao = newsDao;
     }

@@ -15,7 +15,7 @@ import java.util.List;
 public class QuestionServiceImpl implements QuestionService {
     @Autowired
     QuestionDao questionDao;
-
+    public QuestionServiceImpl(){}
     public QuestionServiceImpl(QuestionDao questionDao){
         this.questionDao = questionDao;
     }

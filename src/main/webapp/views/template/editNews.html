@@ -67,6 +67,8 @@
         <td bgcolor="white">ชื่อกิจกรรม</td>
         <td bgcolor="white"><input type="text" ng-model="news.newsName"></td>
     </tr>
+    <tr><td height="10" bgcolor="white">ประเภท </td><td height="10" bgcolor="white"> <select ng-repeat="selection in selections" ng-model="selections[$index]" ng-options="i.id as i.name for i in items">
+</select></td></tr>
     <tr>
 <td bgcolor="white">วันที่กิจกรรม</td>
 <td bgcolor="white"><input type="date"  ng-model="news.newsDate">

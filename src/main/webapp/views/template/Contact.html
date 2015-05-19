@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>News</title>
     <meta charset="utf-8">
@@ -65,8 +65,7 @@
 <body>
 <div class="row">
     <div class="row">
-
-        <table width="1000"style="border: 0px"> <form>
+        <table width="1000"style="border: 0px">
 
         <tr>
             <td colspan="3"  bgcolor="white" width="10">  {{contact.contactPlace}}</td>
@@ -77,6 +76,9 @@
         <tr>
             <td colspan="3" bgcolor="white" width="900"> <a href="https://www.facebook.com/jdl.chiangmai?fref=ts" style="color: #000066">{{contact.contactFacebook}}</a></td>
         </tr>
+            </table>
+            <form action="MAILTO:watchediluang2@gmail.com" method="post" enctype="text/plain">
+            <table width="1000"style="border: 0px">
             <tr>
                 <td  bgcolor="white" width="10"></td>
                  <td bgcolor="white" width="90" align="left"> ชื่อผู้ติดต่อ  </td>
@@ -85,7 +87,7 @@
             <tr>
                 <td bgcolor="white" width="10"></td>
                 <td bgcolor="white" width="90" align="left">Email</td>
-                <td bgcolor="white" width="900"><input type="text" name="email" placeholder="Email" required></td>
+                <td bgcolor="white" width="900"><input type="text" name="mail" placeholder="Email" required></td>
             </tr>
             <tr>
                 <td bgcolor="white" width="10"></td>
@@ -99,11 +101,10 @@
             </tr>
             <tr>
                 <td bgcolor="white" width="10" colspan="2"></td>
-                <td bgcolor="white"> <a href="#/Contactpage" class="myButton" ng-click="addContact(myForm.email-input.$valid)">ส่ง</a>
-                    <a href="#" class="myButton">ยกเลิก</a></td>
+                <td bgcolor="white"> <input  class="myButton" type="submit" value="ส่ง"/>
+                    <input type="reset" class="myButton" value="ยกเลิก" /></td>
             </tr>
-            </form>
-    </table>
+    </table>  </form>
 </div>
 </div>
 </body>
