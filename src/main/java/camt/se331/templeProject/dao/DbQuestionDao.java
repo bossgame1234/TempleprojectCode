@@ -34,7 +34,7 @@ public class DbQuestionDao implements QuestionDao{
 
     public  Question deleteQuestion(Question question){
         questionRepository.delete(question);
-        question.setQuestionId(null);
+        question.setQuestionId(0);
         return question;
     }
 

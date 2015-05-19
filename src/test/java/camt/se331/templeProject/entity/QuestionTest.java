@@ -109,8 +109,8 @@ public class QuestionTest {
         QuestionDao questionDao = Mockito.mock(QuestionDao.class);
         QuestionService questionService = new QuestionServiceImpl(questionDao);
 
-        when(questionDao.deleteQuestion(question1)).thenReturn(question1);
-        assertThat(questionService.deleteQuestion(1L), is(isNull()));
+        when(questionService.deleteQuestion(2L)).thenReturn(null);
+        assertThat(questionService.deleteQuestion(question2.getQuestionId()), is(nullValue()));
     }
 
     @Test
