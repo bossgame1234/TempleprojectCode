@@ -74,7 +74,7 @@ Modernizr.load({
             <tr ng-repeat="news in allNews">
             <td width="400">
                     <div ng-repeat="picture in news.newsPictureLocation" class="text-center">
-                    <a href="#/detailNews/{{news.newsId}}"><img ng-src="data: {{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail"></a>
+                    <a href="#/detailNews/{{news.newsId}}"><img ng-src="data:{{picture.pictureType}};base64,{{picture.pictureLocation}}" class="thumbnail"></a>
                 </div>
             </td>
             <td width="600" align="left">
