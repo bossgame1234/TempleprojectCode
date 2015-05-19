@@ -44,7 +44,10 @@ userMainController.controller('editUserController', ['$scope', '$http', '$routeP
         })
 
         $scope.editProfile =function() {
-            userService.save($scope.user, function() {});
+            userService.save($scope.user, function(data) {
+                $rootScope.Loguser =data;
+                alert("สำเร็จ");
+            });
             $location.path("Homepage");
         }
 

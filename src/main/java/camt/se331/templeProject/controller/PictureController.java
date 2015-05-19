@@ -7,6 +7,7 @@ import camt.se331.templeProject.entity.Picture;
 import camt.se331.templeProject.service.GalleryService;
 import camt.se331.templeProject.service.HistoryService;
 import camt.se331.templeProject.service.NewsService;
+import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -14,8 +15,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
@@ -47,8 +53,14 @@ public class PictureController {
                 Picture picture = new Picture();
                 picture.setPictureName(multipartFile.getName());
                 picture.setPictureType(multipartFile.getContentType());
-                picture.setPictureLocation(multipartFile.getBytes());
 
+                byte[] pictureFile = multipartFile.getBytes();
+                InputStream in = new ByteArrayInputStream(pictureFile);
+                    BufferedImage bufferedImage = ImageIO.read(in);
+                    bufferedImage = Scalr.resize(bufferedImage, Scalr.Method.QUALITY, Scalr.Mode.AUTOMATIC ,1024, 768);
+                    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                    ImageIO.write(bufferedImage, "jpg", bos);
+                    picture.setPictureLocation(bos.toByteArray());
                 historyService.addPicture(history, picture);
             }
         }catch (Exception e) {
@@ -72,8 +84,13 @@ public class PictureController {
                 Picture picture = new Picture();
                 picture.setPictureName(multipartFile.getName());
                 picture.setPictureType(multipartFile.getContentType());
-                picture.setPictureLocation(multipartFile.getBytes());
-
+                byte[] pictureFile = multipartFile.getBytes();
+                InputStream in = new ByteArrayInputStream(pictureFile);
+                BufferedImage bufferedImage = ImageIO.read(in);
+                bufferedImage = Scalr.resize(bufferedImage, Scalr.Method.QUALITY, Scalr.Mode.AUTOMATIC ,1024, 768);
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                ImageIO.write(bufferedImage, "jpg", bos);
+                picture.setPictureLocation(bos.toByteArray());
                 galleryService.addPicture(gallery,picture);
             }
         }catch (Exception e) {
@@ -97,7 +114,13 @@ public class PictureController {
                 Picture picture = new Picture();
                 picture.setPictureName(multipartFile.getName());
                 picture.setPictureType(multipartFile.getContentType());
-                picture.setPictureLocation(multipartFile.getBytes());
+                byte[] pictureFile = multipartFile.getBytes();
+                InputStream in = new ByteArrayInputStream(pictureFile);
+                BufferedImage bufferedImage = ImageIO.read(in);
+                bufferedImage = Scalr.resize(bufferedImage, Scalr.Method.QUALITY, Scalr.Mode.AUTOMATIC,1024, 768);
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                ImageIO.write(bufferedImage, "jpg", bos);
+                picture.setPictureLocation(bos.toByteArray());
                 newsService.addPictureNews(news, picture);
             }
 

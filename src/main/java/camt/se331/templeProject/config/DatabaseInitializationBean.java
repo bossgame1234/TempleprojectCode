@@ -70,8 +70,9 @@ public class DatabaseInitializationBean implements InitializingBean {
         historyRepository.save(initHistory);
 
         Gallery HomeGallery = new Gallery();
-        HomeGallery.getPictureList().add(PictureUtil.getPicture("picture/temple2.jpg"));
-        HomeGallery.getPictureList().add(PictureUtil.getPicture("picture/temple3.jpg"));
+        HomeGallery.getPictureList().add(PictureUtil.getPicture("picture/slideHome2.jpg"));
+        HomeGallery.getPictureList().add(PictureUtil.getPicture("picture/slideHome3.jpg"));
+        HomeGallery.getPictureList().add(PictureUtil.getPicture("picture/slideHome4.jpg"));
         HomeGallery.setGalleryName("รูปวัด Homepage");
         galleryRepository.save(HomeGallery);
 
