@@ -9,6 +9,6 @@ import java.util.List;
  */
 public interface  ContactDao {
 public Contact getContact();
-public void editContact(Contact contact);
+public Contact editContact(Contact contact);
     public Contact addContact(Contact contact);
 }

@@ -34,6 +34,10 @@ public class NewsServiceImpl implements NewsService {
     @Autowired
     UserRepository userRepository;
 
+    public NewsServiceImpl(NewsDao newsDao){
+        this.newsDao = newsDao;
+    }
+
     public News getNewsById(Long id){
         return newsDao.getNews(id);
     }

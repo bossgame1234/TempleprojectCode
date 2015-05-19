@@ -22,8 +22,8 @@ public class DbContactDao implements ContactDao{
     }
 
     @Override
-    public void editContact(Contact contact) {
-        contactRepository.save(contact);
+    public Contact editContact(Contact contact) {
+        return contactRepository.save(contact);
     }
 
     @Override
