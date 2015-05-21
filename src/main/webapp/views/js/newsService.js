@@ -5,7 +5,7 @@
 var newsService = angular.module('newsServices',['ngResource']);
 
 newsService.factory('newsService',function($resource){
-    return $resource('/news/:state', {}, {
+    return $resource('/wat/news/:state', {}, {
         update: {
             params:{ 'state' :'add'},
             method: 'GET' // this method issues a PUT request

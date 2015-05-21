@@ -15,7 +15,7 @@ newsMainController.controller('addNewsController', ['$scope', '$http', '$locatio
         $scope.editNews = true;
         var id = $routeParams.id;
         $scope.addNews = function (flowFiles) {
-            flowFiles.opts.target = '/picture/addNewsPicture';
+            flowFiles.opts.target = '/wat/picture/addNewsPicture';
             flowFiles.opts.testChunks = false;
             flowFiles.opts.query ={newsid:newsid};
             flowFiles.upload();
@@ -40,14 +40,14 @@ newsMainController.controller('editNewsController', ['$scope', '$http', '$routeP
         $scope.news = {newsId:'',newsName:'',newsDate:'',newsTime:'',newsPlace:'',newsPictureLocation:'',check:''};
         if($routeParams.id!=undefined) {
         var id = $routeParams.id;
-        $http.get("/news/" + id).success(function (data) {
+        $http.get("/wat/news/" + id).success(function (data) {
             $scope.news = data;
         });
         }
         $scope.editNews = function (flowFiles) {
             newsService.update($scope.news,function(data){
                 var newsid = data.newsId;
-                flowFiles.opts.target = '/picture/addNewsPicture';
+                flowFiles.opts.target = '/wat/picture/addNewsPicture';
                 flowFiles.opts.testChunks = false;
                 flowFiles.opts.query ={newsid:newsid};
                 flowFiles.upload();

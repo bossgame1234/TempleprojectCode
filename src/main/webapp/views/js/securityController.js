@@ -32,7 +32,7 @@ securityController.controller('loginController',['$scope','$rootScope','$locatio
 }])
 var securityService = angular.module('securityServices',['ngResource']);
 securityService.factory('UserService',function($resource){
-    return $resource('user/:action',{}, {
+    return $resource('/wat/user/:action',{}, {
         authenticate: {
             method: 'POST',
             params: {'action': 'authenticate'},

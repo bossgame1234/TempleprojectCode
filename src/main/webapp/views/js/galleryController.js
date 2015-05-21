@@ -13,7 +13,7 @@ galleryMainController.controller('addGalleryController', ['$scope', '$http', '$l
         $scope.addGallery = function (flowFiles) {
             galleryService.save($scope.gallery,function(data){
                 var galleryid = data.galleryId;
-                flowFiles.opts.target = '/picture/addGalleryPicture';
+                flowFiles.opts.target = '/wat/picture/addGalleryPicture';
                 flowFiles.opts.testChunks = false;
                 flowFiles.opts.query ={galleryid:galleryid};
                 flowFiles.upload();
@@ -32,7 +32,7 @@ galleryMainController.controller('listGalleryController', ['$scope', '$http', '$
             $scope.galleries = data;
         });
         $scope.getGalleryFromID = function(){
-            $http.get("/gallery/search/"+$scope.GalleryId+"&&"+$scope.GalleryName).success(function(data) {
+            $http.get("/wat/gallery/search/"+$scope.GalleryId+"&&"+$scope.GalleryName).success(function(data) {
                 $scope.courses = data;
             })
         };
@@ -43,7 +43,7 @@ galleryMainController.controller('editGalleryController', ['$scope', '$http', '$
         $scope.addGallery = false;
         $scope.editGallery = true;
         var id = $routeParams.id;
-        $http.get("/gallery/" + id).success(function (data) {
+        $http.get("/wat/gallery/" + id).success(function (data) {
             $scope.gallery = data;
         });
         $scope.deletePicture = function(id){
@@ -71,7 +71,7 @@ galleryMainController.controller('addPictureController', ['$scope', '$http', '$r
     function ($scope, $http, $routeParams, $location, $rootScope,galleryService) {
         $scope.editPicture = function (flowFiles) {
             var id = $routeParams.id;
-                flowFiles.opts.target = '/picture/addGalleryPicture';
+                flowFiles.opts.target = '/wat/picture/addGalleryPicture';
                 flowFiles.opts.testChunks = false;
                 flowFiles.opts.query ={galleryid:id};
                 flowFiles.upload();
@@ -81,7 +81,7 @@ galleryMainController.controller('addPictureController', ['$scope', '$http', '$r
                  alert("สำเร็จ");
             };
     $scope.editHomePicture = function (flowFiles) {
-        flowFiles.opts.target = '/picture/addGalleryPicture';
+        flowFiles.opts.target = '/wat/picture/addGalleryPicture';
         flowFiles.opts.testChunks = false;
         flowFiles.opts.query ={galleryid:1};
         flowFiles.upload();
@@ -96,7 +96,7 @@ galleryMainController.controller('addPictureController', ['$scope', '$http', '$r
 galleryMainController.controller('HomePictureController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','galleryService',
     function ($scope, $http, $routeParams, $location, $rootScope,galleryService) {
         var id = 1;
-        $http.get("/gallery/" + id).success(function (data) {
+        $http.get("/wat/gallery/" + id).success(function (data) {
             $scope.HomeGallery = data;
         });
     }]);

@@ -27,7 +27,7 @@ contactMainController.controller('addContactController', ['$scope', '$http', '$l
 
 contactMainController.controller('listContactController', ['$scope', '$http', '$rootScope','contactService', '$location',
     function ($scope, $http, $rootScope,contactService,$location) {
-        $http.get("/Contact").success(function(data){
+        $http.get("/wat/Contact").success(function(data){
             $scope.contact = data;
             $location.path("Contactpage");
         });
@@ -47,7 +47,7 @@ contactMainController.controller('listContactController', ['$scope', '$http', '$
 contactMainController.controller('editContactController', ['$scope', '$http', '$routeParams', '$location', '$rootScope','contactService',
     function ($scope, $http, $routeParams, $location, $rootScope,contactService) {
         $scope.editContact = true;
-        $http.get("/Contact").success(function (data) {
+        $http.get("/wat/Contact").success(function (data) {
             $scope.contact = data;
         });
 

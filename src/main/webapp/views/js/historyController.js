@@ -9,7 +9,7 @@ historyMainController.controller('editHistoryController', ['$scope', '$http', '$
     function ($scope, $http, $routeParams, $location, $rootScope,historyService) {
         $scope.flow ={};
         $scope.editHistory = true;
-        $http.get("/History").success(function (data) {
+        $http.get("/wat/History").success(function (data) {
             $scope.history = data;
         });
 
@@ -18,7 +18,7 @@ historyMainController.controller('editHistoryController', ['$scope', '$http', '$
             $scope.history.historyPictureLocation = null;
             var historyid = data.historyID;
             // set location
-            flowFiles.opts.target = '/picture/addHistoryPicture';
+            flowFiles.opts.target = '/wat/picture/addHistoryPicture';
             flowFiles.opts.testChunks = false;
             flowFiles.opts.query ={historyid:historyid};
             flowFiles.upload();
@@ -32,7 +32,7 @@ historyMainController.controller('editHistoryController', ['$scope', '$http', '$
 
 historyMainController.controller('listHistoryController', ['$scope', '$http', '$rootScope','historyService', '$location',
     function ($scope, $http, $rootScope,historyService, $location) {
-         $http.get("/History").success(function(data){
+         $http.get("/wat/History").success(function(data){
              $scope.history = data;
              $location.path("Historypage");
          });

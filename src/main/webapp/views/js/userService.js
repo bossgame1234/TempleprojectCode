@@ -2,7 +2,7 @@
     'use strict';
     var userService = angular.module('userServices',['ngResource']);
     userService.factory('userService',function($resource){
-    return $resource('/user/:state', { }, {
+    return $resource('/wat/user/:state', { }, {
         update: {
             method: 'GET' // this method issues a PUT request
         },

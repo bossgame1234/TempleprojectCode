@@ -133,8 +133,8 @@
                         <td style="color: #ffffff">{{Loguser.f_name}} {{Loguser.l_name}}</td>
                     </tr>
                     <tr style="background: transparent">
-                        <td colspan="2" style="background: transparent" align="left">
-                            <a href="#/setting" class="myButton">ตั้งค่า</a>
+                        <td colspan="2" style="background: transparent" align="left/">
+                            <a href="#/setting" class="myButton" ng-hide="hasRole('admin')">ตั้งค่า</a>
                         <a ng-click="logOut()" class="myButton">ออกจากระบบ</a> </td>
                     </tr>
                  </table>

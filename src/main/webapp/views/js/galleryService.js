@@ -5,7 +5,7 @@
 var galleryService = angular.module('galleryServices',['ngResource']);
 
 galleryService.factory('galleryService',function($resource){
-    return $resource('/gallery/:state/:id', { id: '@_id' }, {
+    return $resource('/wat/gallery/:state/:id', { id: '@_id' }, {
         update: {
             method: 'PUT' // this method issues a PUT request
         },
